@@ -50,11 +50,13 @@
 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 
-&lt;p&gt;It can be confusing to encounter two annotations which at first seem to provide the same behaviour.&lt;br /&gt;
-However with a bit of digging and further analysis we may be able to uncover the rationale(see javadoc for  &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt;
-&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt; ).
-Hystrix is an implementation of the Circuit Breaker pattern by Netflix. The @EnableHystrix annotation require a specific implementation, if Hystrix is not on the classpath it will fail. @EnableCircuitBreaker is more general and it seems from here &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/issues/21&#34;&gt;here&lt;/a&gt; there is an impetus to abstract away the implementation of the CircuitBreaker pattern so that alternative implementations could be used such as &lt;code&gt;finagle&lt;/code&gt; or &lt;code&gt;javaslang-circuitbreaker&lt;/code&gt; (see source docs). The motivation being the dependencies pulled in by Hystrix.
-It seems at this time there is a state of flux and I am unable to find  the documentation for how you would use  @EnableCircuitBreaker to wire in an alternative Circuit Breaker to Hystrix but it seems  architecturally the existence of the @EnableCircuitBreaker allows for the evolution of the Spring Cloud.&lt;/p&gt;
+&lt;p&gt;It can be confusing to encounter two annotations which at first seem to provide the same behaviour. However with a bit of digging and further analysis we may be able to uncover the rationale(see javadoc for why &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt; and
+&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt; ) exist.&lt;/p&gt;
+
+&lt;p&gt;Hystrix is an implementation of the Circuit Breaker pattern by Netflix. The @EnableHystrix annotation require a specific implementation, if Hystrix is not on the classpath it will fail.&lt;br /&gt;
+@EnableCircuitBreaker is more general and it seems from &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/issues/21&#34;&gt;here&lt;/a&gt; there is an impetus to abstract away the implementation of the CircuitBreaker pattern so that alternative implementations could be used such as &lt;code&gt;finagle&lt;/code&gt; or &lt;code&gt;javaslang-circuitbreaker&lt;/code&gt; (see source docs). The motivation being the dependencies pulled in by Hystrix.&lt;/p&gt;
+
+&lt;p&gt;It seems at this time there is a state of flux and I am unable to find  the documentation for how you would use  @EnableCircuitBreaker to wire in an alternative Circuit Breaker to Hystrix but it seems  architecturally the existence of the @EnableCircuitBreaker allows for the evolution of the Spring Cloud.&lt;/p&gt;
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
