@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Engineering</title>
+    <link>/index.xml</link>
+    <description>Recent content on Software Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
+    <lastBuildDate>Mon, 21 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Issues re  Spring Cloud Netflix&lt;tr&gt;&lt;td&gt; &lt;span style=&#34;font-size:18px;&#34;&gt; @EnableCircuitBreaker, @EnableHystrix &lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;</title>
+      <link>/2016/11/issues-re--spring-cloud-netflixtrtd-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/td/tr/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/11/issues-re--spring-cloud-netflixtrtd-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/td/tr/</guid>
+      <description>
+
+&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
+
+&lt;p&gt;Clarify use of  Spring Cloud Netflix  @EnableCircuitBreaker, @EnableHystrix&lt;/p&gt;
+
+&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
+
+&lt;p&gt;Developers new to Spring Cloud Platform&lt;/p&gt;
+
+&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//www.martinfowler.com/articles/microservices.html&#34;&gt;Microservice Architecture&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//projects.spring.io/spring-cloud/&#34;&gt;Spring Cloud&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//cloud.spring.io/spring-cloud-netflix/&#34;&gt;Spring Cloud Netflix &lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/Netflix/Hystrix&#34;&gt;Hystrix &lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://twitter.github.io/finagle/&#34;&gt;finagle&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/javaslang/javaslang-circuitbreaker&#34;&gt;javaslang-circuitbreaker&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/Netflix/Hystrix/tree/master/hystrix-contrib/hystrix-javanica&#34;&gt;hystrix-javanica&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Two existing Spring Cloud Netflix annotations to enable the circuit breaker pattern exist. At this time the documentation is not clear as to the distinction in behaviour.&lt;/p&gt;
+
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+
+&lt;p&gt;Use @EnableHystrix to implement the circuit breaker pattern specifically with Hystrix on the classpath.&lt;/p&gt;
+
+&lt;p&gt;Use @EnableCircuitBreaker to implement the circuit breaker pattern with Hystrix or an alternative circuit breaker implementation.&lt;/p&gt;
+
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;It can be confusing to encounter two annotations which at first seem to provide the same behaviour.&lt;br /&gt;
+However with a bit of digging and further analysis we may be able to uncover the rationale(see javadoc for  &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt;
+&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt; ).
+Hystrix is an implementation of the Circuit Breaker pattern by Netflix. The @EnableHystrix annotation require a specific implementation, if Hystrix is not on the classpath it will fail. @EnableCircuitBreaker is more general and it seems from here &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/issues/21&#34;&gt;here&lt;/a&gt; there is an impetus to abstract away the implementation of the CircuitBreaker pattern so that alternative implementations could be used such as &lt;code&gt;finagle&lt;/code&gt; or &lt;code&gt;javaslang-circuitbreaker&lt;/code&gt; (see source docs). The motivation being the dependencies pulled in by Hystrix.
+It seems at this time there is a state of flux and I am unable to find  the documentation for how you would use  @EnableCircuitBreaker to wire in an alternative Circuit Breaker to Hystrix but it seems  architecturally the existence of the @EnableCircuitBreaker allows for the evolution of the Spring Cloud.&lt;/p&gt;
+
+&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
+
+&lt;p&gt;Spring Cloud Netflix uses a Hyristrix dialect &lt;code&gt;hystrix-javanica&lt;/code&gt;, this allows for the @HystrixCommand annotation to simplify the command pattern code as it applies to Hystrix.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
