@@ -92,12 +92,7 @@
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
-&lt;p&gt;This is a good thing until you &lt;code&gt;npm run eject&lt;/code&gt; then you need a good psychiatrist&lt;/p&gt;
-
-&lt;p&gt;Trinity:  &amp;ldquo;You always told me to stay off the freeway.&amp;rdquo;&lt;br /&gt;
-Morpheus: &amp;ldquo;Yes, that&amp;rsquo;s true.&amp;rdquo;&lt;br /&gt;
-Trinity: &amp;ldquo;You said it was suicide.&amp;rdquo;&lt;br /&gt;
-Morpheus: &amp;ldquo;Then let us hope I was wrong.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;This is a good thing until you run  &lt;code&gt;npm run eject&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 
