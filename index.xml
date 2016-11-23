@@ -34,7 +34,7 @@
 &lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;www.informit.com/articles/article.aspx?p=2471547&#34;&gt;ant ivy intergration&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.informit.com/articles/article.aspx?p=2471547&#34;&gt;ant ivy intergration&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
@@ -159,7 +159,7 @@
 &lt;a href=&#34;//projects.spring.io/spring-cloud/&#34;&gt;Spring Cloud&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//cloud.spring.io/spring-cloud-netflix/&#34;&gt;Spring Cloud Netflix &lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/Netflix/Hystrix&#34;&gt;Hystrix &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;http://twitter.github.io/finagle/&#34;&gt;finagle&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//twitter.github.io/finagle/&#34;&gt;finagle&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/javaslang/javaslang-circuitbreaker&#34;&gt;javaslang-circuitbreaker&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt;&lt;br /&gt;

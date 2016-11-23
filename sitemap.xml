@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://nsavagejvm.netlify.com</loc>
+    <loc>/</loc>
     <lastmod>2016-11-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://nsavagejvm.netlify.com/2016/11/issues-re-reporting-tools-and-frameworks/</loc>
+    <loc>/2016/11/issues-re-reporting-tools-and-frameworks/</loc>
     <lastmod>2016-11-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://nsavagejvm.netlify.com/2016/11/issues-re-react-with-zero-configuration/</loc>
+    <loc>/2016/11/issues-re-react-with-zero-configuration/</loc>
     <lastmod>2016-11-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://nsavagejvm.netlify.com/2016/11/issues-re--spring-cloud-netflix-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/</loc>
+    <loc>/2016/11/issues-re--spring-cloud-netflix-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/</loc>
     <lastmod>2016-11-21T00:00:00+00:00</lastmod>
   </url>
   

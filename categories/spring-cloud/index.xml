@@ -31,7 +31,7 @@
 &lt;a href=&#34;//projects.spring.io/spring-cloud/&#34;&gt;Spring Cloud&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//cloud.spring.io/spring-cloud-netflix/&#34;&gt;Spring Cloud Netflix &lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/Netflix/Hystrix&#34;&gt;Hystrix &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;http://twitter.github.io/finagle/&#34;&gt;finagle&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//twitter.github.io/finagle/&#34;&gt;finagle&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/javaslang/javaslang-circuitbreaker&#34;&gt;javaslang-circuitbreaker&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt;&lt;br /&gt;
