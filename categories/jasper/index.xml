@@ -48,7 +48,7 @@
 
 &lt;p&gt;JasperReports is an open source reporting library. It turns up in many Java applications particularly legacy applications or applications that have been developed over a long period of time. Recently I decided to go a bit deeper in my understanding of the &lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt; and  &lt;a href=&#34;//www.packtpub.com/mapt/book/big-data-and-business-intelligence/9781847198082/1/ch01lvl1sec11/typical-workflow&#34;&gt;workflow&lt;/a&gt;. Rather than wade thru pages of documentation and xsd schemas I prefer just to run examples and look at the source code to quickly discern the patterns. Particularly I was interested in the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I ran into and issue with the &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;. The code uses ant and ivy out of the box. I spent approx 10 minutes trying to get it to build but kept getting obscure any errors complaining about missing ivy dependencies. To speed up the learning experience I quickly refactored the chart examples to run just with the gradle wrapper. If you are new to Jasper reports and you want a simple bootstrap into the charting plugins that jasper uses you can&lt;/p&gt;
+&lt;p&gt;I ran into and issue with the &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;. The code uses ant and ivy out of the box. I spent approx 10 minutes trying to get it to build but kept getting obscure errors complaining about missing ivy dependencies. To speed up the learning experience I quickly refactored the chart examples to run just with the gradle wrapper. If you are new to Jasper reports and you want a simple bootstrap into the charting plugins that jasper uses you can&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;clone the &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -66,12 +66,11 @@
 
 &lt;p&gt;The Jasper xml can call static methods classes see &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/BarChartCustomizer.java&#34;&gt;BarChartCustomizer&lt;/a&gt;, there is the abstraction they call a &lt;code&gt;Customizer&lt;/code&gt; see &lt;a href=&#34;//jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRChartCustomizer.html&#34;&gt;JRChartCustomizer&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;There is a distinction between Business Intelligence (BI) and reporting. Jasper is for reporting. By focusing on reporting and not being a hybrid BI and reporting tool is a good thing. Things quickly get out of hand in terms of complexity and I have seen some horrendously overcoupled BI and reporting code bases.&lt;/p&gt;
+&lt;p&gt;There is a distinction between Business Intelligence (BI) and reporting. Jasper is for reporting. By focusing on reporting and not being a hybrid BI and reporting tool is a good thing. Things quickly get out of hand in terms of complexity and I have seen some horrendously overcoupled BI and reporting code bases. Jasper is released under a user and buisness licensce.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-and-jaspersoft-olap-license&#34;&gt;Jasper License&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Going forward to learn about or implement open source BI tools &lt;a href=&#34;//community.pentaho.com/&#34;&gt;pentaho&lt;/a&gt; is a good choice that intgrates with Jasper.&lt;/p&gt;
 
-&lt;p&gt;For BI&lt;br /&gt;
-&lt;a href=&#34;//community.pentaho.com/&#34;&gt;pentaho&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;&lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-and-jaspersoft-olap-license&#34;&gt;Jasper License&lt;/a&gt;.&lt;br /&gt;
 &lt;a href=&#34;//www.pentaho.com/license&#34;&gt;pentaho license&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
