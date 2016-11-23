@@ -69,7 +69,7 @@
 
 &lt;p&gt;There is a distinction between Business Intelligence (BI) and reporting. Jasper is for reporting. By focusing on reporting and not being a hybrid BI and reporting tool is a good thing. Things quickly get out of hand in terms of complexity and I have seen some horrendously overcoupled BI and reporting code bases. Jasper is released under a user and buisness licensce.&lt;/p&gt;
 
-&lt;p&gt;Going forward to learn about or implement open source BI tools &lt;a href=&#34;//community.pentaho.com/&#34;&gt;pentaho&lt;/a&gt; is a good choice that intgrates with Jasper.&lt;/p&gt;
+&lt;p&gt;Going forward to learn about or implement open source BI tools &lt;a href=&#34;//www.pentaho.com/&#34;&gt;pentaho&lt;/a&gt; is a good choice that intgrates with Jasper.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-and-jaspersoft-olap-license&#34;&gt;Jasper License&lt;/a&gt;.&lt;br /&gt;
 &lt;a href=&#34;//www.pentaho.com/license&#34;&gt;pentaho license&lt;/a&gt;&lt;/p&gt;
