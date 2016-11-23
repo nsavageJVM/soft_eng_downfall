@@ -52,7 +52,7 @@ Result Demo app run with ./gradlew bootRepackage .">
 
 
 <meta itemprop="dateModified" content="2016-11-23T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="457">
+<meta itemprop="wordCount" content="471">
 
 
 
@@ -77,7 +77,7 @@ ant ivy intergration
 gradle wrapper
 Summary Refactor the jasper reports charts samples from the jasper reports server samples to run with the gradle wrapper.
 Result Demo app run with ./gradlew bootRepackage ."/>
-<meta name="twitter:site" content="@username"/>
+<meta name="twitter:site" content="@nsavagejvm"/>
 
 
 
@@ -187,7 +187,9 @@ Result Demo app run with ./gradlew bootRepackage ."/>
 
 <h3 id="more-details">More Details</h3>
 
-<p>The code sets up and embedded &lsquo;hsqldb&rsquo; database. There is a database init script <a href="//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/schema.sql">schema</a>. I had to refactor this from the original <a href="//github.com/Jaspersoft/jasperreports/blob/master/jasperreports/demo/hsqldb/test.script">test.script</a> to get it to work with the hsql in the demo app source.  The Jasper xml can call the database directly and run queries, process the ouput and set up the results see <a href="//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/JasperController.java">JasperController</a> where you pass the jdbc connection through to the xml.</p>
+<p>The code sets up and embedded &lsquo;hsqldb&rsquo; database. There is a database init script <a href="//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/schema.sql">schema</a>. I had to refactor this from the original <a href="//github.com/Jaspersoft/jasperreports/blob/master/jasperreports/demo/hsqldb/test.script">test.script</a> to get it to work with the hsql in the demo app source. I needed to set the following in the jdbc connection url  <code>sql.enforce_size=false</code>  <a href="//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/application.properties">jdbc url</a>.</p>
+
+<p>The Jasper xml can call the database directly and run queries, process the ouput and set up the results see <a href="//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/JasperController.java">JasperController</a> where you pass the jdbc connection through to the xml.</p>
 
 <p>The Jasper xml can call java methods see <a href="//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/BarChartCustomizer.java">BarChartCustomizer</a>, there is the abstraction they call a <code>Customizer</code> see <a href="//jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRChartCustomizer.html">JRChartCustomizer</a>.</p>
 
@@ -210,7 +212,7 @@ Result Demo app run with ./gradlew bootRepackage ."/>
           <nav class="nav nav-inline">
           <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2016%2f11%2fissues-re-reporting-tools-and-frameworks%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
           <a class="nav-item" href="https://plus.google.com/share?url=%2f2016%2f11%2fissues-re-reporting-tools-and-frameworks%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-          <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2016%2f11%2fissues-re-reporting-tools-and-frameworks%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+          
           <a class="nav-item" href="https://twitter.com/home?status=%2f2016%2f11%2fissues-re-reporting-tools-and-frameworks%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
           </nav>
         </footer>
