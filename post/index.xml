@@ -20,7 +20,7 @@
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
 
-&lt;p&gt;Simple code to generate the Jasper Reports Samples&lt;/p&gt;
+&lt;p&gt;Simple code to generate the Jasper Reports Charting Samples&lt;/p&gt;
 
 &lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
 
@@ -39,7 +39,7 @@
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;Refactor the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt; samples from the &lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-samples&#34;&gt;jasper reports server samples&lt;/a&gt; to run just with the gradle wrapper.&lt;/p&gt;
+&lt;p&gt;Refactor the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt; samples from the &lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-samples&#34;&gt;jasper reports server samples&lt;/a&gt; to run with the gradle wrapper.&lt;/p&gt;
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
@@ -47,7 +47,7 @@
 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 
-&lt;p&gt;JasperReports is an open source reporting library. It turns up in many Java applications particularly legacy applications or applications that have been developed over a long period of time. Recently I decided to go a bit deeper in my understanding of the &lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt; and  &lt;a href=&#34;//www.packtpub.com/mapt/book/big-data-and-business-intelligence/9781847198082/1/ch01lvl1sec11/typical-workflow&#34;&gt;workflow&lt;/a&gt;. Rather than wade thru pages of documentation and xsd schemas I prefer just to run examples and look at the source code to quickly discern the patterns. Particularly I was interested in the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;JasperReports is an open source reporting library. It turns up in many Java applications particularly legacy (cms, crm) applications or (cms, crm)  applications that have been developed over a long period of time. Recently I decided to go a bit deeper in my understanding of the &lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt; and  &lt;a href=&#34;//www.packtpub.com/mapt/book/big-data-and-business-intelligence/9781847198082/1/ch01lvl1sec11/typical-workflow&#34;&gt;workflow&lt;/a&gt;. Rather than wade thru pages of documentation and xsd schemas I prefer just to run examples and look at the source code to quickly discern the patterns. Particularly I was interested in the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I ran into and issue with the &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;. The code uses ant and ivy out of the box. I spent approx 10 minutes trying to get it to build but kept getting obscure errors complaining about missing ivy dependencies. To speed up the learning experience I quickly refactored the chart examples to run just with the gradle wrapper. If you are new to Jasper reports and you want a simple bootstrap into the charting plugins that jasper uses you can&lt;/p&gt;
 
