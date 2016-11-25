@@ -50,7 +50,7 @@ Using the gradle wrapper build with .">
 
 
 <meta itemprop="dateModified" content="2016-11-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="600">
+<meta itemprop="wordCount" content="662">
 
 
 
@@ -190,10 +190,18 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 <h3 id="more-details">More Details</h3>
 
-<p>From Fig 1 you can see there are two copies of the java.xml.<br />
-The <code>java.xml</code> in the top level directory contains a diferent path the to jre, than the path in the <code>java.xml</code> that is packaged in the Bitrock jre bundle. The file  <code>demo_linux_install.xml</code> is the bitrock installation file that configures Installbuilder. You load  <code>demo_linux_install.xml</code> from the staging directory into Installbuilder and it should resolve the paths and depoly the jre in the distribution.</p>
+<p>Fig2
+<img src="/2016/11/fig2.png" alt="Fig2" title="Fig2" /></p>
 
-<p>See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml">line 51</a> for how this file is included as a Installbuilder component. See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml">line 48</a> for how the &lsquo;java.xml&rsquo; was updated so that the paths resolve when the downloded <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a> is unzipped and copied to the staging directory.</p>
+<p>From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory. <code>jre1.8.0_111-linux-x64.zip</code> is the jre bundle you need to <a href="//installbuilder.bitrock.com/java/">download</a></p>
+
+<p>From the staging directory shown in Fig 1 you can see there are two copies of <code>java.xml</code> one in the jre bundle and one that is modified and copied to the staging directory by gradle.</p>
+
+<p>The <code>java.xml</code> in the top level directory contains a diferent path the to jre, than the path  found in the original <code>java.xml</code> that is packaged in the Bitrock jre bundle.</p>
+
+<p>The file  <code>demo_linux_install.xml</code> is the bitrock installation file that configures Installbuilder. You load  <code>demo_linux_install.xml</code> from the staging directory into Installbuilder and it should resolve the paths and depoly the jre in the distribution.</p>
+
+<p>See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml">line 51</a> for how the modified <code>java.xml</code> file is included as a Installbuilder component. See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml">line 48</a> for how this <code>java.xml</code> was updated so that the paths resolve when the downloded <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a> is unzipped by gradle and copied to the staging directory with all the other artifacts.</p>
 
 <p>The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.</p>
 
