@@ -67,9 +67,19 @@
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle&lt;/p&gt;
+&lt;p&gt;From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle, &amp;lsquo;demo_linux_install.xml&amp;rsquo; is the bitrock installation file that configures Installbuilder.&lt;/p&gt;
 
-&lt;p&gt;Install builder is closed source with a commercial license. However if you are working with a range of clients, platforms and programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml&#34;&gt;line 51&lt;/a&gt; for how this file is included as a Installbuilder component. See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml&#34;&gt;line&lt;/a&gt; for how the &amp;lsquo;java.xml&amp;rsquo; was updated so that the paths resolve when the downloded &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt; runtime was unzipped and copied to the staging directory.&lt;/p&gt;
+
+&lt;p&gt;The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.&lt;/p&gt;
+
+&lt;p&gt;To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1&#39;  
+&#39;sudo apt-get  install libgtk2.0-0:i386&#39;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Installbuilder is closed source with a commercial license. However if you are working with a range of clients, platforms, programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/purchase.html#standard&#34;&gt;Installbuilder License&lt;/a&gt;.&lt;/p&gt;
 

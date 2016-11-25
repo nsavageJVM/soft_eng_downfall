@@ -48,7 +48,7 @@ Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradle
 
 
 <meta itemprop="dateModified" content="2016-11-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="429">
+<meta itemprop="wordCount" content="551">
 
 
 
@@ -185,9 +185,19 @@ Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradle
 
 <h3 id="more-details">More Details</h3>
 
-<p>From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle</p>
+<p>From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle, &lsquo;demo_linux_install.xml&rsquo; is the bitrock installation file that configures Installbuilder.</p>
 
-<p>Install builder is closed source with a commercial license. However if you are working with a range of clients, platforms and programming language environments and runtimes it can significantly boost productivity.</p>
+<p>See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml">line 51</a> for how this file is included as a Installbuilder component. See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml">line</a> for how the &lsquo;java.xml&rsquo; was updated so that the paths resolve when the downloded <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a> runtime was unzipped and copied to the staging directory.</p>
+
+<p>The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.</p>
+
+<p>To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit.</p>
+
+<pre><code>'sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1'  
+'sudo apt-get  install libgtk2.0-0:i386'  
+</code></pre>
+
+<p>Installbuilder is closed source with a commercial license. However if you are working with a range of clients, platforms, programming language environments and runtimes it can significantly boost productivity.</p>
 
 <p><a href="//installbuilder.bitrock.com/purchase.html#standard">Installbuilder License</a>.</p>
 
