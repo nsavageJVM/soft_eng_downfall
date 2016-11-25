@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <lastBuildDate>Wed, 23 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Nov 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Issues generating installer with  BitRock InstallBuilder</title>
       <link>/2016/11/issues-generating-installer-with--bitrock-installbuilder/</link>
-      <pubDate>Wed, 23 Nov 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/11/issues-generating-installer-with--bitrock-installbuilder/</guid>
       <description>
@@ -61,7 +61,8 @@
 
 &lt;p&gt;&lt;code&gt;./gradlew deployStaging&lt;/code&gt; and see  Fig1 for the assembled artifacts form this task&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/blogscreens/staging_directory.png&#34; alt=&#34;Fig1&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;Fig1
+&lt;img src=&#34;/2016/11/staging_directory.png&#34; alt=&#34;Fig1&#34; title=&#34;Fig1&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
