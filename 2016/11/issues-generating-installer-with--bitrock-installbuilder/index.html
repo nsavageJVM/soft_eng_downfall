@@ -16,8 +16,9 @@ Bitrock Installbuilder Java Runtimes
 NetBeans Native packaging
 JavaFX Packager 
 gradle wrapper
-Summary Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.
-Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradlew deployStaging this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment." />
+Summary Resolve path issues for the bundled java runtime(jre) for a native installer created by using Bitrocks Installbuilder.
+Result See the Demo app
+Using the gradle wrapper build with ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2016/11/issues-generating-installer-with--bitrock-installbuilder/" />
 
@@ -43,12 +44,13 @@ Bitrock Installbuilder Java Runtimes
 NetBeans Native packaging
 JavaFX Packager 
 gradle wrapper
-Summary Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.
-Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradlew deployStaging this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment.">
+Summary Resolve path issues for the bundled java runtime(jre) for a native installer created by using Bitrocks Installbuilder.
+Result See the Demo app
+Using the gradle wrapper build with .">
 
 
 <meta itemprop="dateModified" content="2016-11-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="551">
+<meta itemprop="wordCount" content="600">
 
 
 
@@ -69,8 +71,9 @@ Bitrock Installbuilder Java Runtimes
 NetBeans Native packaging
 JavaFX Packager 
 gradle wrapper
-Summary Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.
-Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradlew deployStaging this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment."/>
+Summary Resolve path issues for the bundled java runtime(jre) for a native installer created by using Bitrocks Installbuilder.
+Result See the Demo app
+Using the gradle wrapper build with ."/>
 <meta name="twitter:site" content="@nsavagejvm"/>
 
 
@@ -155,25 +158,27 @@ Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradle
 
 <h3 id="summary">Summary</h3>
 
-<p>Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.</p>
+<p>Resolve  path issues for the bundled java runtime(jre) for a native installer created by using <a href="//installbuilder.bitrock.com/">Bitrocks Installbuilder</a>.</p>
 
 <h3 id="result">Result</h3>
 
-<p><a href="//github.com/nsavageJVM/demo-installbuilder">Demo app</a>  run with  <code>./gradlew bootRepackage</code>  <code>./gradlew bootRun</code> then <code>./gradlew deployStaging</code> this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment.</p>
+<p>See the <a href="//github.com/nsavageJVM/demo-installbuilder">Demo app</a><br />
+Using the gradle wrapper build with  <code>./gradlew bootRepackage</code>  then create the arifacts for Installbuilder with <code>./gradlew deployStaging</code><br />
+This creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment. See Fig 1.</p>
 
 <h3 id="discussion">Discussion</h3>
 
-<p>When developing stanalone applications many clients sadly will use windows and not really understand how their box is configured. You can not really give them and uber jar and say &lsquo;run the jar&rsquo;. They will just want a desktop shortcut they can click and then the application will run.<br />
-<a href="//installbuilder.bitrock.com/">Bitrocks Installbuilder</a>  is a cross-platform installation tool. Its a step up from the other available options (<a href="//netbeans.org/kb/docs/java/native_pkg.html">NetBeans Native packaging</a>, <a href="//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm">JavaFX Packager </a>) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and its trivial to set ip up so it results in a desktop shortcut.</p>
+<p>When developing stanalone applications many clients sadly will use windows and not really understand how their box is configured. You can not just give them an uber jar and say &lsquo;run the jar&rsquo; at least not if they are providing cash incentives. They will reasonably  expect an installer that produces a desktop shortcut that  they can click to run the application.<br />
+<a href="//installbuilder.bitrock.com/">Bitrocks Installbuilder</a>  is a cross-platform installation tool. Its a step up from the other available options (<a href="//netbeans.org/kb/docs/java/native_pkg.html">NetBeans Native packaging</a>, <a href="//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm">JavaFX Packager </a>) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and it is generally trivial to set it up.</p>
 
-<p>I ran into an issue with the <a href="//installbuilder.bitrock.com/docs/installbuilder-userguide.html">Documentation</a> for delivering a java application with  No External Dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation. I think the section on creating a bundled java runtime(jre) is not as clear as could be needed by many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below</p>
+<p>I ran into an issue with the <a href="//installbuilder.bitrock.com/docs/installbuilder-userguide.html">Documentation</a> for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation. I think the section on creating a bundled java runtime(jre) is not as clear as could be needed by many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below</p>
 
 <ul>
 <li><p>download the <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a></p></li>
 
 <li><p>change the java.xml file so the path correctly  resolves to the Installbuilder Java Runtime</p></li>
 
-<li><p>include the java.xml file in the installbuilder components tag and use it to create a java launcher</p></li>
+<li><p>include the java.xml file in the Installbuilder components tag and use it to create a java launcher</p></li>
 
 <li><p>generate a staging directory (with all the needed artifacts)  with gradle, see the custom task</p>
 
@@ -185,9 +190,10 @@ Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradle
 
 <h3 id="more-details">More Details</h3>
 
-<p>From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle, &lsquo;demo_linux_install.xml&rsquo; is the bitrock installation file that configures Installbuilder.</p>
+<p>From Fig 1 you can see there are two copies of the java.xml.<br />
+The <code>java.xml</code> in the top level directory contains a diferent path the to jre, than the path in the <code>java.xml</code> that is packaged in the Bitrock jre bundle. The file  <code>demo_linux_install.xml</code> is the bitrock installation file that configures Installbuilder. You load  <code>demo_linux_install.xml</code> from the staging directory into Installbuilder and it should resolve the paths and depoly the jre in the distribution.</p>
 
-<p>See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml">line 51</a> for how this file is included as a Installbuilder component. See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml">line</a> for how the &lsquo;java.xml&rsquo; was updated so that the paths resolve when the downloded <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a> runtime was unzipped and copied to the staging directory.</p>
+<p>See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml">line 51</a> for how this file is included as a Installbuilder component. See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml">line 48</a> for how the &lsquo;java.xml&rsquo; was updated so that the paths resolve when the downloded <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a> is unzipped and copied to the staging directory.</p>
 
 <p>The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.</p>
 
