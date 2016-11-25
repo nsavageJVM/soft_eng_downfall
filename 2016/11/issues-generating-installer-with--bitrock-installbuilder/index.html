@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta property="og:title" content="Issues generating installer with  BitRock InstallBuilder" />
+<meta property="og:description" content="Objective Simple code to create a linux installer with BitRocks InstallBuilder
+Target Audience Developers new to BitRocks InstallBuilder and Cross-platform installation Tools
+Source Documents Bitrock Installbuilder
+Bitrock Installbuilder Documentation
+Bitrock Installbuilder Java Runtimes
+NetBeans Native packaging
+JavaFX Packager 
+gradle wrapper
+Summary Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.
+Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradlew deployStaging this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2016/11/issues-generating-installer-with--bitrock-installbuilder/" />
+
+
+<meta property="og:updated_time" content="2016-11-23T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+<meta itemprop="name" content="Issues generating installer with  BitRock InstallBuilder">
+<meta itemprop="description" content="Objective Simple code to create a linux installer with BitRocks InstallBuilder
+Target Audience Developers new to BitRocks InstallBuilder and Cross-platform installation Tools
+Source Documents Bitrock Installbuilder
+Bitrock Installbuilder Documentation
+Bitrock Installbuilder Java Runtimes
+NetBeans Native packaging
+JavaFX Packager 
+gradle wrapper
+Summary Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.
+Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradlew deployStaging this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment.">
+
+
+<meta itemprop="dateModified" content="2016-11-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="428">
+
+
+
+<meta itemprop="keywords" content="bitrock,installbuilder,installers,jasper,react,react-with-zero-configuration,reporting-tools,spring-cloud,spring-cloud-netflix," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Issues generating installer with  BitRock InstallBuilder"/>
+<meta name="twitter:description" content="Objective Simple code to create a linux installer with BitRocks InstallBuilder
+Target Audience Developers new to BitRocks InstallBuilder and Cross-platform installation Tools
+Source Documents Bitrock Installbuilder
+Bitrock Installbuilder Documentation
+Bitrock Installbuilder Java Runtimes
+NetBeans Native packaging
+JavaFX Packager 
+gradle wrapper
+Summary Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.
+Result Demo app run with ./gradlew bootRepackage ./gradlew bootRun then ./gradlew deployStaging this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment."/>
+<meta name="twitter:site" content="@nsavagejvm"/>
+
+
+
+    
+
+    
+
+    
+
+    <meta name="generator" content="Hugo 0.18-DEV" />
+
+
+    <base href="/">
+    <link rel="canonical" href="/2016/11/issues-generating-installer-with--bitrock-installbuilder/">
+
+    <title>Issues generating installer with  BitRock InstallBuilder | Software Engineering</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+
+<body>
+
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="nav blog-nav">
+        <a class="nav-link " href="/">Home</a>
+        
+          
+        
+      </nav>
+    </div>
+  </div>
+
+  <header class="blog-header">
+    <div class="container" style="padding:20px;">
+      <h1 class="blog-title"><a href="/" rel="home">Software Engineering</a></h1>
+        <div style="color:red;margin:4px 4px 4px 24px;font-size:1.1rem;" > My part in its downfall </div>
+      <p  style="margin:4px 4px 4px 20px;color:blue;" class="lead blog-description">All the salient facts are true</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+
+        
+
+
+      <article class="blog-post">
+        <header>
+          <h3 class="blog-post-title"><a href="/2016/11/issues-generating-installer-with--bitrock-installbuilder/">Issues generating installer with  BitRock InstallBuilder</a></h3>
+          <p class="blog-post-meta"><time datetime="2016-11-23T00:00:00Z">Wed Nov 23, 2016</time> by nsavagejvm in 
+            <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/installers" rel="category tag">installers</a>, <a href="/categories/installbuilder" rel="category tag">InstallBuilder</a>, <a href="/categories/bitrock" rel="category tag">BitRock</a>
+
+
+</p>
+        </header>
+        <h3 id="objective">Objective</h3>
+
+<p>Simple code to create a linux installer with BitRocks InstallBuilder</p>
+
+<h3 id="target-audience">Target Audience</h3>
+
+<p>Developers new to BitRocks InstallBuilder and Cross-platform installation Tools</p>
+
+<h3 id="source-documents">Source Documents</h3>
+
+<p><a href="//installbuilder.bitrock.com/">Bitrock Installbuilder</a><br />
+<a href="//installbuilder.bitrock.com/docs/installbuilder-userguide.html">Bitrock Installbuilder Documentation</a><br />
+<a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtimes</a><br />
+<a href="//netbeans.org/kb/docs/java/native_pkg.html">NetBeans Native packaging</a><br />
+<a href="//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm">JavaFX Packager </a><br />
+<a href="//docs.gradle.org/current/userguide/gradle_wrapper.html">gradle wrapper</a></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.</p>
+
+<h3 id="result">Result</h3>
+
+<p><a href="//github.com/nsavageJVM/demo-installbuilder">Demo app</a>  run with  <code>./gradlew bootRepackage</code>  <code>./gradlew bootRun</code> then <code>./gradlew deployStaging</code> this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment.</p>
+
+<h3 id="discussion">Discussion</h3>
+
+<p>When developing stanalone applications many clients sadly will use windows and not really understand how their box is configured. You can not really give them and uber jar and say &lsquo;run the jar&rsquo;. They will just want a desktop shortcut they can click and then the application will run.<br />
+<a href="//installbuilder.bitrock.com/">Bitrocks Installbuilder</a>  is a cross-platform installation tool. Its a step up from the other available options (<a href="//netbeans.org/kb/docs/java/native_pkg.html">NetBeans Native packaging</a>, <a href="//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm">JavaFX Packager </a>) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and its trivial to set ip up so it results in a desktop shortcut.</p>
+
+<p>I ran into an issue with the <a href="//installbuilder.bitrock.com/docs/installbuilder-userguide.html">Documentation</a> for delivering a java application with  No External Dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation. I think the section on creating a bundled java runtime(jre) is not as clear as could be needed by many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below</p>
+
+<ul>
+<li><p>download the <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a></p></li>
+
+<li><p>change the java.xml file so the path correctly  resolves to the Installbuilder Java Runtime</p></li>
+
+<li><p>include the java.xml file in the installbuilder components tag and use it to create a java launcher</p></li>
+
+<li><p>generate a staging directory (with all the needed artifacts)  with gradle, see the custom task</p>
+
+<p><code>./gradlew deployStaging</code> and see  Fig1 for the assembled artifacts form this task</p>
+
+<p><img src="//github.com/nsavageJVM/demo-installbuilder/blob/master/blogscreens/staging_directory.png" alt="Fig1" /></p></li>
+</ul>
+
+<h3 id="more-details">More Details</h3>
+
+<p>From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle</p>
+
+<p>Install builder is closed source with a commercial license. However if you are working with a range of clients, platforms and programming language environments and runtimes it can significantly boost productivity.</p>
+
+<p><a href="//installbuilder.bitrock.com/purchase.html#standard">Installbuilder License</a>.</p>
+
+<p><a href="//github.com/nsavageJVM/demo-installbuilder">Demo app</a>
+
+        
+        
+                  <hr>
+        <footer>
+          <header>
+            <h4>Share</h4>
+          </header>
+          <nav class="nav nav-inline">
+          <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2016%2f11%2fissues-generating-installer-with--bitrock-installbuilder%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+          <a class="nav-item" href="https://plus.google.com/share?url=%2f2016%2f11%2fissues-generating-installer-with--bitrock-installbuilder%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+          
+          <a class="nav-item" href="https://twitter.com/home?status=%2f2016%2f11%2fissues-generating-installer-with--bitrock-installbuilder%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+          </nav>
+        </footer>
+
+
+        
+      </article> 
+
+  
+       <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'nsavagejvm';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+
+
+      </div> <!-- /.blog-main -->
+
+      <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>pyrotechnics by  <a href="//nsavagejvm.github.io/">nsavagejvm</a>.</p>
+  </section>
+  
+
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/2016/11/issues-re-reporting-tools-and-frameworks/">Issues re Reporting tools and Frameworks</a></li>
+      
+      <li><a href="/2016/11/issues-generating-installer-with--bitrock-installbuilder/">Issues generating installer with  BitRock InstallBuilder</a></li>
+      
+      <li><a href="/2016/11/issues-re-react-with-zero-configuration/">Issues re react-with-zero-configuration</a></li>
+      
+      <li><a href="/2016/11/issues-re--spring-cloud-netflix-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/">Issues re  Spring Cloud Netflix <span style="font-size:18px;"> @EnableCircuitBreaker, @EnableHystrix </span></a></li>
+      
+    </ol>
+  </section>
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://www.youtube.com/watch?v=8dgosa7wkfY">Pete</a></li>
+      
+      <li><a href="https://www.youtube.com/watch?v=tyqL5_-PL6g">Spike</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>
+      
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
+      
+    </p>
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

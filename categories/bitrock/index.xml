@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitrock on Software Engineering</title>
+    <link>/categories/bitrock/index.xml</link>
+    <description>Recent content in Bitrock on Software Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
+    <atom:link href="/categories/bitrock/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Issues generating installer with  BitRock InstallBuilder</title>
+      <link>/2016/11/issues-generating-installer-with--bitrock-installbuilder/</link>
+      <pubDate>Wed, 23 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/11/issues-generating-installer-with--bitrock-installbuilder/</guid>
+      <description>
+
+&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
+
+&lt;p&gt;Simple code to create a linux installer with BitRocks InstallBuilder&lt;/p&gt;
+
+&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
+
+&lt;p&gt;Developers new to BitRocks InstallBuilder and Cross-platform installation Tools&lt;/p&gt;
+
+&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrock Installbuilder&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Bitrock Installbuilder Documentation&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtimes&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Clarify path issues for the bundled java runtime for a native installer when using BitRocks InstallBuilder.&lt;/p&gt;
+
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder&#34;&gt;Demo app&lt;/a&gt;  run with  &lt;code&gt;./gradlew bootRepackage&lt;/code&gt;  &lt;code&gt;./gradlew bootRun&lt;/code&gt; then &lt;code&gt;./gradlew deployStaging&lt;/code&gt; this creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment.&lt;/p&gt;
+
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;When developing stanalone applications many clients sadly will use windows and not really understand how their box is configured. You can not really give them and uber jar and say &amp;lsquo;run the jar&amp;rsquo;. They will just want a desktop shortcut they can click and then the application will run.&lt;br /&gt;
+&lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrocks Installbuilder&lt;/a&gt;  is a cross-platform installation tool. Its a step up from the other available options (&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;, &lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and its trivial to set ip up so it results in a desktop shortcut.&lt;/p&gt;
+
+&lt;p&gt;I ran into an issue with the &lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Documentation&lt;/a&gt; for delivering a java application with  No External Dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation. I think the section on creating a bundled java runtime(jre) is not as clear as could be needed by many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;download the &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;change the java.xml file so the path correctly  resolves to the Installbuilder Java Runtime&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;include the java.xml file in the installbuilder components tag and use it to create a java launcher&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;generate a staging directory (with all the needed artifacts)  with gradle, see the custom task&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;./gradlew deployStaging&lt;/code&gt; and see  Fig1 for the assembled artifacts form this task&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/blogscreens/staging_directory.png&#34; alt=&#34;Fig1&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
+
+&lt;p&gt;From Fig 1 you can see there are two copies of the java.xml, the top level java.xml contains a diferent path the to jre than the path in the java.xml that comes with the Bitrock jre bundle&lt;/p&gt;
+
+&lt;p&gt;Install builder is closed source with a commercial license. However if you are working with a range of clients, platforms and programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/purchase.html#standard&#34;&gt;Installbuilder License&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
