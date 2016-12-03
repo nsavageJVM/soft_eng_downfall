@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta property="og:title" content="The javascript transpile dialectic part 1" />
+<meta property="og:description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents gradle wrapper gradle-node-plugin
+jsweet transpiler
+TypeScript language
+TypeScript Declaration File
+TypeScript type 
+TypeScript namespace
+ECMA-262 6th Edition
+ECMAScript 5
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers npm is Massive. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2016/12/the-javascript-transpile-dialectic-part-1/" />
+
+
+<meta property="og:updated_time" content="2016-12-04T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+<meta itemprop="name" content="The javascript transpile dialectic part 1">
+<meta itemprop="description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents gradle wrapper gradle-node-plugin
+jsweet transpiler
+TypeScript language
+TypeScript Declaration File
+TypeScript type 
+TypeScript namespace
+ECMA-262 6th Edition
+ECMAScript 5
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers npm is Massive. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.">
+
+
+<meta itemprop="dateModified" content="2016-12-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="526">
+
+
+
+<meta itemprop="keywords" content="bitrock,dialect,installbuilder,installers,jasper,javascript,react,react-with-zero-configuration,reporting-tools,spring-cloud,spring-cloud-netflix,transpile," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="The javascript transpile dialectic part 1"/>
+<meta name="twitter:description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents gradle wrapper gradle-node-plugin
+jsweet transpiler
+TypeScript language
+TypeScript Declaration File
+TypeScript type 
+TypeScript namespace
+ECMA-262 6th Edition
+ECMAScript 5
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers npm is Massive. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w."/>
+<meta name="twitter:site" content="@nsavagejvm"/>
+
+
+
+    
+
+    
+
+    
+
+    <meta name="generator" content="Hugo 0.18-DEV" />
+
+
+    <base href="/">
+    <link rel="canonical" href="/2016/12/the-javascript-transpile-dialectic-part-1/">
+
+    <title>The javascript transpile dialectic part 1 | Software Engineering</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+
+<body>
+
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="nav blog-nav">
+        <a class="nav-link " href="/">Home</a>
+        
+          
+        
+      </nav>
+    </div>
+  </div>
+
+  <header class="blog-header">
+    <div class="container" style="padding:20px;">
+      <h1 class="blog-title"><a href="/" rel="home">Software Engineering</a></h1>
+        <div style="color:red;margin:4px 4px 4px 24px;font-size:1.1rem;" > My part in its downfall </div>
+      <p  style="margin:4px 4px 4px 20px;color:blue;" class="lead blog-description">All the salient facts are true</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+
+        
+
+
+      <article class="blog-post">
+        <header>
+          <h3 class="blog-post-title"><a href="/2016/12/the-javascript-transpile-dialectic-part-1/">The javascript transpile dialectic part 1</a></h3>
+          <p class="blog-post-meta"><time datetime="2016-12-04T00:00:00Z">Sun Dec 04, 2016</time> by nsavagejvm in 
+            <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/javascript" rel="category tag">javascript</a>, <a href="/categories/transpile" rel="category tag">transpile</a>, <a href="/categories/dialect" rel="category tag">dialect</a>
+
+
+</p>
+        </header>
+        <h3 id="objective">Objective</h3>
+
+<p>Review setup for different transpiler engines. Simple code for transpiler engines</p>
+
+<h3 id="target-audience">Target Audience</h3>
+
+<p>Developers new to modern javascript frameworks and tooling</p>
+
+<h3 id="source-documents">Source Documents</h3>
+
+<p><a href="//docs.gradle.org/current/userguide/gradle_wrapper.html">gradle wrapper</a>
+<a href="//github.com/srs/gradle-node-plugin">gradle-node-plugin</a><br />
+<a href="//github.com/cincheo/jsweet">jsweet transpiler</a><br />
+<a href="//www.typescriptlang.org/">TypeScript language</a><br />
+<a href="//github.com/Microsoft/TypeScript-Handbook/blob/master/pages/declaration%20files/Introduction.md">TypeScript Declaration File</a><br />
+<a href="//www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript type </a><br />
+<a href="//www.typescriptlang.org/docs/handbook/namespaces.html">TypeScript namespace</a><br />
+<a href="//www.ecma-international.org/ecma-262/6.0/">ECMA-262 6th Edition</a><br />
+<a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers <a href="//nodesource.com/blog/npm-is-massive/">npm is Massive</a>. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.r.t definitions.</p>
+
+<h3 id="result">Result</h3>
+
+<p>See the <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a><br />
+The demo code has a number of configuration options see see top level <a href="https://github.com/nsavageJVM/transpilers-dev">readme</a> for general instructions. <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a> needs node on the path. If you use the <a href="//docs.gradle.org/current/userguide/gradle_wrapper.html">gradle wrapper</a> then you will need to run the wrapper from the top level directory.</p>
+
+<h4 id="transpile">Transpile</h4>
+
+<pre><code>1 build the java source `./gradlew :jsweet:build`
+2 transpile  `./gradlew :jsweet:jsweet`  
+</code></pre>
+
+<h4 id="test">Test</h4>
+
+<p>1 assemble the artifacts  <code>./gradlew :jsweet:deployStatic</code><br />
+   2 open  Test.html  in the jsweet module <code>staging</code> directory</p>
+
+<p><code>deployStatic</code> creates a staging directory with all the artifacts assembled and a Test.html with the correct relative paths for the bundled transpiled Java Javascript</p>
+
+<h3 id="discussion">Discussion</h3>
+
+<p>Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline</p>
+
+<h4 id="java-package-and-class-declarations">Java Package and class declarations</h4>
+
+<pre><code class="language-java">package app.dev.transpile
+import ....
+  class ConcurrentSpinner { ....
+    public static void main(String[] args) { ....
+</code></pre>
+
+<h4 id="typescript-internal-namespace-and-class-declarations">Typescript internal namespace and class  declarations</h4>
+
+<pre><code class="language-typescript">namespace app.dev.transpile { ...  
+  export class ConcurrentSpinner { ...
+    public static main(args : string[]) { ...    
+</code></pre>
+
+<h4 id="javascript-function-declarations">javascript function declarations</h4>
+
+<pre><code class="language-javascript">(function (app) { ...
+    var dev;
+    (function (dev) { ...
+        var transpile;
+        (function (transpile) {
+            var ConcurrentSpinner = (function () { ...
+                function ConcurrentSpinner(spinner) { ...
+    
+                ConcurrentSpinner.main = function (args) { ....
+                    window.onload = function (e) {
+                        return new ConcurrentSpinner(document.getElementById(&quot;spinner&quot;));
+</code></pre>
+
+<p>we can see a clean 1 to 1 mapping from the Java to the Typescript, things become slightly less clean from Typescript to Javascript with the javascript constructor function and the main method as a prototype extension. However this is just verbosity and the one to one map is maintained from Java to Javascript.</p>
+
+<h3 id="more-details">More Details</h3>
+
+<p>To clarify the relationships in the above code. Java&rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 <a href="//www.ecma-international.org/ecma-262/6.0/">ECMA-262 6th Edition</a>. ECMAScript 2015 defines <a href="//www.ecma-international.org/ecma-262/6.0/">modules</a> and <a href="//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions">class</a>. Typescript was desinged from the begining to transpile to what we today describe as Javascript but in this context we are refering to <a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a>.</p>
+
+<h3 id="javascript-fatigue">Javascript Fatigue</h3>
+
+<p>As software engineers we need to harmonise the relationships between the javascript dialects and tooling for large scale Javascript applications. Java shops can use frameworks like jsweet and tools such as the <a href="//github.com/srs/gradle-node-plugin">gradle-node-plugin</a> to rapidly spin up applications using a large set of the more prominent elemnts found in <a href="//nodesource.com/blog/npm-is-massive/">npm is Massive</a>. Microsoft have a long history of inovation with scripting langauges and Typescript is a bridge between  <a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a> and the evolution of Javascript. In the next part we will clarify the issues around transpiling of Google closure.</p>
+
+<p><a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a></p>
+
+<p><a href="////github.com/nsavageJVM/transpilers-dev">Demo app for all series parts</a>
+
+        
+        
+                  <hr>
+        <footer>
+          <header>
+            <h4>Share</h4>
+          </header>
+          <nav class="nav nav-inline">
+          <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2016%2f12%2fthe-javascript-transpile-dialectic-part-1%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+          <a class="nav-item" href="https://plus.google.com/share?url=%2f2016%2f12%2fthe-javascript-transpile-dialectic-part-1%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+          
+          <a class="nav-item" href="https://twitter.com/home?status=%2f2016%2f12%2fthe-javascript-transpile-dialectic-part-1%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+          </nav>
+        </footer>
+
+
+        
+      </article> 
+
+  
+       <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'nsavagejvm';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+
+
+      </div> <!-- /.blog-main -->
+
+      <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>pyrotechnics by  <a href="//nsavagejvm.github.io/">nsavagejvm</a>.</p>
+  </section>
+  
+
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/2016/12/the-javascript-transpile-dialectic-part-1/">The javascript transpile dialectic part 1</a></li>
+      
+      <li><a href="/2016/11/issues-generating-installer-with--bitrock-installbuilder/">Issues generating installer with  BitRock InstallBuilder</a></li>
+      
+      <li><a href="/2016/11/issues-re-reporting-tools-and-frameworks/">Issues re Reporting tools and Frameworks</a></li>
+      
+      <li><a href="/2016/11/issues-re-react-with-zero-configuration/">Issues re react-with-zero-configuration</a></li>
+      
+      <li><a href="/2016/11/issues-re--spring-cloud-netflix-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/">Issues re  Spring Cloud Netflix <span style="font-size:18px;"> @EnableCircuitBreaker, @EnableHystrix </span></a></li>
+      
+    </ol>
+  </section>
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://www.youtube.com/watch?v=8dgosa7wkfY">Pete</a></li>
+      
+      <li><a href="https://www.youtube.com/watch?v=tyqL5_-PL6g">Spike</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>
+      
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
+      
+    </p>
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dialect on Software Engineering</title>
+    <link>/categories/dialect/index.xml</link>
+    <description>Recent content in Dialect on Software Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
+    <atom:link href="/categories/dialect/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The javascript transpile dialectic part 1</title>
+      <link>/2016/12/the-javascript-transpile-dialectic-part-1/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/12/the-javascript-transpile-dialectic-part-1/</guid>
+      <description>
+
+&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
+
+&lt;p&gt;Review setup for different transpiler engines. Simple code for transpiler engines&lt;/p&gt;
+
+&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
+
+&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
+
+&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;
+&lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/cincheo/jsweet&#34;&gt;jsweet transpiler&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.typescriptlang.org/&#34;&gt;TypeScript language&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/Microsoft/TypeScript-Handbook/blob/master/pages/declaration%20files/Introduction.md&#34;&gt;TypeScript Declaration File&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.typescriptlang.org/docs/handbook/basic-types.html&#34;&gt;TypeScript type &lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.typescriptlang.org/docs/handbook/namespaces.html&#34;&gt;TypeScript namespace&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.r.t definitions.&lt;/p&gt;
+
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+
+&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;br /&gt;
+The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions. &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
+
+&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;1 build the java source `./gradlew :jsweet:build`
+2 transpile  `./gradlew :jsweet:jsweet`  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
+
+&lt;p&gt;1 assemble the artifacts  &lt;code&gt;./gradlew :jsweet:deployStatic&lt;/code&gt;&lt;br /&gt;
+   2 open  Test.html  in the jsweet module &lt;code&gt;staging&lt;/code&gt; directory&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;deployStatic&lt;/code&gt; creates a staging directory with all the artifacts assembled and a Test.html with the correct relative paths for the bundled transpiled Java Javascript&lt;/p&gt;
+
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline&lt;/p&gt;
+
+&lt;h4 id=&#34;java-package-and-class-declarations&#34;&gt;Java Package and class declarations&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package app.dev.transpile
+import ....
+  class ConcurrentSpinner { ....
+    public static void main(String[] args) { ....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;typescript-internal-namespace-and-class-declarations&#34;&gt;Typescript internal namespace and class  declarations&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-typescript&#34;&gt;namespace app.dev.transpile { ...  
+  export class ConcurrentSpinner { ...
+    public static main(args : string[]) { ...    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;javascript-function-declarations&#34;&gt;javascript function declarations&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;(function (app) { ...
+    var dev;
+    (function (dev) { ...
+        var transpile;
+        (function (transpile) {
+            var ConcurrentSpinner = (function () { ...
+                function ConcurrentSpinner(spinner) { ...
+    
+                ConcurrentSpinner.main = function (args) { ....
+                    window.onload = function (e) {
+                        return new ConcurrentSpinner(document.getElementById(&amp;quot;spinner&amp;quot;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;we can see a clean 1 to 1 mapping from the Java to the Typescript, things become slightly less clean from Typescript to Javascript with the javascript constructor function and the main method as a prototype extension. However this is just verbosity and the one to one map is maintained from Java to Javascript.&lt;/p&gt;
+
+&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
+
+&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was desinged from the begining to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h3&gt;
+
+&lt;p&gt;As software engineers we need to harmonise the relationships between the javascript dialects and tooling for large scale Javascript applications. Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; to rapidly spin up applications using a large set of the more prominent elemnts found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft have a long history of inovation with scripting langauges and Typescript is a bridge between  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt; and the evolution of Javascript. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
