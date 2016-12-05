@@ -52,9 +52,9 @@ The transpile is driven via webpack and the dev server&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Transpile with the dev server in development&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;npm  run bundle&lt;/code&gt; transpiles for production
-3 see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;development webpack config&lt;/a&gt;
-4 see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc&#34;&gt;babel plugin config&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm  run bundle&lt;/code&gt; transpiles for production&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;development webpack config&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc&#34;&gt;babel plugin config&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
