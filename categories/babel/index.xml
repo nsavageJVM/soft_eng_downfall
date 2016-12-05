@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Closure Compiler on Software Engineering</title>
-    <link>/categories/closure-compiler/index.xml</link>
-    <description>Recent content in Closure Compiler on Software Engineering</description>
+    <title>Babel on Software Engineering</title>
+    <link>/categories/babel/index.xml</link>
+    <description>Recent content in Babel on Software Engineering</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <atom:link href="/categories/closure-compiler/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/babel/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>The javascript transpile dialectic part 2</title>
-      <link>/2016/12/the-javascript-transpile-dialectic-part-2/</link>
+      <title>The javascript transpile dialectic part 3</title>
+      <link>/2016/12/the-javascript-transpile-dialectic-part-3/</link>
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2016/12/the-javascript-transpile-dialectic-part-2/</guid>
+      <guid>/2016/12/the-javascript-transpile-dialectic-part-3/</guid>
       <description>
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
@@ -88,7 +88,7 @@ Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/
 &lt;ol&gt;
 &lt;li&gt;The python scripts are no longer required&lt;/li&gt;
 &lt;li&gt;The compiler can perform aggressive optimisations with externs and annotations for preserving type names when required&lt;/li&gt;
-&lt;li&gt;the compiler assembles a bundle with all included dependencies&lt;/li&gt;
+&lt;li&gt;the compiler assembles a bundle with all included dependencies included&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;Demo app for closure&lt;/a&gt;&lt;/p&gt;
