@@ -71,8 +71,7 @@ Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/
 
 &lt;p&gt;The compiler acts as a build tool assembling the application&amp;rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;` --js=./node_modules/google-closure-library --js src/main.js --js src/component.js`
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;--js=./node_modules/google-closure-library --js src/main.js --js src/component.js&lt;/code&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;--js=./node_modules/google-closure-library&lt;/code&gt;  imports the dependencies for &lt;code&gt;main.js&lt;/code&gt; and &lt;code&gt;component.js&lt;/code&gt;   from the closure library&lt;/li&gt;
