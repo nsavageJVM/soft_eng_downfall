@@ -12,11 +12,11 @@
 Target Audience Developers new to modern javascript frameworks and tooling
 Source Documents react babel
 webpack
-Summary Result See the Demo app for react
-The demo code has a number of configuration options see see top level readme for general instructions. The transpile is driven via webpack and the dev server
-Transpile npm run start
-Test localhost:3000
-Discussion  Transpile with the dev server in development npm run bundle transpiles for production" />
+React Hot Module Replacement
+purecss
+Result See the Demo app for react
+The demo code has a number of setup options see see top level readme for general instructions.
+The transpile is driven via webpack and the dev server. The express dev server uses the hot reload middleware for react." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2016/12/the-javascript-transpile-dialectic-part-3/" />
 
@@ -38,15 +38,15 @@ Discussion  Transpile with the dev server in development npm run bundle transpil
 Target Audience Developers new to modern javascript frameworks and tooling
 Source Documents react babel
 webpack
-Summary Result See the Demo app for react
-The demo code has a number of configuration options see see top level readme for general instructions. The transpile is driven via webpack and the dev server
-Transpile npm run start
-Test localhost:3000
-Discussion  Transpile with the dev server in development npm run bundle transpiles for production">
+React Hot Module Replacement
+purecss
+Result See the Demo app for react
+The demo code has a number of setup options see see top level readme for general instructions.
+The transpile is driven via webpack and the dev server. The express dev server uses the hot reload middleware for react.">
 
 
 <meta itemprop="dateModified" content="2016-12-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="172">
+<meta itemprop="wordCount" content="403">
 
 
 
@@ -63,11 +63,11 @@ Discussion  Transpile with the dev server in development npm run bundle transpil
 Target Audience Developers new to modern javascript frameworks and tooling
 Source Documents react babel
 webpack
-Summary Result See the Demo app for react
-The demo code has a number of configuration options see see top level readme for general instructions. The transpile is driven via webpack and the dev server
-Transpile npm run start
-Test localhost:3000
-Discussion  Transpile with the dev server in development npm run bundle transpiles for production"/>
+React Hot Module Replacement
+purecss
+Result See the Demo app for react
+The demo code has a number of setup options see see top level readme for general instructions.
+The transpile is driven via webpack and the dev server. The express dev server uses the hot reload middleware for react."/>
 <meta name="twitter:site" content="@nsavagejvm"/>
 
 
@@ -145,15 +145,18 @@ Discussion  Transpile with the dev server in development npm run bundle transpil
 
 <p><a href="//facebook.github.io/react/tutorial/tutorial.html">react</a>
 <a href="//babeljs.io">babel</a><br />
-<a href="//webpack.github.io">webpack</a></p>
-
-<h3 id="summary">Summary</h3>
+<a href="//webpack.github.io">webpack</a><br />
+<a href="//github.com/jugend/webpack-react-hmr-examples">React Hot Module Replacement</a><br />
+<a href="//github.com/yahoo/pure">purecss</a></p>
 
 <h3 id="result">Result</h3>
 
-<p>See the Demo app for <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/react">react</a><br />
-The demo code has a number of configuration options see see top level <a href="https://github.com/nsavageJVM/transpilers-dev">readme</a> for general instructions.
-The transpile is driven via webpack and the dev server</p>
+<p>See the Demo app for <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/react">react</a></p>
+
+<p>The demo code has a number of setup options see see top level <a href="https://github.com/nsavageJVM/transpilers-dev">readme</a> for general instructions.<br />
+The transpile is driven via webpack and the dev server. The express dev <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js">server</a> uses the hot reload middleware for react. The code is
+as simple as possible to highlight the relationships in the code between the webpack configuration syntax, the plugin setup and the dev server.
+The webpack stylus css translation on <a href="//github.com/yahoo/pure">purecss</a> is included to show the parralel css translation alongside the JSX transpilation.</p>
 
 <h4 id="transpile">Transpile</h4>
 
@@ -167,16 +170,14 @@ The transpile is driven via webpack and the dev server</p>
 
 <ol>
 <li>Transpile with the dev server in development</li>
-<li><code>npm  run bundle</code> transpiles for production<br /></li>
 <li>see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js">development webpack config</a><br /></li>
 <li>see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc">babel plugin config</a><br /></li>
 </ol>
 
 <h3 id="more-details">More Details</h3>
 
-<p>Babel transpiles ECMAScript 2015 to  ES5. Some features of ECMAScript 2015 do not directly map to ES5.
+<p>Webpack uses Babel to transpile ECMAScript 2015 to  ES5. Some features of ECMAScript 2015 do not directly map to ES5.
 {Iterators, Proxies, generator functions } this set is not <a href="babeljs.io/docs/learn-es2015/">inclusive</a> see <a href="//babeljs.io/docs/usage/polyfill/">polyfill</a><br />
-Webpack uses Babel to compile JavaScript into a bundle.<br />
 Webpack uses middleware<br />
 1. <a href="//github.com/webpack/webpack-dev-middleware">webpack-dev-middleware</a><br />
 2. <a href="//github.com/glenjamin/webpack-hot-middleware">webpack-hot-middleware</a><br />
@@ -189,6 +190,16 @@ see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.d
 <li>line 1 and 23 HotModuleReplacementPlugin<br /></li>
 <li>line 19 <code>publicPath</code><br /></li>
 </ul>
+
+<h3 id="summary">Summary</h3>
+
+<p>The react setup is a lot of work even with this simple set up. Complex relationships in the code and the configuration files take a while to get used too.
+However the transpiling with the dev server is a significant accomplishment.<br />
+I recall in the early days of the google closure library trying to set up a similar workflow with the closure compiler transpiling off a url endpoint so the code would transpile like this in real time and I was never able to get it to work.<br />
+Overall the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the <code>redux store</code> with <code>actions</code> dispatching via <code>reducers</code> the code and setup configurations can be heavy going.<br />
+If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like <code>jsweet</code> is a good option.</p>
+
+<p>Google closure still has the best <a href="//google.github.io/closure-library/source/closure/goog/demos/">rich text editor</a> and the closure compiler leads the benchnark <a href="//nolanlawson.com/2016/08/15/the-cost-of-small-modules/">metrics</a> and does even better for <code>advanced</code> optimisations.</p>
 
 <p><a href="//github.com/nsavageJVM/transpilers-dev/tree/master/react">Demo app for react</a></p>
 
