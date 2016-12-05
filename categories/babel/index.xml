@@ -12,7 +12,7 @@
     <item>
       <title>The javascript transpile dialectic part 3</title>
       <link>/2016/12/the-javascript-transpile-dialectic-part-3/</link>
-      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-3/</guid>
       <description>
@@ -27,71 +27,54 @@
 
 &lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&#34;//developers.google.com/closure/compiler/&#34;&gt;Closure Compiler&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/google/closure-library&#34;&gt;google-closure-library&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.closurecheatsheet.com/skeleton&#34;&gt;closurecheatsheet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;//facebook.github.io/react/tutorial/tutorial.html&#34;&gt;react&lt;/a&gt;
+&lt;a href=&#34;//babeljs.io&#34;&gt;babel&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//webpack.github.io&#34;&gt;webpack&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;The Closure Compiler transpiler ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it was and is used to
-build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on &lt;a href=&#34;//developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino&#34;&gt;Rhino&lt;/a&gt;
-from Mozilla with an associated set of python tools sometimes refered to as closure build tools. The closure compiler was one of the first transpilers for
-ECMAScript  and is constantly evolving, for exampe use of the python tools is now depreciated and the documentation appears to lag the actual state/capabilities
-of the java version. To complicate the terminology there is now a pure javascript closure compiler with interfaces for webpack and gulp. However I encountered
-difficulties with the javascript compiler and the closure widgets.
-The compiler allows for compression, mangling and optimisation( dead code removal, function flattening and inlining).The Advanced&amp;rsquo; option is
-aggressive (dead code removal allows for removing unused code across modules) and often will break your application,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;By configuring &lt;a href=&#34;//github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries&#34;&gt;externs&lt;/a&gt; you can use the compiler with other frameworks like
-JQuery. Anything declared as an Extern is excluded from the optimisation.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;There is an annotation system to exclude properties from optimisation.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
-&lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;closure&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;react&lt;/a&gt;&lt;br /&gt;
 The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
-In particular installing a local jre on windows if no jre is installed in the system.&lt;/p&gt;
+The transpile is driven via webpack and the dev server&lt;/p&gt;
 
 &lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
 
-&lt;p&gt;&lt;code&gt;java -jar compiler.jar --compilation_level=ADVANCED --closure_entry_point=dev.app  --only_closure_dependencies  --js=./node_modules/google-closure-library --js src/main.js --js src/component.js --js_output_file  dist/app.min.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm run start&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
 
-&lt;p&gt;open Test.html&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localhost:3000&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 
-&lt;p&gt;The Closure compiler knows about the semantics of JS and generates low-level wrappers and checks that the transpiled code implement the javascript semantics to achieve type safety.
-Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/component.js&#34;&gt;component&lt;/a&gt;, constructor line 15 and type inheritance line 26.&lt;/p&gt;
-
-&lt;p&gt;The compiler acts as a build tool assembling the application&amp;rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;--js=./node_modules/google-closure-library --js src/main.js --js src/component.js&lt;/code&gt;&lt;/p&gt;
-
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;--js=./node_modules/google-closure-library&lt;/code&gt;  imports the dependencies for &lt;code&gt;main.js&lt;/code&gt; and &lt;code&gt;component.js&lt;/code&gt;   from the closure library&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;component.js&lt;/code&gt; is a dependency of &lt;code&gt;main.js&lt;/code&gt;  see &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/main.js&#34;&gt;main&lt;/a&gt; line 46&lt;/li&gt;
-&lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt;  contains the application&amp;rsquo;s entry point and all needed dependencies from the library as well as custom components.&lt;/li&gt;
-&lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt; is the single import required for the html&lt;/li&gt;
+&lt;li&gt;Transpile with the dev server in development&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm  run bundle&lt;/code&gt; transpiles for production
+3 see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;development webpack config&lt;/a&gt;
+4 see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc&#34;&gt;babel plugin config&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;previously to assemble the dependencies you would use the python script &lt;code&gt;depswriter.py&lt;/code&gt; but this is no longer required something not hilighted in the documentation&lt;/p&gt;
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;To clarify the relationships in the above code.&lt;/p&gt;
+&lt;p&gt;Babel transpiles ECMAScript 2015 to  ES5. Some features of ECMAScript 2015 do not directly map to ES5.
+{Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;br /&gt;
+Webpack uses Babel to compile JavaScript into a bundle.&lt;br /&gt;
+Webpack uses middleware
+1. &lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;
+2. &lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;
+3. &lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;The python scripts are no longer required&lt;/li&gt;
-&lt;li&gt;The compiler can perform aggressive optimisations with externs and annotations for preserving type names when required&lt;/li&gt;
-&lt;li&gt;the compiler assembles a bundle with all included dependencies included&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;dev server &lt;/a&gt;  lines 9 to 15
+see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;dev server hot reload config&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;Demo app for closure&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;line 1 and 23 HotModuleReplacementPlugin&lt;/li&gt;
+&lt;li&gt;line 19 &lt;code&gt;publicPath&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;Demo app for react&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
 </description>

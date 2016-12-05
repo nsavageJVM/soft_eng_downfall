@@ -10,15 +10,18 @@
     <meta property="og:title" content="The javascript transpile dialectic part 3" />
 <meta property="og:description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
 Target Audience Developers new to modern javascript frameworks and tooling
-Source Documents Closure Compiler
-google-closure-library
-closurecheatsheet
-Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it was and is used to build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on Rhino from Mozilla with an associated set of python tools sometimes refered to as closure build tools." />
+Source Documents react babel
+webpack
+Summary Result See the Demo app for react
+The demo code has a number of configuration options see see top level readme for general instructions. The transpile is driven via webpack and the dev server
+Transpile npm run start
+Test localhost:3000
+Discussion  Transpile with the dev server in development npm run bundle transpiles for production 3 see development webpack config 4 see babel plugin config  More Details Babel transpiles ECMAScript 2015 to ES5." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2016/12/the-javascript-transpile-dialectic-part-3/" />
 
 
-<meta property="og:updated_time" content="2016-12-05T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2016-12-06T00:00:00&#43;00:00"/>
 
 
 
@@ -33,14 +36,17 @@ Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified E
 <meta itemprop="name" content="The javascript transpile dialectic part 3">
 <meta itemprop="description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
 Target Audience Developers new to modern javascript frameworks and tooling
-Source Documents Closure Compiler
-google-closure-library
-closurecheatsheet
-Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it was and is used to build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on Rhino from Mozilla with an associated set of python tools sometimes refered to as closure build tools.">
+Source Documents react babel
+webpack
+Summary Result See the Demo app for react
+The demo code has a number of configuration options see see top level readme for general instructions. The transpile is driven via webpack and the dev server
+Transpile npm run start
+Test localhost:3000
+Discussion  Transpile with the dev server in development npm run bundle transpiles for production 3 see development webpack config 4 see babel plugin config  More Details Babel transpiles ECMAScript 2015 to ES5.">
 
 
-<meta itemprop="dateModified" content="2016-12-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="478">
+<meta itemprop="dateModified" content="2016-12-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="174">
 
 
 
@@ -55,10 +61,13 @@ Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified E
 <meta name="twitter:title" content="The javascript transpile dialectic part 3"/>
 <meta name="twitter:description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
 Target Audience Developers new to modern javascript frameworks and tooling
-Source Documents Closure Compiler
-google-closure-library
-closurecheatsheet
-Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it was and is used to build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on Rhino from Mozilla with an associated set of python tools sometimes refered to as closure build tools."/>
+Source Documents react babel
+webpack
+Summary Result See the Demo app for react
+The demo code has a number of configuration options see see top level readme for general instructions. The transpile is driven via webpack and the dev server
+Transpile npm run start
+Test localhost:3000
+Discussion  Transpile with the dev server in development npm run bundle transpiles for production 3 see development webpack config 4 see babel plugin config  More Details Babel transpiles ECMAScript 2015 to ES5."/>
 <meta name="twitter:site" content="@nsavagejvm"/>
 
 
@@ -118,7 +127,7 @@ Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified E
       <article class="blog-post">
         <header>
           <h3 class="blog-post-title"><a href="/2016/12/the-javascript-transpile-dialectic-part-3/">The javascript transpile dialectic part 3</a></h3>
-          <p class="blog-post-meta"><time datetime="2016-12-05T00:00:00Z">Mon Dec 05, 2016</time> by nsavagejvm in 
+          <p class="blog-post-meta"><time datetime="2016-12-06T00:00:00Z">Tue Dec 06, 2016</time> by nsavagejvm in 
             <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/babel" rel="category tag">Babel</a>, <a href="/categories/transpile" rel="category tag">transpile</a>, <a href="/categories/dialect" rel="category tag">dialect</a>
 
 
@@ -134,71 +143,54 @@ Summary The Closure Compiler transpiler ECMAScript 2015 to optimized, minified E
 
 <h3 id="source-documents">Source Documents</h3>
 
-<p><a href="//developers.google.com/closure/compiler/">Closure Compiler</a><br />
-<a href="//github.com/google/closure-library">google-closure-library</a><br />
-<a href="//www.closurecheatsheet.com/skeleton">closurecheatsheet</a></p>
+<p><a href="//facebook.github.io/react/tutorial/tutorial.html">react</a>
+<a href="//babeljs.io">babel</a><br />
+<a href="//webpack.github.io">webpack</a></p>
 
 <h3 id="summary">Summary</h3>
 
-<p>The Closure Compiler transpiler ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it was and is used to
-build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on <a href="//developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a>
-from Mozilla with an associated set of python tools sometimes refered to as closure build tools. The closure compiler was one of the first transpilers for
-ECMAScript  and is constantly evolving, for exampe use of the python tools is now depreciated and the documentation appears to lag the actual state/capabilities
-of the java version. To complicate the terminology there is now a pure javascript closure compiler with interfaces for webpack and gulp. However I encountered
-difficulties with the javascript compiler and the closure widgets.
-The compiler allows for compression, mangling and optimisation( dead code removal, function flattening and inlining).The Advanced&rsquo; option is
-aggressive (dead code removal allows for removing unused code across modules) and often will break your application,</p>
-
-<ul>
-<li><p>By configuring <a href="//github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries">externs</a> you can use the compiler with other frameworks like
-JQuery. Anything declared as an Extern is excluded from the optimisation.</p></li>
-
-<li><p>There is an annotation system to exclude properties from optimisation.</p></li>
-</ul>
-
 <h3 id="result">Result</h3>
 
-<p>See the Demo app for <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/closure">closure</a><br />
+<p>See the Demo app for <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/react">react</a><br />
 The demo code has a number of configuration options see see top level <a href="https://github.com/nsavageJVM/transpilers-dev">readme</a> for general instructions.
-In particular installing a local jre on windows if no jre is installed in the system.</p>
+The transpile is driven via webpack and the dev server</p>
 
 <h4 id="transpile">Transpile</h4>
 
-<p><code>java -jar compiler.jar --compilation_level=ADVANCED --closure_entry_point=dev.app  --only_closure_dependencies  --js=./node_modules/google-closure-library --js src/main.js --js src/component.js --js_output_file  dist/app.min.js</code></p>
+<p><code>npm run start</code></p>
 
 <h4 id="test">Test</h4>
 
-<p>open Test.html</p>
+<p><code>localhost:3000</code></p>
 
 <h3 id="discussion">Discussion</h3>
 
-<p>The Closure compiler knows about the semantics of JS and generates low-level wrappers and checks that the transpiled code implement the javascript semantics to achieve type safety.
-Consider the class <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/component.js">component</a>, constructor line 15 and type inheritance line 26.</p>
-
-<p>The compiler acts as a build tool assembling the application&rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values</p>
-
-<p><code>--js=./node_modules/google-closure-library --js src/main.js --js src/component.js</code></p>
-
 <ol>
-<li><code>--js=./node_modules/google-closure-library</code>  imports the dependencies for <code>main.js</code> and <code>component.js</code>   from the closure library</li>
-<li><code>component.js</code> is a dependency of <code>main.js</code>  see <a href="https://github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/main.js">main</a> line 46</li>
-<li>the output file <code>app.min.js</code>  contains the application&rsquo;s entry point and all needed dependencies from the library as well as custom components.</li>
-<li>the output file <code>app.min.js</code> is the single import required for the html</li>
+<li>Transpile with the dev server in development</li>
+<li><code>npm  run bundle</code> transpiles for production
+3 see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js">development webpack config</a>
+4 see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc">babel plugin config</a></li>
 </ol>
-
-<p>previously to assemble the dependencies you would use the python script <code>depswriter.py</code> but this is no longer required something not hilighted in the documentation</p>
 
 <h3 id="more-details">More Details</h3>
 
-<p>To clarify the relationships in the above code.</p>
+<p>Babel transpiles ECMAScript 2015 to  ES5. Some features of ECMAScript 2015 do not directly map to ES5.
+{Iterators, Proxies, generator functions } this set is not <a href="babeljs.io/docs/learn-es2015/">inclusive</a> see <a href="//babeljs.io/docs/usage/polyfill/">polyfill</a><br />
+Webpack uses Babel to compile JavaScript into a bundle.<br />
+Webpack uses middleware
+1. <a href="//github.com/webpack/webpack-dev-middleware">webpack-dev-middleware</a>
+2. <a href="//github.com/glenjamin/webpack-hot-middleware">webpack-hot-middleware</a>
+3. <a href="//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack">hot module replacement</a></p>
 
-<ol>
-<li>The python scripts are no longer required</li>
-<li>The compiler can perform aggressive optimisations with externs and annotations for preserving type names when required</li>
-<li>the compiler assembles a bundle with all included dependencies included</li>
-</ol>
+<p>see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js">dev server </a>  lines 9 to 15
+see <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js">dev server hot reload config</a></p>
 
-<p><a href="//github.com/nsavageJVM/transpilers-dev/tree/master/closure">Demo app for closure</a></p>
+<ul>
+<li>line 1 and 23 HotModuleReplacementPlugin</li>
+<li>line 19 <code>publicPath</code></li>
+</ul>
+
+<p><a href="//github.com/nsavageJVM/transpilers-dev/tree/master/react">Demo app for react</a></p>
 
 <p><a href="////github.com/nsavageJVM/transpilers-dev">Demo app for all series parts</a>
 
@@ -261,9 +253,9 @@ Consider the class <a href="//github.com/nsavageJVM/transpilers-dev/blob/master/
     <ol class="list-unstyled"> <li><hr></li> </ol>
     <ol class="list-unstyled">
       
-      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-2/">The javascript transpile dialectic part 2</a></li><li><hr></li>
-      
       <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-3/">The javascript transpile dialectic part 3</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-2/">The javascript transpile dialectic part 2</a></li><li><hr></li>
       
       <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-1/">The javascript transpile dialectic part 1</a></li><li><hr></li>
       
