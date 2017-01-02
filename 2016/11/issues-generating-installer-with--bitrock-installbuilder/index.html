@@ -50,7 +50,7 @@ Using the gradle wrapper build with .">
 
 
 <meta itemprop="dateModified" content="2016-11-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="663">
+<meta itemprop="wordCount" content="683">
 
 
 
@@ -171,7 +171,8 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 <p>When developing standalone applications many clients sadly will use windows and not really understand how their box is configured. You can not just give them an uber jar and say &lsquo;run the jar&rsquo; at least not if they are providing the cash incentives. They will reasonably  expect an installer that produces a desktop shortcut that  they can click to run the application.<br />
 <a href="//installbuilder.bitrock.com/">Bitrocks Installbuilder</a>  is a cross-platform installation tool. Its a step up from the other available options (<a href="//netbeans.org/kb/docs/java/native_pkg.html">NetBeans Native packaging</a>, <a href="//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm">JavaFX Packager </a>) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and it is generally trivial to set it up.</p>
 
-<p>I ran into an issue with the <a href="//installbuilder.bitrock.com/docs/installbuilder-userguide.html">Documentation</a> for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation. I think the section on creating a bundled java runtime(jre) is not as clear as could be needed by many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below</p>
+<p>I ran into an issue with the <a href="//installbuilder.bitrock.com/docs/installbuilder-userguide.html">Documentation</a> for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation.<br />
+I think the section on creating a bundled java runtime(jre) is not as clear as could be for many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below</p>
 
 <ul>
 <li><p>download the <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a></p></li>
@@ -182,7 +183,7 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 <li><p>generate a staging directory (with all the needed artifacts)  with gradle, see the custom task</p>
 
-<p><code>./gradlew deployStaging</code> and see  Fig1 for the assembled artifacts form this task</p>
+<p><code>./gradlew deployStaging</code> and see  Fig1 for the assembled artifacts output from this task</p>
 
 <p>Fig1
 <img src="/2016/11/staging_directory.png" alt="Fig1" title="Fig1" /></p></li>
@@ -193,25 +194,25 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 <p>Fig2
 <img src="/2016/11/fig2.png" alt="Fig2" title="Fig2" /></p>
 
-<p>From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory. <code>jre1.8.0_111-linux-x64.zip</code> is the jre bundle you need to <a href="//installbuilder.bitrock.com/java/">download</a></p>
+<p>From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory.  The <code>jre1.8.0_111-linux-x64.zip</code> file is the jre bundle you need to <a href="//installbuilder.bitrock.com/java/">download</a></p>
 
-<p>From the staging directory shown in Fig 1 you can see there are two copies of <code>java.xml</code> one in the jre bundle and one that is modified and copied to the staging directory by gradle.</p>
+<p>In the staging directory shown in Fig 1 you can see  two copies of <code>java.xml</code>. One in the jre bundle and one that is modified and copied to the staging directory by gradle.</p>
 
-<p>The <code>java.xml</code> in the top level directory contains a diferent path the to jre, than the path  found in the original <code>java.xml</code> that is packaged in the Bitrock jre bundle.</p>
+<p>The <code>java.xml</code> in the top level directory contains a diferent path the to decompressed jre than the path found in the original <code>java.xml</code> that is found packaged in the Bitrock jre bundle <code>jre1.8.0_111-linux-x64.zip</code>.</p>
 
-<p>The file  <code>demo_linux_install.xml</code> is the bitrock installation file that configures Installbuilder. You load  <code>demo_linux_install.xml</code> from the staging directory into Installbuilder and it should resolve the paths and depoly the jre in the distribution.</p>
+<p>The file <code>demo_linux_install.xml</code> is the bitrock installation file that configures Installbuilder. You load  <code>demo_linux_install.xml</code> from the staging directory into Installbuilder and it should resolve the paths and deploy the jre in the distribution.</p>
 
 <p>See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml">line 51</a> for how the modified <code>java.xml</code> file is included as a Installbuilder component. See <a href="//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml">line 48</a> for how this <code>java.xml</code> was updated so that the paths resolve when the downloded <a href="//installbuilder.bitrock.com/java/">Bitrock Installbuilder Java Runtime</a> is unzipped by gradle and copied to the staging directory with all the other artifacts.</p>
 
 <p>The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.</p>
 
-<p>To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit.</p>
+<p>To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit. The following worked to configure my 64 bit Ubuntu to work with the 32 bit Bitrock Installbuilder tool.</p>
 
 <pre><code>'sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1'  
 'sudo apt-get  install libgtk2.0-0:i386'  
 </code></pre>
 
-<p>Installbuilder is closed source with a commercial license. However if you are working with a range of clients, platforms, programming language environments and runtimes it can significantly boost productivity.</p>
+<p>Installbuilder is closed source with a commercial license. However if you are working with a range of platforms, programming language environments and runtimes it can significantly boost productivity.</p>
 
 <p><a href="//installbuilder.bitrock.com/purchase.html#standard">Installbuilder License</a>.</p>
 

@@ -13,7 +13,7 @@ Target Audience Developers new to react
 Source Documents react-with-zero-configuration
 heroku react-with-zero-configuration 
 heroku react buildpack
-Summary Facebook release build environment for react that abstracts away the lower level dependencies.
+Summary Facebook release a build environment for react that abstracts away the lower level configuration and dependency management.
 Result This is a good thing until you run npm run eject
 Discussion I ran into this when attempting to deploy a react app to Heroku. I was able to get react to deploy and build on Heroku with the following" />
 <meta property="og:type" content="article" />
@@ -38,13 +38,13 @@ Target Audience Developers new to react
 Source Documents react-with-zero-configuration
 heroku react-with-zero-configuration 
 heroku react buildpack
-Summary Facebook release build environment for react that abstracts away the lower level dependencies.
+Summary Facebook release a build environment for react that abstracts away the lower level configuration and dependency management.
 Result This is a good thing until you run npm run eject
 Discussion I ran into this when attempting to deploy a react app to Heroku. I was able to get react to deploy and build on Heroku with the following">
 
 
 <meta itemprop="dateModified" content="2016-11-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="198">
+<meta itemprop="wordCount" content="206">
 
 
 
@@ -62,7 +62,7 @@ Target Audience Developers new to react
 Source Documents react-with-zero-configuration
 heroku react-with-zero-configuration 
 heroku react buildpack
-Summary Facebook release build environment for react that abstracts away the lower level dependencies.
+Summary Facebook release a build environment for react that abstracts away the lower level configuration and dependency management.
 Result This is a good thing until you run npm run eject
 Discussion I ran into this when attempting to deploy a react app to Heroku. I was able to get react to deploy and build on Heroku with the following"/>
 <meta name="twitter:site" content="@nsavagejvm"/>
@@ -146,7 +146,7 @@ Discussion I ran into this when attempting to deploy a react app to Heroku. I wa
 
 <h3 id="summary">Summary</h3>
 
-<p>Facebook release build environment for react that abstracts away the lower level dependencies.</p>
+<p>Facebook release a build environment for react that abstracts away the lower level configuration and  dependency management.</p>
 
 <h3 id="result">Result</h3>
 
@@ -159,7 +159,7 @@ Discussion I ran into this when attempting to deploy a react app to Heroku. I wa
 <ul>
 <li><p>Remove the dev dependencies section  from <a href="///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json">package.json</a></p></li>
 
-<li><p>Use simple <code>build</code> and <code>start</code>  scripts,  combining like this failed</p>
+<li><p>Use simple <code>build</code> and <code>start</code>  scripts,  combining like this below failed</p>
 
 <p><code>npm run build:client &amp;&amp; npm run build:server</code></p></li>
 
@@ -171,7 +171,8 @@ Discussion I ran into this when attempting to deploy a react app to Heroku. I wa
 
 <p>To be clear this approach is not zero configuration, I am specifically declaring the dependencies in the <a href="///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json">package.json</a>, however it did get the dependencies for heroku in production which previously I was unable to do.</p>
 
-<p>From the <a href="//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html">repo</a>  ‘Note: this is a one-way operation. Once you eject, you can’t go back!’</p>
+<p>From the <a href="//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html">repo</a>  w.r.t <code>npm run eject</code><br />
+this is a one-way operation. Once you eject, you can’t go back!’</p>
 
 <p>However it&rsquo;s worth it to  <code>npm run eject</code>  and have a look at how they set up everything to realise just how far you can go with javascript tooling.</p>
 

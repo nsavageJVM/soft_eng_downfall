@@ -19,7 +19,7 @@
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
 
-&lt;p&gt;Review setup for different transpiler engines. Simple code for transpiler engines&lt;/p&gt;
+&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
 
 &lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
 
@@ -38,8 +38,8 @@
 &lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;react&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The demo code has a number of setup options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.&lt;br /&gt;
-The transpile is driven via webpack and the dev server. The express dev &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;server&lt;/a&gt; uses the hot reload middleware for react. The code is
-as simple as possible to highlight the relationships in the code between the webpack configuration syntax, the plugin setup and the dev server.
+The transpile operation is driven via webpack and the dev server. The express dev &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;server&lt;/a&gt; uses the hot reload middleware for react. The code is
+as simple as possible to highlight the relationships in the code. These are the interaction between  the webpack configuration syntax, the plugin setup and the dev server.
 The webpack stylus css translation on &lt;a href=&#34;//github.com/yahoo/pure&#34;&gt;purecss&lt;/a&gt; is included to show the parralel css translation alongside the JSX transpilation.&lt;/p&gt;
 
 &lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
@@ -60,12 +60,16 @@ The webpack stylus css translation on &lt;a href=&#34;//github.com/yahoo/pure&#3
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;Webpack uses Babel to transpile ECMAScript 2015 to  ES5. Some features of ECMAScript 2015 do not directly map to ES5.
-{Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;br /&gt;
-Webpack uses middleware&lt;br /&gt;
-1. &lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;&lt;br /&gt;
-2. &lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;&lt;br /&gt;
-3. &lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Webpack uses Babel to transpile ECMAScript2015 to  ES5.&lt;br /&gt;
+Some features of ECMAScript2015 do not directly map to ES5. {Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Webpack uses middleware&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;dev server &lt;/a&gt;  lines 9 to 15&lt;br /&gt;
 see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;dev server hot reload config&lt;/a&gt;&lt;/p&gt;
@@ -78,10 +82,14 @@ see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/we
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
 &lt;p&gt;The react setup is a lot of work even with this simple set up. Complex relationships in the code and the configuration files take a while to get used too.
-However the transpiling with the dev server is a significant accomplishment.&lt;br /&gt;
-I recall in the early days of the google closure library trying to set up a similar workflow with the closure compiler transpiling off a url endpoint so the code would transpile like this in real time and I was never able to get it to work.&lt;br /&gt;
-Overall the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the &lt;code&gt;redux store&lt;/code&gt; with &lt;code&gt;actions&lt;/code&gt; dispatching via &lt;code&gt;reducers&lt;/code&gt; the code and setup configurations can be heavy going.&lt;br /&gt;
-If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like &lt;code&gt;jsweet&lt;/code&gt; is a good option.&lt;/p&gt;
+However transpiling with the dev server is a significant accomplishment.&lt;br /&gt;
+I recall in the early days of the google closure library trying to set up a similar workflow.&lt;br /&gt;
+Specifically to get the closure compiler transpiling off a url endpoint, so that the code would transpile like this in real time. I was never able to get it to work.&lt;/p&gt;
+
+&lt;p&gt;For the three(3) transpiler engines looked at in this series the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the &lt;code&gt;redux store&lt;/code&gt; with &lt;code&gt;actions&lt;/code&gt; dispatching via &lt;code&gt;reducers&lt;/code&gt; the code and setup configurations can be heavy going.&lt;br /&gt;
+However the development server transpiling in real tile is a significant reward for the work.&lt;/p&gt;
+
+&lt;p&gt;If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like &lt;code&gt;jsweet&lt;/code&gt; is a good option.&lt;/p&gt;
 
 &lt;p&gt;Google closure still has the best &lt;a href=&#34;//google.github.io/closure-library/source/closure/goog/demos/&#34;&gt;rich text editor&lt;/a&gt; and the closure compiler leads the benchnark &lt;a href=&#34;//nolanlawson.com/2016/08/15/the-cost-of-small-modules/&#34;&gt;metrics&lt;/a&gt; and does even better for &lt;code&gt;advanced&lt;/code&gt; optimisations.&lt;/p&gt;
 

@@ -20,7 +20,7 @@
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
 
-&lt;p&gt;Review setup for different transpiler engines. Simple code for transpiler engines&lt;/p&gt;
+&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
 
 &lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
 
@@ -39,8 +39,8 @@
 &lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;react&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The demo code has a number of setup options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.&lt;br /&gt;
-The transpile is driven via webpack and the dev server. The express dev &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;server&lt;/a&gt; uses the hot reload middleware for react. The code is
-as simple as possible to highlight the relationships in the code between the webpack configuration syntax, the plugin setup and the dev server.
+The transpile operation is driven via webpack and the dev server. The express dev &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;server&lt;/a&gt; uses the hot reload middleware for react. The code is
+as simple as possible to highlight the relationships in the code. These are the interaction between  the webpack configuration syntax, the plugin setup and the dev server.
 The webpack stylus css translation on &lt;a href=&#34;//github.com/yahoo/pure&#34;&gt;purecss&lt;/a&gt; is included to show the parralel css translation alongside the JSX transpilation.&lt;/p&gt;
 
 &lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
@@ -61,12 +61,16 @@ The webpack stylus css translation on &lt;a href=&#34;//github.com/yahoo/pure&#3
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;Webpack uses Babel to transpile ECMAScript 2015 to  ES5. Some features of ECMAScript 2015 do not directly map to ES5.
-{Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;br /&gt;
-Webpack uses middleware&lt;br /&gt;
-1. &lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;&lt;br /&gt;
-2. &lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;&lt;br /&gt;
-3. &lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Webpack uses Babel to transpile ECMAScript2015 to  ES5.&lt;br /&gt;
+Some features of ECMAScript2015 do not directly map to ES5. {Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Webpack uses middleware&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;dev server &lt;/a&gt;  lines 9 to 15&lt;br /&gt;
 see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;dev server hot reload config&lt;/a&gt;&lt;/p&gt;
@@ -79,10 +83,14 @@ see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/we
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
 &lt;p&gt;The react setup is a lot of work even with this simple set up. Complex relationships in the code and the configuration files take a while to get used too.
-However the transpiling with the dev server is a significant accomplishment.&lt;br /&gt;
-I recall in the early days of the google closure library trying to set up a similar workflow with the closure compiler transpiling off a url endpoint so the code would transpile like this in real time and I was never able to get it to work.&lt;br /&gt;
-Overall the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the &lt;code&gt;redux store&lt;/code&gt; with &lt;code&gt;actions&lt;/code&gt; dispatching via &lt;code&gt;reducers&lt;/code&gt; the code and setup configurations can be heavy going.&lt;br /&gt;
-If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like &lt;code&gt;jsweet&lt;/code&gt; is a good option.&lt;/p&gt;
+However transpiling with the dev server is a significant accomplishment.&lt;br /&gt;
+I recall in the early days of the google closure library trying to set up a similar workflow.&lt;br /&gt;
+Specifically to get the closure compiler transpiling off a url endpoint, so that the code would transpile like this in real time. I was never able to get it to work.&lt;/p&gt;
+
+&lt;p&gt;For the three(3) transpiler engines looked at in this series the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the &lt;code&gt;redux store&lt;/code&gt; with &lt;code&gt;actions&lt;/code&gt; dispatching via &lt;code&gt;reducers&lt;/code&gt; the code and setup configurations can be heavy going.&lt;br /&gt;
+However the development server transpiling in real tile is a significant reward for the work.&lt;/p&gt;
+
+&lt;p&gt;If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like &lt;code&gt;jsweet&lt;/code&gt; is a good option.&lt;/p&gt;
 
 &lt;p&gt;Google closure still has the best &lt;a href=&#34;//google.github.io/closure-library/source/closure/goog/demos/&#34;&gt;rich text editor&lt;/a&gt; and the closure compiler leads the benchnark &lt;a href=&#34;//nolanlawson.com/2016/08/15/the-cost-of-small-modules/&#34;&gt;metrics&lt;/a&gt; and does even better for &lt;code&gt;advanced&lt;/code&gt; optimisations.&lt;/p&gt;
 
@@ -102,7 +110,7 @@ If you are a software engineer and you are programming in a range of languages a
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
 
-&lt;p&gt;Review setup for different transpiler engines. Simple code for transpiler engines&lt;/p&gt;
+&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
 
 &lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
 
@@ -116,14 +124,14 @@ If you are a software engineer and you are programming in a range of languages a
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;The Closure Compiler transpiler ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it was and is used to
+&lt;p&gt;The Closure Compiler transpiler takes ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it is used to
 build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on &lt;a href=&#34;//developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino&#34;&gt;Rhino&lt;/a&gt;
 from Mozilla with an associated set of python tools sometimes refered to as closure build tools. The closure compiler was one of the first transpilers for
-ECMAScript  and is constantly evolving, for exampe use of the python tools is now depreciated and the documentation appears to lag the actual state/capabilities
-of the java version. To complicate the terminology there is now a pure javascript closure compiler with interfaces for webpack and gulp. However I encountered
+ECMAScript  and is constantly evolving, for exampe. the  use of the python tools is now depreciated and the documentation appears to lag the actual state/capabilities
+of the latest version. To complicate the terminology there is now a pure javascript closure compiler with interfaces for webpack and gulp. However I encountered
 difficulties with the javascript compiler and the closure widgets.
-The compiler allows for compression, mangling and optimisation( dead code removal, function flattening and inlining).The Advanced&amp;rsquo; option is
-aggressive (dead code removal allows for removing unused code across modules) and often will break your application,&lt;/p&gt;
+The compiler allows for compression, mangling and optimisation( dead code removal, function flattening and inlining).There is an Advanced mode which is
+aggressive (dead code removal allows for removing unused code across modules) and will often will break your application unles you implement the following,&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;By configuring &lt;a href=&#34;//github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries&#34;&gt;externs&lt;/a&gt; you can use the compiler with other frameworks like
@@ -136,9 +144,11 @@ JQuery. Anything declared as an Extern is excluded from the optimisation.&lt;/p&
 
 &lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;closure&lt;/a&gt;&lt;br /&gt;
 The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
-In particular installing a local jre on windows if no jre is installed in the system.&lt;/p&gt;
+In particular installing a local jre on windows to run the compiler if no jre is installed in the system.&lt;/p&gt;
 
 &lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
+
+&lt;p&gt;Use the following one line  command to run the compiler&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;java -jar compiler.jar --compilation_level=ADVANCED --closure_entry_point=dev.app  --only_closure_dependencies  --js=./node_modules/google-closure-library --js src/main.js --js src/component.js --js_output_file  dist/app.min.js&lt;/code&gt;&lt;/p&gt;
 
@@ -148,16 +158,16 @@ In particular installing a local jre on windows if no jre is installed in the sy
 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 
-&lt;p&gt;The Closure compiler knows about the semantics of JS and generates low-level wrappers and checks that the transpiled code implement the javascript semantics to achieve type safety.
-Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/component.js&#34;&gt;component&lt;/a&gt;, constructor line 15 and type inheritance line 26.&lt;/p&gt;
+&lt;p&gt;The Closure compiler knows about the semantics of JS and generates low-level wrappers and checks for the transpiled code. It implements the javascript semantics to achieve type safety.
+Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/component.js&#34;&gt;component&lt;/a&gt;, and its constructor at line 15 and type inheritance at line 26.&lt;/p&gt;
 
-&lt;p&gt;The compiler acts as a build tool assembling the application&amp;rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values&lt;/p&gt;
+&lt;p&gt;The compiler also acts as a build tool assembling the application&amp;rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;--js=./node_modules/google-closure-library --js src/main.js --js src/component.js&lt;/code&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;--js=./node_modules/google-closure-library&lt;/code&gt;  imports the dependencies for &lt;code&gt;main.js&lt;/code&gt; and &lt;code&gt;component.js&lt;/code&gt;   from the closure library&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;component.js&lt;/code&gt; is a dependency of &lt;code&gt;main.js&lt;/code&gt;  see &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/main.js&#34;&gt;main&lt;/a&gt; line 46&lt;/li&gt;
+&lt;li&gt;here &lt;code&gt;component.js&lt;/code&gt; is a dependency of &lt;code&gt;main.js&lt;/code&gt;  see &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/main.js&#34;&gt;main&lt;/a&gt; line 46&lt;/li&gt;
 &lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt;  contains the application&amp;rsquo;s entry point and all needed dependencies from the library as well as custom components.&lt;/li&gt;
 &lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt; is the single import required for the html&lt;/li&gt;
 &lt;/ol&gt;
@@ -190,11 +200,11 @@ Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
 
-&lt;p&gt;Review setup for different transpiler engines. Simple code for transpiler engines&lt;/p&gt;
+&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
 
 &lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
 
-&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
+&lt;p&gt;Java Developers new to modern javascript frameworks and tooling&lt;/p&gt;
 
 &lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
 
@@ -210,12 +220,14 @@ Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.r.t definitions.&lt;/p&gt;
+&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;.
+This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out.&lt;/p&gt;
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
 &lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;br /&gt;
-The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions. &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
+The demo code has a number of configuration options. See see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
+The &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
 
 &lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
 
@@ -228,9 +240,10 @@ The demo code has a number of configuration options see see top level &lt;a href
 &lt;p&gt;1 assemble the artifacts  &lt;code&gt;./gradlew :jsweet:deployStatic&lt;/code&gt;&lt;br /&gt;
    2 open  Test.html  in the jsweet module &lt;code&gt;staging&lt;/code&gt; directory&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;deployStatic&lt;/code&gt; creates a staging directory with all the artifacts assembled and a Test.html with the correct relative paths for the bundled transpiled Java Javascript&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;deployStatic&lt;/code&gt; task creates a staging directory with all the artifacts assembled.&lt;br /&gt;
+Loading Test.html results with the correct relative paths for the bundled Javascript transpiled from Java.&lt;/p&gt;
 
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
 
 &lt;p&gt;Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline&lt;/p&gt;
 
@@ -268,11 +281,11 @@ import ....
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was desinged from the begining to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was designed to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h3&gt;
+&lt;h4 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h4&gt;
 
-&lt;p&gt;As software engineers we need to harmonise the relationships between the javascript dialects and tooling for large scale Javascript applications. Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; to rapidly spin up applications using a large set of the more prominent elements found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft&amp;rsquo;s Typescript is a bridge between  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt; and the evolution of Javascript. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
+&lt;p&gt;Using software engineering tools we need to harmonise the relationships between the javascript dialects. For large scale Javascript applications Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; for rapid development using a large set of the more prominent elements found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft&amp;rsquo;s Typescript is a bridge between &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;, Java and  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;/p&gt;
 
@@ -320,7 +333,8 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 &lt;p&gt;When developing standalone applications many clients sadly will use windows and not really understand how their box is configured. You can not just give them an uber jar and say &amp;lsquo;run the jar&amp;rsquo; at least not if they are providing the cash incentives. They will reasonably  expect an installer that produces a desktop shortcut that  they can click to run the application.&lt;br /&gt;
 &lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrocks Installbuilder&lt;/a&gt;  is a cross-platform installation tool. Its a step up from the other available options (&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;, &lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and it is generally trivial to set it up.&lt;/p&gt;
 
-&lt;p&gt;I ran into an issue with the &lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Documentation&lt;/a&gt; for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation. I think the section on creating a bundled java runtime(jre) is not as clear as could be needed by many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below&lt;/p&gt;
+&lt;p&gt;I ran into an issue with the &lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Documentation&lt;/a&gt; for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation.&lt;br /&gt;
+I think the section on creating a bundled java runtime(jre) is not as clear as could be for many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;download the &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -331,7 +345,7 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 &lt;li&gt;&lt;p&gt;generate a staging directory (with all the needed artifacts)  with gradle, see the custom task&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;./gradlew deployStaging&lt;/code&gt; and see  Fig1 for the assembled artifacts form this task&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;./gradlew deployStaging&lt;/code&gt; and see  Fig1 for the assembled artifacts output from this task&lt;/p&gt;
 
 &lt;p&gt;Fig1
 &lt;img src=&#34;/2016/11/staging_directory.png&#34; alt=&#34;Fig1&#34; title=&#34;Fig1&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
@@ -342,25 +356,25 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 &lt;p&gt;Fig2
 &lt;img src=&#34;/2016/11/fig2.png&#34; alt=&#34;Fig2&#34; title=&#34;Fig2&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory. &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt; is the jre bundle you need to &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory.  The &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt; file is the jre bundle you need to &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;download&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;From the staging directory shown in Fig 1 you can see there are two copies of &lt;code&gt;java.xml&lt;/code&gt; one in the jre bundle and one that is modified and copied to the staging directory by gradle.&lt;/p&gt;
+&lt;p&gt;In the staging directory shown in Fig 1 you can see  two copies of &lt;code&gt;java.xml&lt;/code&gt;. One in the jre bundle and one that is modified and copied to the staging directory by gradle.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;java.xml&lt;/code&gt; in the top level directory contains a diferent path the to jre, than the path  found in the original &lt;code&gt;java.xml&lt;/code&gt; that is packaged in the Bitrock jre bundle.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;java.xml&lt;/code&gt; in the top level directory contains a diferent path the to decompressed jre than the path found in the original &lt;code&gt;java.xml&lt;/code&gt; that is found packaged in the Bitrock jre bundle &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The file  &lt;code&gt;demo_linux_install.xml&lt;/code&gt; is the bitrock installation file that configures Installbuilder. You load  &lt;code&gt;demo_linux_install.xml&lt;/code&gt; from the staging directory into Installbuilder and it should resolve the paths and depoly the jre in the distribution.&lt;/p&gt;
+&lt;p&gt;The file &lt;code&gt;demo_linux_install.xml&lt;/code&gt; is the bitrock installation file that configures Installbuilder. You load  &lt;code&gt;demo_linux_install.xml&lt;/code&gt; from the staging directory into Installbuilder and it should resolve the paths and deploy the jre in the distribution.&lt;/p&gt;
 
 &lt;p&gt;See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml&#34;&gt;line 51&lt;/a&gt; for how the modified &lt;code&gt;java.xml&lt;/code&gt; file is included as a Installbuilder component. See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml&#34;&gt;line 48&lt;/a&gt; for how this &lt;code&gt;java.xml&lt;/code&gt; was updated so that the paths resolve when the downloded &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt; is unzipped by gradle and copied to the staging directory with all the other artifacts.&lt;/p&gt;
 
 &lt;p&gt;The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.&lt;/p&gt;
 
-&lt;p&gt;To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit.&lt;/p&gt;
+&lt;p&gt;To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit. The following worked to configure my 64 bit Ubuntu to work with the 32 bit Bitrock Installbuilder tool.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&#39;sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1&#39;  
 &#39;sudo apt-get  install libgtk2.0-0:i386&#39;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Installbuilder is closed source with a commercial license. However if you are working with a range of clients, platforms, programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
+&lt;p&gt;Installbuilder is closed source with a commercial license. However if you are working with a range of platforms, programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/purchase.html#standard&#34;&gt;Installbuilder License&lt;/a&gt;.&lt;/p&gt;
 
@@ -397,17 +411,20 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;Refactor the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt; samples from the &lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-samples&#34;&gt;jasper reports server samples&lt;/a&gt; to run with the gradle wrapper.&lt;/p&gt;
+&lt;p&gt;A refactor of the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt; samples from the &lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-samples&#34;&gt;jasper reports server samples&lt;/a&gt; to run with the gradle wrapper.&lt;/p&gt;
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt; run with  &lt;code&gt;./gradlew bootRepackage&lt;/code&gt;  &lt;code&gt;./gradlew bootRun&lt;/code&gt; and the compiled reports can be found in the auto generated &amp;lsquo;chartspdf&amp;rsquo; folder&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt; run with the gradle wrapper using&lt;br /&gt;
+&lt;code&gt;./gradlew bootRepackage&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;./gradlew bootRun&lt;/code&gt;&lt;br /&gt;
+The compiled reports can be found in the auto generated &amp;lsquo;chartspdf&amp;rsquo; folder&lt;/p&gt;
 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 
 &lt;p&gt;JasperReports is an open source reporting library. It turns up in many Java applications particularly legacy (cms, crm) applications or (cms, crm)  applications that have been developed over a long period of time. Recently I decided to go a bit deeper in my understanding of the &lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt; and  &lt;a href=&#34;//www.packtpub.com/mapt/book/big-data-and-business-intelligence/9781847198082/1/ch01lvl1sec11/typical-workflow&#34;&gt;workflow&lt;/a&gt;. Rather than wade thru pages of documentation and xsd schemas I prefer just to run examples and look at the source code to quickly discern the patterns. Particularly I was interested in the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I ran into and issue with the &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;. The code uses ant and ivy out of the box. I spent approx 10 minutes trying to get it to build but kept getting obscure errors complaining about missing ivy dependencies. To speed up the learning experience I quickly refactored the chart examples to run just with the gradle wrapper. If you are new to Jasper reports and you want a simple bootstrap into the charting plugins that jasper uses you can&lt;/p&gt;
+&lt;p&gt;I ran into and issue with the &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;. The code uses ant and ivy out of the box. I spent approx 10 minutes trying to get it to build but kept getting obscure errors complaining about missing ivy dependencies. To speed up the learning experience I quickly refactored the chart examples to run with the gradle wrapper. If you are new to Jasper reports and you want a simple bootstrap into the Jasper charting plugin you can&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;clone the &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -421,7 +438,7 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;The code sets up and embedded &amp;lsquo;hsqldb&amp;rsquo; database. There is a database init script &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/schema.sql&#34;&gt;schema&lt;/a&gt;. I had to refactor this from the original &lt;a href=&#34;//github.com/Jaspersoft/jasperreports/blob/master/jasperreports/demo/hsqldb/test.script&#34;&gt;test.script&lt;/a&gt; to get it to work with the hsql in the demo app source. I needed to set the following in the jdbc connection url  &lt;code&gt;sql.enforce_size=false&lt;/code&gt;  &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/application.properties&#34;&gt;jdbc url&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The code sets up and embedded &amp;lsquo;hsqldb&amp;rsquo; database. There is a database init script &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/schema.sql&#34;&gt;schema&lt;/a&gt;. I had to refactor this from the original &lt;a href=&#34;//github.com/Jaspersoft/jasperreports/blob/master/jasperreports/demo/hsqldb/test.script&#34;&gt;test.script&lt;/a&gt; to get it to work with the hsql in the demo app source. I needed to set the following in the &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/application.properties&#34;&gt;jdbc connection url&lt;/a&gt; &lt;code&gt;sql.enforce_size=false&lt;/code&gt; .&lt;/p&gt;
 
 &lt;p&gt;The Jasper xml can call the database directly and run queries, process the ouput and set up the results see &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/JasperController.java&#34;&gt;JasperController&lt;/a&gt; where you pass the jdbc connection through to the xml.&lt;/p&gt;
 
@@ -462,7 +479,7 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;Facebook release build environment for react that abstracts away the lower level dependencies.&lt;/p&gt;
+&lt;p&gt;Facebook release a build environment for react that abstracts away the lower level configuration and  dependency management.&lt;/p&gt;
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
@@ -475,7 +492,7 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Remove the dev dependencies section  from &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this failed&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this below failed&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;npm run build:client &amp;amp;&amp;amp; npm run build:server&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 
@@ -487,7 +504,8 @@ This creates a staging directory with all the artifacts assembled for Bitrock wi
 
 &lt;p&gt;To be clear this approach is not zero configuration, I am specifically declaring the dependencies in the &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;, however it did get the dependencies for heroku in production which previously I was unable to do.&lt;/p&gt;
 
-&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  ‘Note: this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
+&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  w.r.t &lt;code&gt;npm run eject&lt;/code&gt;&lt;br /&gt;
+this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
 
 &lt;p&gt;However it&amp;rsquo;s worth it to  &lt;code&gt;npm run eject&lt;/code&gt;  and have a look at how they set up everything to realise just how far you can go with javascript tooling.&lt;/p&gt;
 

@@ -33,7 +33,7 @@
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;Facebook release build environment for react that abstracts away the lower level dependencies.&lt;/p&gt;
+&lt;p&gt;Facebook release a build environment for react that abstracts away the lower level configuration and  dependency management.&lt;/p&gt;
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
@@ -46,7 +46,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Remove the dev dependencies section  from &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this failed&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this below failed&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;npm run build:client &amp;amp;&amp;amp; npm run build:server&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 
@@ -58,7 +58,8 @@
 
 &lt;p&gt;To be clear this approach is not zero configuration, I am specifically declaring the dependencies in the &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;, however it did get the dependencies for heroku in production which previously I was unable to do.&lt;/p&gt;
 
-&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  ‘Note: this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
+&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  w.r.t &lt;code&gt;npm run eject&lt;/code&gt;&lt;br /&gt;
+this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
 
 &lt;p&gt;However it&amp;rsquo;s worth it to  &lt;code&gt;npm run eject&lt;/code&gt;  and have a look at how they set up everything to realise just how far you can go with javascript tooling.&lt;/p&gt;
 

@@ -19,11 +19,11 @@
 
 &lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
 
-&lt;p&gt;Review setup for different transpiler engines. Simple code for transpiler engines&lt;/p&gt;
+&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
 
 &lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
 
-&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
+&lt;p&gt;Java Developers new to modern javascript frameworks and tooling&lt;/p&gt;
 
 &lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
 
@@ -39,12 +39,14 @@
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.r.t definitions.&lt;/p&gt;
+&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;.
+This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out.&lt;/p&gt;
 
 &lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
 
 &lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;br /&gt;
-The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions. &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
+The demo code has a number of configuration options. See see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
+The &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
 
 &lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
 
@@ -57,9 +59,10 @@ The demo code has a number of configuration options see see top level &lt;a href
 &lt;p&gt;1 assemble the artifacts  &lt;code&gt;./gradlew :jsweet:deployStatic&lt;/code&gt;&lt;br /&gt;
    2 open  Test.html  in the jsweet module &lt;code&gt;staging&lt;/code&gt; directory&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;deployStatic&lt;/code&gt; creates a staging directory with all the artifacts assembled and a Test.html with the correct relative paths for the bundled transpiled Java Javascript&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;deployStatic&lt;/code&gt; task creates a staging directory with all the artifacts assembled.&lt;br /&gt;
+Loading Test.html results with the correct relative paths for the bundled Javascript transpiled from Java.&lt;/p&gt;
 
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
 
 &lt;p&gt;Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline&lt;/p&gt;
 
@@ -97,11 +100,11 @@ import ....
 
 &lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
 
-&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was desinged from the begining to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was designed to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h3&gt;
+&lt;h4 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h4&gt;
 
-&lt;p&gt;As software engineers we need to harmonise the relationships between the javascript dialects and tooling for large scale Javascript applications. Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; to rapidly spin up applications using a large set of the more prominent elements found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft&amp;rsquo;s Typescript is a bridge between  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt; and the evolution of Javascript. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
+&lt;p&gt;Using software engineering tools we need to harmonise the relationships between the javascript dialects. For large scale Javascript applications Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; for rapid development using a large set of the more prominent elements found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft&amp;rsquo;s Typescript is a bridge between &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;, Java and  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;/p&gt;
 

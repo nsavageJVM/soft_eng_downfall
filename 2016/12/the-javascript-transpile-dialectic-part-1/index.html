@@ -8,8 +8,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <meta property="og:title" content="The javascript transpile dialectic part 1" />
-<meta property="og:description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
-Target Audience Developers new to modern javascript frameworks and tooling
+<meta property="og:description" content="Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Java Developers new to modern javascript frameworks and tooling
 Source Documents gradle wrapper gradle-node-plugin jsweet transpiler
 TypeScript language
 TypeScript Declaration File
@@ -17,7 +17,7 @@ TypeScript type
 TypeScript namespace
 ECMA-262 6th Edition
 ECMAScript 5
-Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers npm is Massive. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w." />
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and npm is Massive." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2016/12/the-javascript-transpile-dialectic-part-1/" />
 
@@ -35,8 +35,8 @@ Summary Writing high-performance JavaScript is a challenge, many tools and Javas
 
     
 <meta itemprop="name" content="The javascript transpile dialectic part 1">
-<meta itemprop="description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
-Target Audience Developers new to modern javascript frameworks and tooling
+<meta itemprop="description" content="Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Java Developers new to modern javascript frameworks and tooling
 Source Documents gradle wrapper gradle-node-plugin jsweet transpiler
 TypeScript language
 TypeScript Declaration File
@@ -44,11 +44,11 @@ TypeScript type
 TypeScript namespace
 ECMA-262 6th Edition
 ECMAScript 5
-Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers npm is Massive. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.">
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and npm is Massive.">
 
 
 <meta itemprop="dateModified" content="2016-12-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="516">
+<meta itemprop="wordCount" content="517">
 
 
 
@@ -61,8 +61,8 @@ Summary Writing high-performance JavaScript is a challenge, many tools and Javas
 
 
 <meta name="twitter:title" content="The javascript transpile dialectic part 1"/>
-<meta name="twitter:description" content="Objective Review setup for different transpiler engines. Simple code for transpiler engines
-Target Audience Developers new to modern javascript frameworks and tooling
+<meta name="twitter:description" content="Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Java Developers new to modern javascript frameworks and tooling
 Source Documents gradle wrapper gradle-node-plugin jsweet transpiler
 TypeScript language
 TypeScript Declaration File
@@ -70,7 +70,7 @@ TypeScript type
 TypeScript namespace
 ECMA-262 6th Edition
 ECMAScript 5
-Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers npm is Massive. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w."/>
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and npm is Massive."/>
 <meta name="twitter:site" content="@nsavagejvm"/>
 
 
@@ -138,11 +138,11 @@ Summary Writing high-performance JavaScript is a challenge, many tools and Javas
         </header>
         <h3 id="objective">Objective</h3>
 
-<p>Review setup for different transpiler engines. Simple code for transpiler engines</p>
+<p>Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.</p>
 
 <h3 id="target-audience">Target Audience</h3>
 
-<p>Developers new to modern javascript frameworks and tooling</p>
+<p>Java Developers new to modern javascript frameworks and tooling</p>
 
 <h3 id="source-documents">Source Documents</h3>
 
@@ -158,12 +158,14 @@ Summary Writing high-performance JavaScript is a challenge, many tools and Javas
 
 <h3 id="summary">Summary</h3>
 
-<p>Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, the nomenculture can be confusing for new developers <a href="//nodesource.com/blog/npm-is-massive/">npm is Massive</a>. This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out and discussed w.r.t definitions.</p>
+<p>Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and <a href="//nodesource.com/blog/npm-is-massive/">npm is Massive</a>.
+This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out.</p>
 
 <h3 id="result">Result</h3>
 
 <p>See the <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a><br />
-The demo code has a number of configuration options see see top level <a href="https://github.com/nsavageJVM/transpilers-dev">readme</a> for general instructions. <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a> needs node on the path. If you use the <a href="//docs.gradle.org/current/userguide/gradle_wrapper.html">gradle wrapper</a> then you will need to run the wrapper from the top level directory.</p>
+The demo code has a number of configuration options. See see top level <a href="https://github.com/nsavageJVM/transpilers-dev">readme</a> for general instructions.
+The <a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a> needs node on the path. If you use the <a href="//docs.gradle.org/current/userguide/gradle_wrapper.html">gradle wrapper</a> then you will need to run the wrapper from the top level directory.</p>
 
 <h4 id="transpile">Transpile</h4>
 
@@ -176,9 +178,10 @@ The demo code has a number of configuration options see see top level <a href="h
 <p>1 assemble the artifacts  <code>./gradlew :jsweet:deployStatic</code><br />
    2 open  Test.html  in the jsweet module <code>staging</code> directory</p>
 
-<p><code>deployStatic</code> creates a staging directory with all the artifacts assembled and a Test.html with the correct relative paths for the bundled transpiled Java Javascript</p>
+<p>The <code>deployStatic</code> task creates a staging directory with all the artifacts assembled.<br />
+Loading Test.html results with the correct relative paths for the bundled Javascript transpiled from Java.</p>
 
-<h3 id="discussion">Discussion</h3>
+<h4 id="discussion">Discussion</h4>
 
 <p>Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline</p>
 
@@ -216,11 +219,11 @@ import ....
 
 <h3 id="more-details">More Details</h3>
 
-<p>To clarify the relationships in the above code. Java&rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 <a href="//www.ecma-international.org/ecma-262/6.0/">ECMA-262 6th Edition</a>. ECMAScript 2015 defines <a href="//www.ecma-international.org/ecma-262/6.0/">modules</a> and <a href="//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions">class</a>. Typescript was desinged from the begining to transpile to what we today describe as Javascript but in this context we are refering to <a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a>.</p>
+<p>To clarify the relationships in the above code. Java&rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 <a href="//www.ecma-international.org/ecma-262/6.0/">ECMA-262 6th Edition</a>. ECMAScript 2015 defines <a href="//www.ecma-international.org/ecma-262/6.0/">modules</a> and <a href="//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions">class</a>. Typescript was designed to transpile to what we today describe as Javascript but in this context we are refering to <a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a>.</p>
 
-<h3 id="javascript-fatigue">Javascript Fatigue</h3>
+<h4 id="javascript-fatigue">Javascript Fatigue</h4>
 
-<p>As software engineers we need to harmonise the relationships between the javascript dialects and tooling for large scale Javascript applications. Java shops can use frameworks like jsweet and tools such as the <a href="//github.com/srs/gradle-node-plugin">gradle-node-plugin</a> to rapidly spin up applications using a large set of the more prominent elements found in <a href="//nodesource.com/blog/npm-is-massive/">npm is Massive</a>. Microsoft&rsquo;s Typescript is a bridge between  <a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a> and the evolution of Javascript. In the next part we will clarify the issues around transpiling of Google closure.</p>
+<p>Using software engineering tools we need to harmonise the relationships between the javascript dialects. For large scale Javascript applications Java shops can use frameworks like jsweet and tools such as the <a href="//github.com/srs/gradle-node-plugin">gradle-node-plugin</a> for rapid development using a large set of the more prominent elements found in <a href="//nodesource.com/blog/npm-is-massive/">npm is Massive</a>. Microsoft&rsquo;s Typescript is a bridge between <a href="//www.ecma-international.org/ecma-262/6.0/">ECMA-262 6th Edition</a>, Java and  <a href="//kangax.github.io/compat-table/es5/">ECMAScript 5</a>. In the next part we will clarify the issues around transpiling of Google closure.</p>
 
 <p><a href="//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet">Demo app for jsweet</a></p>
 
