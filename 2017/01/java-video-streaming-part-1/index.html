@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta property="og:title" content="Java video streaming part 1" />
+<meta property="og:description" content="Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents gradle wrapper
+vlc vlcj
+vlcj javafx
+JavaFX Graphics System
+Java Native Interface
+Java Native Access (JNA)
+YouTube Data API
+JavaFX Demo app for vlcj
+Summary To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/01/java-video-streaming-part-1/" />
+
+
+<meta property="og:updated_time" content="2017-01-07T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+<meta itemprop="name" content="Java video streaming part 1">
+<meta itemprop="description" content="Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents gradle wrapper
+vlc vlcj
+vlcj javafx
+JavaFX Graphics System
+Java Native Interface
+Java Native Access (JNA)
+YouTube Data API
+JavaFX Demo app for vlcj
+Summary To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks.">
+
+
+<meta itemprop="dateModified" content="2017-01-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="433">
+
+
+
+<meta itemprop="keywords" content="babel,bitrock,closure-compiler,dialect,installbuilder,installers,jasper,jsweet,react,react-with-zero-configuration,reporting-tools,spring-cloud,spring-cloud-netflix,transpile,video-streaming,vlc,vlcj," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Java video streaming part 1"/>
+<meta name="twitter:description" content="Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents gradle wrapper
+vlc vlcj
+vlcj javafx
+JavaFX Graphics System
+Java Native Interface
+Java Native Access (JNA)
+YouTube Data API
+JavaFX Demo app for vlcj
+Summary To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks."/>
+<meta name="twitter:site" content="@nsavagejvm"/>
+
+
+
+    
+
+    
+
+    
+
+    <meta name="generator" content="Hugo 0.18-DEV" />
+
+
+    <base href="/">
+    <link rel="canonical" href="/2017/01/java-video-streaming-part-1/">
+
+    <title>Java video streaming part 1 | Software Engineering</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+
+<body>
+
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="nav blog-nav">
+        <a class="nav-link " href="/">Home</a>
+        
+          
+        
+      </nav>
+    </div>
+  </div>
+
+  <header class="blog-header">
+    <div class="container" style="padding:20px;">
+      <h1 class="blog-title"><a href="/" rel="home">Software Engineering</a></h1>
+        <div style="color:red;margin:4px 4px 4px 24px;font-size:1.1rem;" > My part in its downfall </div>
+      <p  style="margin:4px 4px 4px 20px;color:blue;" class="lead blog-description">All the salient facts are true</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+
+        
+
+
+      <article class="blog-post">
+        <header>
+          <h3 class="blog-post-title"><a href="/2017/01/java-video-streaming-part-1/">Java video streaming part 1</a></h3>
+          <p class="blog-post-meta"><time datetime="2017-01-07T00:00:00Z">Sat Jan 07, 2017</time> by nsavagejvm in 
+            <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/video-streaming" rel="category tag">video streaming</a>, <a href="/categories/vlcj" rel="category tag">vlcj</a>, <a href="/categories/vlc" rel="category tag">vlc</a>
+
+
+</p>
+        </header>
+        <h3 id="objective">Objective</h3>
+
+<p>Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.</p>
+
+<h3 id="target-audience">Target Audience</h3>
+
+<p>Java Developers new to modern video streaming frameworks and tooling</p>
+
+<h3 id="source-documents">Source Documents</h3>
+
+<p><a href="//docs.gradle.org/current/userguide/gradle_wrapper.html">gradle wrapper</a><br />
+<a href="//www.videolan.org/vlc/index.html">vlc</a>
+<a href="//github.com/caprica/vlcj">vlcj</a><br />
+<a href="//github.com/caprica/vlcj-javafx">vlcj javafx</a><br />
+<a href="//docs.oracle.com/javafx/2/architecture/jfxpub-architecture.htm#BABDFFDG">JavaFX Graphics System</a><br />
+<a href="//docs.oracle.com/javase/8/docs/technotes/guides/jni/">Java Native Interface</a><br />
+<a href="//github.com/java-native-access/jna">Java Native Access (JNA)</a><br />
+<a href="//developers.google.com/youtube/v3/getting-started">YouTube Data API</a><br />
+<a href="//github.com/nsavageJVM/v-stream-part-1">JavaFX Demo app for vlcj</a></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks.<br />
+This is first part of a series that provides an outine for the above.<br />
+The main result for this first part is a simple demo application that renders video streams.<br />
+The demo application is based on the  <a href="//github.com/caprica/vlcj-javafx">vlcj javafx</a> code using  <a href="//github.com/caprica/vlcj">vlcj</a>.</p>
+
+<h3 id="result">Result</h3>
+
+<p>See the <a href="//github.com/nsavageJVM/v-stream-part-1">JavaFX Demo app for vlcj</a></p>
+
+<h3 id="set-up">Set Up</h3>
+
+<p>The <a href="//github.com/nsavageJVM/v-stream-part-1/blob/master/readme.md">read me</a> steps through the attributes that need to be configured
+to play the test video or youtube serach result.
+The set up steps in order of prededence are<br />
+1. Use <a href="//developers.google.com/youtube/v3/getting-started">YouTube Data API</a> documentation to obtain an api key<br />
+2. in src/main/resources/application.properties replace &lsquo;your api key&rsquo;  with api key from you tube<br />
+3. On your system download and install the vlc player <a href="//www.videolan.org/vlc/index.html">vlc</a><br />
+4 Set the path to the native libaries in runtime.properties<br />
+5 Set the path to the test video in runtime.properties</p>
+
+<h4 id="build-and-run-video-streaming-javafx-demo-app">Build and Run  Video Streaming  JavaFX Demo app</h4>
+
+<pre><code>1 build the java source `./gradlew clean build -x test`
+2 run  `java -jar -Dvs.properties=/home/HOME/aJavaFXSpectrum/v-stream/runtime.properties build/libs/v-stream-0.0.1-SNAPSHOT.jar`  
+</code></pre>
+
+<h4 id="discussion">Discussion</h4>
+
+<p>From <a href="//github.com/caprica/vlcj">vlcj</a> we discover a libary that allows java bindings for the native vlc runtime. If we go to
+the source code for the  <a href="//github.com/caprica/vlcj/blob/master/src/main/java/uk/co/caprica/vlcj/player/DefaultMediaPlayer.java">DefaultMediaPlayer</a> we can see how these bindings are used via
+the JNA interface to the native code. JNA is one way to map Java methods to native methods.<br />
+We need to apply the bindings before we can stream video with <a href="//github.com/caprica/vlcj">vlcj</a> the class <a href="//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/util/JNASetUp.java">JNASetUp</a>
+from the demo code is one way to do this.
+Once we have applied the JNA bindings we then need two high level components<br />
+1. A rendering engine  <a href="//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/DefaultRenderCallback.java">DefaultRenderCallback</a><br />
+2. A Buffer <a href="//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/VlcjMediaPlayerFactory.java">VLCJBufferFormatCallback</a>  line 51</p>
+
+<p>Wth the above attributes we can proceed to build a Factory to produce instances of the vlcj <a href="//github.com/caprica/vlcj/blob/master/src/main/java/uk/co/caprica/vlcj/player/direct/DefaultDirectMediaPlayer.java">DirectMediaPlayer</a> type. <a href="//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/VlcjMediaPlayerFactory.java">VlcjMediaPlayerFactory</a></p>
+
+<h3 id="more-details">More Details</h3>
+
+<p>The above code is based on <a href="//github.com/caprica/vlcj-javafx">vlcj javafx</a> examples. Currently vlcj javafx support is experimental. The stable library supports java Swing AWT rendering toolkit.
+The <a href="//docs.oracle.com/javafx/2/architecture/jfxpub-architecture.htm#BABDFFDG">JavaFX Graphics System</a> with the Glass Windowing Tool Kit and the Prisim rendering engine is superior to Swings AWT.<br />
+In the following parts to come for this series we will look at other options for video streaming in Java and JavaFX.</p>
+
+<p><a href="//github.com/nsavageJVM/v-stream-part-1">JavaFX Demo app for vlcj</a>
+
+        
+        
+                  <hr>
+        <footer>
+          <header>
+            <h4>Share</h4>
+          </header>
+          <nav class="nav nav-inline">
+          <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f01%2fjava-video-streaming-part-1%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+          <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f01%2fjava-video-streaming-part-1%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+          
+          <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f01%2fjava-video-streaming-part-1%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+          </nav>
+        </footer>
+
+
+        
+      </article> 
+
+  
+       <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'nsavagejvm';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+
+
+      </div> <!-- /.blog-main -->
+
+      <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>pyrotechnics by  <a href="//nsavagejvm.github.io/">nsavagejvm</a>.</p>
+  </section>
+  
+
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled"> <li><hr></li> </ol>
+    <ol class="list-unstyled">
+      
+      <li><a style="letter-spacing:1px;" href="/2017/01/java-video-streaming-part-1/">Java video streaming part 1</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-3/">The javascript transpile dialectic part 3</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-2/">The javascript transpile dialectic part 2</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-1/">The javascript transpile dialectic part 1</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/11/issues-generating-installer-with--bitrock-installbuilder/">Issues generating installer with  BitRock InstallBuilder</a></li><li><hr></li>
+      
+    </ol>
+  </section>
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://www.youtube.com/watch?v=8dgosa7wkfY">Pete</a></li>
+      
+      <li><a href="https://www.youtube.com/watch?v=tyqL5_-PL6g">Spike</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>
+      
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
+      
+    </p>
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>
