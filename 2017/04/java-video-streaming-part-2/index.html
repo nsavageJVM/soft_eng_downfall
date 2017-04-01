@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta property="og:title" content="Java video streaming part 2" />
+<meta property="og:description" content="Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents ffmpeg
+Real Time Streaming Protocol(RTSP)
+Java FX media support
+Java FX media support restrictions
+vlcj
+Java Media Framework
+Java Media Framework RTSP Support
+Video Container
+JavaFX Demo app for RTSP
+Golang utility for ffmpeg transcode
+Summary Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/04/java-video-streaming-part-2/" />
+
+
+<meta property="og:updated_time" content="2017-04-03T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+<meta itemprop="name" content="Java video streaming part 2">
+<meta itemprop="description" content="Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents ffmpeg
+Real Time Streaming Protocol(RTSP)
+Java FX media support
+Java FX media support restrictions
+vlcj
+Java Media Framework
+Java Media Framework RTSP Support
+Video Container
+JavaFX Demo app for RTSP
+Golang utility for ffmpeg transcode
+Summary Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client.">
+
+
+<meta itemprop="dateModified" content="2017-04-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="507">
+
+
+
+<meta itemprop="keywords" content="babel,bitrock,closure-compiler,dialect,ffmpeg,installbuilder,installers,jasper,jsweet,react,react-with-zero-configuration,reporting-tools,spring-cloud,spring-cloud-netflix,transcode,transpile,video-streaming,vlc,vlcj," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Java video streaming part 2"/>
+<meta name="twitter:description" content="Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents ffmpeg
+Real Time Streaming Protocol(RTSP)
+Java FX media support
+Java FX media support restrictions
+vlcj
+Java Media Framework
+Java Media Framework RTSP Support
+Video Container
+JavaFX Demo app for RTSP
+Golang utility for ffmpeg transcode
+Summary Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client."/>
+<meta name="twitter:site" content="@nsavagejvm"/>
+
+
+
+    
+
+    
+
+    
+
+    <meta name="generator" content="Hugo 0.18-DEV" />
+
+
+    <base href="/">
+    <link rel="canonical" href="/2017/04/java-video-streaming-part-2/">
+
+    <title>Java video streaming part 2 | Software Engineering</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+
+<body>
+
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="nav blog-nav">
+        <a class="nav-link " href="/">Home</a>
+        
+          
+        
+      </nav>
+    </div>
+  </div>
+
+  <header class="blog-header">
+    <div class="container" style="padding:20px;">
+      <h1 class="blog-title"><a href="/" rel="home">Software Engineering</a></h1>
+        <div style="color:red;margin:4px 4px 4px 24px;font-size:1.1rem;" > My part in its downfall </div>
+      <p  style="margin:4px 4px 4px 20px;color:blue;" class="lead blog-description">All the salient facts are true</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+
+        
+
+
+      <article class="blog-post">
+        <header>
+          <h3 class="blog-post-title"><a href="/2017/04/java-video-streaming-part-2/">Java video streaming part 2</a></h3>
+          <p class="blog-post-meta"><time datetime="2017-04-03T00:00:00Z">Mon Apr 03, 2017</time> by nsavagejvm in 
+            <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/video-streaming" rel="category tag">video streaming</a>, <a href="/categories/ffmpeg" rel="category tag">ffmpeg</a>, <a href="/categories/transcode" rel="category tag">transcode</a>
+
+
+</p>
+        </header>
+        <h3 id="objective">Objective</h3>
+
+<p>Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.</p>
+
+<h3 id="target-audience">Target Audience</h3>
+
+<p>Java Developers new to modern video streaming frameworks and tooling</p>
+
+<h3 id="source-documents">Source Documents</h3>
+
+<p><a href="https://ffmpeg.org/">ffmpeg</a><br />
+<a href="//en.wikipedia.org/wiki/Real_Time_Streaming_Protocol">Real Time Streaming Protocol(RTSP)</a><br />
+<a href="//docs.oracle.com/javase/8/javafx/api/javafx/scene/media/package-summary.html">Java FX  media support</a><br />
+<a href="//berry120.blogspot.bg/2014/03/expanding-javafxs-media-support.html">Java FX  media support restrictions</a><br />
+<a href="//github.com/caprica/vlcj-javafx">vlcj</a><br />
+<a href="//www.oracle.com/technetwork/java/javase/tech/index-jsp-140239.html">Java Media Framework</a><br />
+<a href="//www.oracle.com/technetwork/java/javase/support-rtsp-136626.html">Java Media Framework RTSP Support</a><br />
+<a href="//en.wikipedia.org/wiki/Comparison_of_video_container_formats">Video Container</a><br />
+<a href="//github.com/nsavageJVM/v-stream-part-2">JavaFX Demo app for RTSP</a><br />
+<a href="//github.com/nsavageJVM/v-stream-util">Golang utility for ffmpeg transcode</a></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client. The main result for this second part is a
+simple demo application that renders multiple video streams from remote web-cams, it includes a golang utility to run the
+transcoding process</p>
+
+<h3 id="result">Result</h3>
+
+<p><a href="//github.com/nsavageJVM/v-stream-part-2">JavaFX Demo app for RTSP</a><br />
+<a href="//github.com/nsavageJVM/v-stream-util">Golang utility for ffmpeg transcode</a></p>
+
+<h4 id="discussion">Discussion</h4>
+
+<p>A typical use case for a JavaFX streaming video client would be a home or buisness security application where you would have 2 or 3 rtsp cameras streaming video in a
+container format. <a href="//berry120.blogspot.bg/2014/03/expanding-javafxs-media-support.html">Java FX  media support restrictions</a>  outlines why you can not directly render this video with the JavaFX media engine. <a href="//docs.oracle.com/javase/8/javafx/api/javafx/scene/media/package-summary.html">Java FX  media support</a> shows
+you the available containers, more about containers here (<a href="//en.wikipedia.org/wiki/Comparison_of_video_container_formats">video container</a>).<br />
+The <a href="//github.com/nsavageJVM/v-stream-part-2">Demo app for RTSP</a> is an entry into how you would construct a home or buisness security application to stream rtsp sources. It uses
+<a href="//github.com/caprica/vlcj-javafx">vlcj</a> which we outlined in <a href="//nsavagejvm.netlify.com/2017/01/java-video-streaming-part-1/">part 1</a> and  <a href="https://ffmpeg.org/">ffmpeg</a> to transcode the
+<a href="//en.wikipedia.org/wiki/Real_Time_Streaming_Protocol">RTSP</a>  source to a file via the <a href="//github.com/nsavageJVM/v-stream-util">Golang utility</a>.</p>
+
+<p>Below are some examples for using ffmpeg to transcode rtsp sources to a container compatible with vlc.</p>
+
+<ol>
+<li><p>transcode a rtsp source to udp<br />
+ffmpeg -i {rtsp src url} -c:a acodec -c:v h264 -vf scale=1280x720 -an -pix_fmt yuv420p -c:a copy -f mpegts  udp://@localhost:1234</p></li>
+
+<li><p>transcode a rtsp source to a file in segments<br />
+ffmpeg -i {rtsp src url} -c:v h264 -vf scale=1280x720 -an -pix_fmt yuv420p -map 0 -f segment -segment_time 20  /home/ubu/aVidOut/Hessdalen1/output%d.mp4</p></li>
+
+<li><p>transcode a rtsp source to a file<br />
+ffmpeg -i {rtsp src url}   -c:v  libx264   -preset medium -crf 22 -c:a copy /home/ubu/output.MP4</p></li>
+</ol>
+
+<h4 id="source-code-hilights">Source code hilights</h4>
+
+<p>1 Using Springs @Scope(&ldquo;prototype&rdquo;) to implement the <a href="//docs.oracle.com/javaee/6/tutorial/doc/gkgkv.html">Producer pattern from CDI</a> at <a href="//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/java/fish/beans/config/AppConfig.java">line 57</a>, Springs prototype scope
+will inject a new object however the catch is it only a new object at the time it injects hence the need to create the object from &lsquo;getBean(&hellip;)&rsquo; <a href="//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/java/fish/beans/controllers/BasePanel.java">line 62</a></p>
+
+<p>2 Using the Go Console User Interface <a href="//github.com/jroimartin/gocui">GOCUI</a> in the Golang utility for ffmpeg transcoding with ffmpeg</p>
+
+<h3 id="setup">setup</h3>
+
+<p>1 setup the vlc dependencies as in part 1, if Debian after apt-get vlc you would set the native libary path as <a href="//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/resources/application.properties">line 2</a><br />
+2 setup ffmpeg so its on the system path<br />
+3 set up the video output directory<br />
+4 set the transcode output paths in the go utility <a href="//github.com/nsavageJVM/v-stream-util/blob/master/config.properties">config properties</a><br />
+5 set the path to config.properties <a href="//github.com/nsavageJVM/v-stream-util/blob/master/vs-util.go">line 43</a><br />
+6 set the inputpaths for rendering in <a href="//github.com/nsavageJVM/v-stream-part-2/blob/master/runtime.properties">runtime.properties</a><br />
+7 build the golang ffmpeg utility [](//golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies)<br />
+8 build the java source as in <a href="//nsavagejvm.netlify.com/2017/01/java-video-streaming-part-1/">part 1</a><br />
+9 run the transcoding process <a href="//github.com/nsavageJVM/v-stream-util">ffmpeg transcode</a><br />
+10 run the rendering application with<br />
+java -jar -Dvs.properties=/home/USER_HOME_DIR/aJavaFXSpectrum/v-stream/runtime.properties build/libs/v-stream-0.0.1-SNAPSHOT.jar</p>
+
+<p><a href="//github.com/nsavageJVM/v-stream-part-2">JavaFX Demo app for RTSP</a><br />
+<a href="//github.com/nsavageJVM/v-stream-util">Golang utility for ffmpeg transcode</a>
+
+        
+        
+                  <hr>
+        <footer>
+          <header>
+            <h4>Share</h4>
+          </header>
+          <nav class="nav nav-inline">
+          <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fjava-video-streaming-part-2%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+          <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f04%2fjava-video-streaming-part-2%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+          
+          <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f04%2fjava-video-streaming-part-2%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+          </nav>
+        </footer>
+
+
+        
+      </article> 
+
+  
+       <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'nsavagejvm';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+
+
+      </div> <!-- /.blog-main -->
+
+      <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>pyrotechnics by  <a href="//nsavagejvm.github.io/">nsavagejvm</a>.</p>
+  </section>
+  
+
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled"> <li><hr></li> </ol>
+    <ol class="list-unstyled">
+      
+      <li><a style="letter-spacing:1px;" href="/2017/04/java-video-streaming-part-2/">Java video streaming part 2</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2017/01/java-video-streaming-part-1/">Java video streaming part 1</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-3/">The javascript transpile dialectic part 3</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-2/">The javascript transpile dialectic part 2</a></li><li><hr></li>
+      
+      <li><a style="letter-spacing:1px;" href="/2016/12/the-javascript-transpile-dialectic-part-1/">The javascript transpile dialectic part 1</a></li><li><hr></li>
+      
+    </ol>
+  </section>
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://www.youtube.com/watch?v=8dgosa7wkfY">Pete</a></li>
+      
+      <li><a href="https://www.youtube.com/watch?v=tyqL5_-PL6g">Spike</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>
+      
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
+      
+    </p>
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

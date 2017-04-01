@@ -7,8 +7,96 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Apr 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Java video streaming part 2</title>
+      <link>/2017/04/java-video-streaming-part-2/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/04/java-video-streaming-part-2/</guid>
+      <description>
+
+&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
+
+&lt;p&gt;Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.&lt;/p&gt;
+
+&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
+
+&lt;p&gt;Java Developers new to modern video streaming frameworks and tooling&lt;/p&gt;
+
+&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ffmpeg.org/&#34;&gt;ffmpeg&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//en.wikipedia.org/wiki/Real_Time_Streaming_Protocol&#34;&gt;Real Time Streaming Protocol(RTSP)&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//docs.oracle.com/javase/8/javafx/api/javafx/scene/media/package-summary.html&#34;&gt;Java FX  media support&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//berry120.blogspot.bg/2014/03/expanding-javafxs-media-support.html&#34;&gt;Java FX  media support restrictions&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.oracle.com/technetwork/java/javase/tech/index-jsp-140239.html&#34;&gt;Java Media Framework&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//www.oracle.com/technetwork/java/javase/support-rtsp-136626.html&#34;&gt;Java Media Framework RTSP Support&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//en.wikipedia.org/wiki/Comparison_of_video_container_formats&#34;&gt;Video Container&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;JavaFX Demo app for RTSP&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility for ffmpeg transcode&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client. The main result for this second part is a
+simple demo application that renders multiple video streams from remote web-cams, it includes a golang utility to run the
+transcoding process&lt;/p&gt;
+
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;JavaFX Demo app for RTSP&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility for ffmpeg transcode&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
+
+&lt;p&gt;A typical use case for a JavaFX streaming video client would be a home or buisness security application where you would have 2 or 3 rtsp cameras streaming video in a
+container format. &lt;a href=&#34;//berry120.blogspot.bg/2014/03/expanding-javafxs-media-support.html&#34;&gt;Java FX  media support restrictions&lt;/a&gt;  outlines why you can not directly render this video with the JavaFX media engine. &lt;a href=&#34;//docs.oracle.com/javase/8/javafx/api/javafx/scene/media/package-summary.html&#34;&gt;Java FX  media support&lt;/a&gt; shows
+you the available containers, more about containers here (&lt;a href=&#34;//en.wikipedia.org/wiki/Comparison_of_video_container_formats&#34;&gt;video container&lt;/a&gt;).&lt;br /&gt;
+The &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;Demo app for RTSP&lt;/a&gt; is an entry into how you would construct a home or buisness security application to stream rtsp sources. It uses
+&lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj&lt;/a&gt; which we outlined in &lt;a href=&#34;//nsavagejvm.netlify.com/2017/01/java-video-streaming-part-1/&#34;&gt;part 1&lt;/a&gt; and  &lt;a href=&#34;https://ffmpeg.org/&#34;&gt;ffmpeg&lt;/a&gt; to transcode the
+&lt;a href=&#34;//en.wikipedia.org/wiki/Real_Time_Streaming_Protocol&#34;&gt;RTSP&lt;/a&gt;  source to a file via the &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Below are some examples for using ffmpeg to transcode rtsp sources to a container compatible with vlc.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;transcode a rtsp source to udp&lt;br /&gt;
+ffmpeg -i {rtsp src url} -c:a acodec -c:v h264 -vf scale=1280x720 -an -pix_fmt yuv420p -c:a copy -f mpegts  udp://@localhost:1234&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;transcode a rtsp source to a file in segments&lt;br /&gt;
+ffmpeg -i {rtsp src url} -c:v h264 -vf scale=1280x720 -an -pix_fmt yuv420p -map 0 -f segment -segment_time 20  /home/ubu/aVidOut/Hessdalen1/output%d.mp4&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;transcode a rtsp source to a file&lt;br /&gt;
+ffmpeg -i {rtsp src url}   -c:v  libx264   -preset medium -crf 22 -c:a copy /home/ubu/output.MP4&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;source-code-hilights&#34;&gt;Source code hilights&lt;/h4&gt;
+
+&lt;p&gt;1 Using Springs @Scope(&amp;ldquo;prototype&amp;rdquo;) to implement the &lt;a href=&#34;//docs.oracle.com/javaee/6/tutorial/doc/gkgkv.html&#34;&gt;Producer pattern from CDI&lt;/a&gt; at &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/java/fish/beans/config/AppConfig.java&#34;&gt;line 57&lt;/a&gt;, Springs prototype scope
+will inject a new object however the catch is it only a new object at the time it injects hence the need to create the object from &amp;lsquo;getBean(&amp;hellip;)&amp;rsquo; &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/java/fish/beans/controllers/BasePanel.java&#34;&gt;line 62&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2 Using the Go Console User Interface &lt;a href=&#34;//github.com/jroimartin/gocui&#34;&gt;GOCUI&lt;/a&gt; in the Golang utility for ffmpeg transcoding with ffmpeg&lt;/p&gt;
+
+&lt;h3 id=&#34;setup&#34;&gt;setup&lt;/h3&gt;
+
+&lt;p&gt;1 setup the vlc dependencies as in part 1, if Debian after apt-get vlc you would set the native libary path as &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/resources/application.properties&#34;&gt;line 2&lt;/a&gt;&lt;br /&gt;
+2 setup ffmpeg so its on the system path&lt;br /&gt;
+3 set up the video output directory&lt;br /&gt;
+4 set the transcode output paths in the go utility &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util/blob/master/config.properties&#34;&gt;config properties&lt;/a&gt;&lt;br /&gt;
+5 set the path to config.properties &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util/blob/master/vs-util.go&#34;&gt;line 43&lt;/a&gt;&lt;br /&gt;
+6 set the inputpaths for rendering in &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/runtime.properties&#34;&gt;runtime.properties&lt;/a&gt;&lt;br /&gt;
+7 build the golang ffmpeg utility [](//golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies)&lt;br /&gt;
+8 build the java source as in &lt;a href=&#34;//nsavagejvm.netlify.com/2017/01/java-video-streaming-part-1/&#34;&gt;part 1&lt;/a&gt;&lt;br /&gt;
+9 run the transcoding process &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;ffmpeg transcode&lt;/a&gt;&lt;br /&gt;
+10 run the rendering application with&lt;br /&gt;
+java -jar -Dvs.properties=/home/USER_HOME_DIR/aJavaFXSpectrum/v-stream/runtime.properties build/libs/v-stream-0.0.1-SNAPSHOT.jar&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;JavaFX Demo app for RTSP&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility for ffmpeg transcode&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Java video streaming part 1</title>
@@ -531,6 +619,66 @@ The compiled reports can be found in the auto generated &amp;lsquo;chartspdf&amp
 &lt;a href=&#34;//www.pentaho.com/license&#34;&gt;pentaho license&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Issues re react-with-zero-configuration</title>
+      <link>/2016/11/issues-re-react-with-zero-configuration/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/11/issues-re-react-with-zero-configuration/</guid>
+      <description>
+
+&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
+
+&lt;p&gt;Describe the use of react-with-zero-configuration to deploy to heroku&lt;/p&gt;
+
+&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
+
+&lt;p&gt;Developers new to react&lt;/p&gt;
+
+&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;react-with-zero-configuration&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//blog.heroku.com/deploying-react-with-zero-configuration&#34;&gt;heroku react-with-zero-configuration &lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;//github.com/mars/create-react-app-buildpack&#34;&gt;heroku react buildpack&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Facebook release a build environment for react that abstracts away the lower level configuration and  dependency management.&lt;/p&gt;
+
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+
+&lt;p&gt;This is a good thing until you run  &lt;code&gt;npm run eject&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;I ran into this when attempting to deploy a react app to Heroku. I was able to get &lt;code&gt;react&lt;/code&gt; to deploy and build on Heroku with the following&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Remove the dev dependencies section  from &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this below failed&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm run build:client &amp;amp;&amp;amp; npm run build:server&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adding the build pack like&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;`heroku create -a &amp;lt;appname&amp;gt; -b https://github.com/mars/create-react-app-buildpack.git`
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To be clear this approach is not zero configuration, I am specifically declaring the dependencies in the &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;, however it did get the dependencies for heroku in production which previously I was unable to do.&lt;/p&gt;
+
+&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  w.r.t &lt;code&gt;npm run eject&lt;/code&gt;&lt;br /&gt;
+this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
+
+&lt;p&gt;However it&amp;rsquo;s worth it to  &lt;code&gt;npm run eject&lt;/code&gt;  and have a look at how they set up everything to realise just how far you can go with javascript tooling.&lt;/p&gt;
+
+&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/eddy-heroku-react&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
