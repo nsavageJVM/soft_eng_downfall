@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Software Engineering</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Software Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
+    <lastBuildDate>Tue, 06 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Babel</title>
+      <link>/categories/babel/</link>
+      <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/babel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bitrock</title>
+      <link>/categories/bitrock/</link>
+      <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/bitrock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Closure Compiler</title>
+      <link>/categories/closure-compiler/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/closure-compiler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Convolution</title>
+      <link>/categories/convolution/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/convolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dialect</title>
+      <link>/categories/dialect/</link>
+      <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/dialect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg</title>
+      <link>/categories/ffmpeg/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Installbuilder</title>
+      <link>/categories/installbuilder/</link>
+      <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/installbuilder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Installers</title>
+      <link>/categories/installers/</link>
+      <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/installers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jasper</title>
+      <link>/categories/jasper/</link>
+      <pubDate>Wed, 23 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/jasper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jsweet</title>
+      <link>/categories/jsweet/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/jsweet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>/categories/react/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React With Zero Configuration</title>
+      <link>/categories/react-with-zero-configuration/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/react-with-zero-configuration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reporting Tools</title>
+      <link>/categories/reporting-tools/</link>
+      <pubDate>Wed, 23 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/reporting-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Signal Processing</title>
+      <link>/categories/signal-processing/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/signal-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud</title>
+      <link>/categories/spring-cloud/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/spring-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Netflix</title>
+      <link>/categories/spring-cloud-netflix/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/spring-cloud-netflix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transcode</title>
+      <link>/categories/transcode/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/transcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transpile</title>
+      <link>/categories/transpile/</link>
+      <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/transpile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video Streaming</title>
+      <link>/categories/video-streaming/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/video-streaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vlc</title>
+      <link>/categories/vlc/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vlc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vlcj</title>
+      <link>/categories/vlcj/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vlcj/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

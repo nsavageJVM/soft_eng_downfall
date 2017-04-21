@@ -2,13 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Software Engineering</title>
-    <link>/post/index.xml</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Software Engineering</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <lastBuildDate>Mon, 03 Apr 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JVM signal processing part 1</title>
+      <link>/2017/04/jvm-signal-processing-part-1/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/04/jvm-signal-processing-part-1/</guid>
+      <description>Objective Simple demo code for JVM signal processing. Review the setup and configuration for Scala Breeze signal processing.
+Target Audience JVM Developers new to modern signal processing frameworks and tooling
+Source Documents Physionet
+QRS complex
+First-Derivative Based QRS Detection Algorithm
+Shannon energy
+Shannon energy non linear Algorithm
+Convolution
+Convolution Filters Scala Breeze
+Java Colt Project
+Scala Demo app
+Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala Breeze for detecting R-R interval of a ECG signal</description>
+    </item>
     
     <item>
       <title>Java video streaming part 2</title>
@@ -16,86 +38,19 @@
       <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/04/java-video-streaming-part-2/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Java Developers new to modern video streaming frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://ffmpeg.org/&#34;&gt;ffmpeg&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//en.wikipedia.org/wiki/Real_Time_Streaming_Protocol&#34;&gt;Real Time Streaming Protocol(RTSP)&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javase/8/javafx/api/javafx/scene/media/package-summary.html&#34;&gt;Java FX  media support&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//berry120.blogspot.bg/2014/03/expanding-javafxs-media-support.html&#34;&gt;Java FX  media support restrictions&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.oracle.com/technetwork/java/javase/tech/index-jsp-140239.html&#34;&gt;Java Media Framework&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.oracle.com/technetwork/java/javase/support-rtsp-136626.html&#34;&gt;Java Media Framework RTSP Support&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//en.wikipedia.org/wiki/Comparison_of_video_container_formats&#34;&gt;Video Container&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;JavaFX Demo app for RTSP&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility for ffmpeg transcode&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client. The main result for this second part is a
-simple demo application that renders multiple video streams from remote web-cams, it includes a golang utility to run the
-transcoding process&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;JavaFX Demo app for RTSP&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility for ffmpeg transcode&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
-
-&lt;p&gt;A typical use case for a JavaFX streaming video client would be a home or buisness security application where you would have 2 or 3 rtsp cameras streaming video in a
-container format. &lt;a href=&#34;//berry120.blogspot.bg/2014/03/expanding-javafxs-media-support.html&#34;&gt;Java FX  media support restrictions&lt;/a&gt;  outlines why you can not directly render this video with the JavaFX media engine. &lt;a href=&#34;//docs.oracle.com/javase/8/javafx/api/javafx/scene/media/package-summary.html&#34;&gt;Java FX  media support&lt;/a&gt; shows
-you the available containers, more about containers here (&lt;a href=&#34;//en.wikipedia.org/wiki/Comparison_of_video_container_formats&#34;&gt;video container&lt;/a&gt;).&lt;br /&gt;
-The &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;Demo app for RTSP&lt;/a&gt; is an entry into how you would construct a home or buisness security application to stream rtsp sources. It uses
-&lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj&lt;/a&gt; which we outlined in &lt;a href=&#34;//nsavagejvm.netlify.com/2017/01/java-video-streaming-part-1/&#34;&gt;part 1&lt;/a&gt; and  &lt;a href=&#34;https://ffmpeg.org/&#34;&gt;ffmpeg&lt;/a&gt; to transcode the
-&lt;a href=&#34;//en.wikipedia.org/wiki/Real_Time_Streaming_Protocol&#34;&gt;RTSP&lt;/a&gt;  source to a file via the &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Below are some examples for using ffmpeg to transcode rtsp sources to a container compatible with vlc.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;transcode a rtsp source to udp&lt;br /&gt;
-ffmpeg -i {rtsp src url} -c:a acodec -c:v h264 -vf scale=1280x720 -an -pix_fmt yuv420p -c:a copy -f mpegts  udp://@localhost:1234&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;transcode a rtsp source to a file in segments&lt;br /&gt;
-ffmpeg -i {rtsp src url} -c:v h264 -vf scale=1280x720 -an -pix_fmt yuv420p -map 0 -f segment -segment_time 20  /home/ubu/aVidOut/Hessdalen1/output%d.mp4&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;transcode a rtsp source to a file&lt;br /&gt;
-ffmpeg -i {rtsp src url}   -c:v  libx264   -preset medium -crf 22 -c:a copy /home/ubu/output.MP4&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;source-code-hilights&#34;&gt;Source code hilights&lt;/h4&gt;
-
-&lt;p&gt;1 Using Springs @Scope(&amp;ldquo;prototype&amp;rdquo;) to implement the &lt;a href=&#34;//docs.oracle.com/javaee/6/tutorial/doc/gkgkv.html&#34;&gt;Producer pattern from CDI&lt;/a&gt; at &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/java/fish/beans/config/AppConfig.java&#34;&gt;line 57&lt;/a&gt;, Springs prototype scope
-will inject a new object however the catch is it only a new object at the time it injects hence the need to create the object from &amp;lsquo;getBean(&amp;hellip;)&amp;rsquo; &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/java/fish/beans/controllers/BasePanel.java&#34;&gt;line 62&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2 Using the Go Console User Interface &lt;a href=&#34;//github.com/jroimartin/gocui&#34;&gt;GOCUI&lt;/a&gt; in the Golang utility for ffmpeg transcoding with ffmpeg&lt;/p&gt;
-
-&lt;h3 id=&#34;setup&#34;&gt;setup&lt;/h3&gt;
-
-&lt;p&gt;1 setup the vlc dependencies as in part 1, if Debian after apt-get vlc you would set the native libary path as &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/src/main/resources/application.properties&#34;&gt;line 2&lt;/a&gt;&lt;br /&gt;
-2 setup ffmpeg so its on the system path&lt;br /&gt;
-3 set up the video output directory&lt;br /&gt;
-4 set the transcode output paths in the go utility &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util/blob/master/config.properties&#34;&gt;config properties&lt;/a&gt;&lt;br /&gt;
-5 set the path to config.properties &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util/blob/master/vs-util.go&#34;&gt;line 43&lt;/a&gt;&lt;br /&gt;
-6 set the inputpaths for rendering in &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2/blob/master/runtime.properties&#34;&gt;runtime.properties&lt;/a&gt;&lt;br /&gt;
-7 build the golang ffmpeg utility [](//golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies)&lt;br /&gt;
-8 build the java source as in &lt;a href=&#34;//nsavagejvm.netlify.com/2017/01/java-video-streaming-part-1/&#34;&gt;part 1&lt;/a&gt;&lt;br /&gt;
-9 run the transcoding process &lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;ffmpeg transcode&lt;/a&gt;&lt;br /&gt;
-10 run the rendering application with&lt;br /&gt;
-java -jar -Dvs.properties=/home/USER_HOME_DIR/aJavaFXSpectrum/v-stream/runtime.properties build/libs/v-stream-0.0.1-SNAPSHOT.jar&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-2&#34;&gt;JavaFX Demo app for RTSP&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/nsavageJVM/v-stream-util&#34;&gt;Golang utility for ffmpeg transcode&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents ffmpeg
+Real Time Streaming Protocol(RTSP)
+Java FX media support
+Java FX media support restrictions
+vlcj
+Java Media Framework
+Java Media Framework RTSP Support
+Video Container
+JavaFX Demo app for RTSP
+Golang utility for ffmpeg transcode
+Summary Use ffmpeg to transcode a rtsp stream to a file for JavaFX video client.</description>
     </item>
     
     <item>
@@ -104,77 +59,17 @@ java -jar -Dvs.properties=/home/USER_HOME_DIR/aJavaFXSpectrum/v-stream/runtime.p
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/01/java-video-streaming-part-1/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Java Developers new to modern video streaming frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.videolan.org/vlc/index.html&#34;&gt;vlc&lt;/a&gt;
-&lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj javafx&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javafx/2/architecture/jfxpub-architecture.htm#BABDFFDG&#34;&gt;JavaFX Graphics System&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javase/8/docs/technotes/guides/jni/&#34;&gt;Java Native Interface&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/java-native-access/jna&#34;&gt;Java Native Access (JNA)&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//developers.google.com/youtube/v3/getting-started&#34;&gt;YouTube Data API&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1&#34;&gt;JavaFX Demo app for vlcj&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks.&lt;br /&gt;
-This is first part of a series that provides an outine for the above.&lt;br /&gt;
-The main result for this first part is a simple demo application that renders video streams.&lt;br /&gt;
-The demo application is based on the  &lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj javafx&lt;/a&gt; code using  &lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1&#34;&gt;JavaFX Demo app for vlcj&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;set-up&#34;&gt;Set Up&lt;/h3&gt;
-
-&lt;p&gt;The &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/readme.md&#34;&gt;read me&lt;/a&gt; steps through the attributes that need to be configured
-to play the test video or youtube serach result.
-The set up steps in order of prededence are&lt;br /&gt;
-1. Use &lt;a href=&#34;//developers.google.com/youtube/v3/getting-started&#34;&gt;YouTube Data API&lt;/a&gt; documentation to obtain an api key&lt;br /&gt;
-2. in src/main/resources/application.properties replace &amp;lsquo;your api key&amp;rsquo;  with api key from you tube&lt;br /&gt;
-3. On your system download and install the vlc player &lt;a href=&#34;//www.videolan.org/vlc/index.html&#34;&gt;vlc&lt;/a&gt;&lt;br /&gt;
-4 Set the path to the native libaries in runtime.properties&lt;br /&gt;
-5 Set the path to the test video in runtime.properties&lt;/p&gt;
-
-&lt;h4 id=&#34;build-and-run-video-streaming-javafx-demo-app&#34;&gt;Build and Run  Video Streaming  JavaFX Demo app&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;1 build the java source `./gradlew clean build -x test`
-2 run  `java -jar -Dvs.properties=/home/HOME/aJavaFXSpectrum/v-stream/runtime.properties build/libs/v-stream-0.0.1-SNAPSHOT.jar`  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
-
-&lt;p&gt;From &lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt; we discover a libary that allows java bindings for the native vlc runtime. If we go to
-the source code for the  &lt;a href=&#34;//github.com/caprica/vlcj/blob/master/src/main/java/uk/co/caprica/vlcj/player/DefaultMediaPlayer.java&#34;&gt;DefaultMediaPlayer&lt;/a&gt; we can see how these bindings are used via
-the JNA interface to the native code. JNA is one way to map Java methods to native methods.&lt;br /&gt;
-We need to apply the bindings before we can stream video with &lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt; the class &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/util/JNASetUp.java&#34;&gt;JNASetUp&lt;/a&gt;
-from the demo code is one way to do this.
-Once we have applied the JNA bindings we then need two high level components&lt;br /&gt;
-1. A rendering engine  &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/DefaultRenderCallback.java&#34;&gt;DefaultRenderCallback&lt;/a&gt;&lt;br /&gt;
-2. A Buffer &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/VlcjMediaPlayerFactory.java&#34;&gt;VLCJBufferFormatCallback&lt;/a&gt;  line 51&lt;/p&gt;
-
-&lt;p&gt;Wth the above attributes we can proceed to build a Factory to produce instances of the vlcj &lt;a href=&#34;//github.com/caprica/vlcj/blob/master/src/main/java/uk/co/caprica/vlcj/player/direct/DefaultDirectMediaPlayer.java&#34;&gt;DirectMediaPlayer&lt;/a&gt; type. &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/VlcjMediaPlayerFactory.java&#34;&gt;VlcjMediaPlayerFactory&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;The above code is based on &lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj javafx&lt;/a&gt; examples. Currently vlcj javafx support is experimental. The stable library supports java Swing AWT rendering toolkit.
-The &lt;a href=&#34;//docs.oracle.com/javafx/2/architecture/jfxpub-architecture.htm#BABDFFDG&#34;&gt;JavaFX Graphics System&lt;/a&gt; with the Glass Windowing Tool Kit and the Prisim rendering engine is superior to Swings AWT.&lt;br /&gt;
-In the following parts to come for this series we will look at other options for video streaming in Java and JavaFX.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1&#34;&gt;JavaFX Demo app for vlcj&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents gradle wrapper
+vlc vlcj
+vlcj javafx
+JavaFX Graphics System
+Java Native Interface
+Java Native Access (JNA)
+YouTube Data API
+JavaFX Demo app for vlcj
+Summary To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks.</description>
     </item>
     
     <item>
@@ -183,88 +78,15 @@ In the following parts to come for this series we will look at other options for
       <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-3/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//facebook.github.io/react/tutorial/tutorial.html&#34;&gt;react&lt;/a&gt;
-&lt;a href=&#34;//babeljs.io&#34;&gt;babel&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//webpack.github.io&#34;&gt;webpack&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/jugend/webpack-react-hmr-examples&#34;&gt;React Hot Module Replacement&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/yahoo/pure&#34;&gt;purecss&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;react&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The demo code has a number of setup options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.&lt;br /&gt;
-The transpile operation is driven via webpack and the dev server. The express dev &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;server&lt;/a&gt; uses the hot reload middleware for react. The code is
-as simple as possible to highlight the relationships in the code. These are the interaction between  the webpack configuration syntax, the plugin setup and the dev server.
-The webpack stylus css translation on &lt;a href=&#34;//github.com/yahoo/pure&#34;&gt;purecss&lt;/a&gt; is included to show the parralel css translation alongside the JSX transpilation.&lt;/p&gt;
-
-&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;npm run start&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;localhost:3000&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Transpile with the dev server in development&lt;/li&gt;
-&lt;li&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;development webpack config&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc&#34;&gt;babel plugin config&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;Webpack uses Babel to transpile ECMAScript2015 to  ES5.&lt;br /&gt;
-Some features of ECMAScript2015 do not directly map to ES5. {Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Webpack uses middleware&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;dev server &lt;/a&gt;  lines 9 to 15&lt;br /&gt;
-see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;dev server hot reload config&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;line 1 and 23 HotModuleReplacementPlugin&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;line 19 &lt;code&gt;publicPath&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;The react setup is a lot of work even with this simple set up. Complex relationships in the code and the configuration files take a while to get used too.
-However transpiling with the dev server is a significant accomplishment.&lt;br /&gt;
-I recall in the early days of the google closure library trying to set up a similar workflow.&lt;br /&gt;
-Specifically to get the closure compiler transpiling off a url endpoint, so that the code would transpile like this in real time. I was never able to get it to work.&lt;/p&gt;
-
-&lt;p&gt;For the three(3) transpiler engines looked at in this series the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the &lt;code&gt;redux store&lt;/code&gt; with &lt;code&gt;actions&lt;/code&gt; dispatching via &lt;code&gt;reducers&lt;/code&gt; the code and setup configurations can be heavy going.&lt;br /&gt;
-However the development server transpiling in real tile is a significant reward for the work.&lt;/p&gt;
-
-&lt;p&gt;If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like &lt;code&gt;jsweet&lt;/code&gt; is a good option.&lt;/p&gt;
-
-&lt;p&gt;Google closure still has the best &lt;a href=&#34;//google.github.io/closure-library/source/closure/goog/demos/&#34;&gt;rich text editor&lt;/a&gt; and the closure compiler leads the benchnark &lt;a href=&#34;//nolanlawson.com/2016/08/15/the-cost-of-small-modules/&#34;&gt;metrics&lt;/a&gt; and does even better for &lt;code&gt;advanced&lt;/code&gt; optimisations.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;Demo app for react&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents react babel
+webpack
+React Hot Module Replacement
+purecss
+Result See the Demo app for react
+The demo code has a number of setup options see see top level readme for general instructions.
+The transpile operation is driven via webpack and the dev server.</description>
     </item>
     
     <item>
@@ -273,88 +95,12 @@ However the development server transpiling in real tile is a significant reward 
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-2/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//developers.google.com/closure/compiler/&#34;&gt;Closure Compiler&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/google/closure-library&#34;&gt;google-closure-library&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.closurecheatsheet.com/skeleton&#34;&gt;closurecheatsheet&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;The Closure Compiler transpiler takes ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it is used to
-build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on &lt;a href=&#34;//developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino&#34;&gt;Rhino&lt;/a&gt;
-from Mozilla with an associated set of python tools sometimes refered to as closure build tools. The closure compiler was one of the first transpilers for
-ECMAScript  and is constantly evolving, for exampe. the  use of the python tools is now depreciated and the documentation appears to lag the actual state/capabilities
-of the latest version. To complicate the terminology there is now a pure javascript closure compiler with interfaces for webpack and gulp. However I encountered
-difficulties with the javascript compiler and the closure widgets.
-The compiler allows for compression, mangling and optimisation( dead code removal, function flattening and inlining).There is an Advanced mode which is
-aggressive (dead code removal allows for removing unused code across modules) and will often will break your application unles you implement the following,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;By configuring &lt;a href=&#34;//github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries&#34;&gt;externs&lt;/a&gt; you can use the compiler with other frameworks like
-JQuery. Anything declared as an Extern is excluded from the optimisation.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;There is an annotation system to exclude properties from optimisation.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;closure&lt;/a&gt;&lt;br /&gt;
-The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
-In particular installing a local jre on windows to run the compiler if no jre is installed in the system.&lt;/p&gt;
-
-&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
-
-&lt;p&gt;Use the following one line  command to run the compiler&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;java -jar compiler.jar --compilation_level=ADVANCED --closure_entry_point=dev.app  --only_closure_dependencies  --js=./node_modules/google-closure-library --js src/main.js --js src/component.js --js_output_file  dist/app.min.js&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;open Test.html&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;The Closure compiler knows about the semantics of JS and generates low-level wrappers and checks for the transpiled code. It implements the javascript semantics to achieve type safety.
-Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/component.js&#34;&gt;component&lt;/a&gt;, and its constructor at line 15 and type inheritance at line 26.&lt;/p&gt;
-
-&lt;p&gt;The compiler also acts as a build tool assembling the application&amp;rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;--js=./node_modules/google-closure-library --js src/main.js --js src/component.js&lt;/code&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;--js=./node_modules/google-closure-library&lt;/code&gt;  imports the dependencies for &lt;code&gt;main.js&lt;/code&gt; and &lt;code&gt;component.js&lt;/code&gt;   from the closure library&lt;/li&gt;
-&lt;li&gt;here &lt;code&gt;component.js&lt;/code&gt; is a dependency of &lt;code&gt;main.js&lt;/code&gt;  see &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/main.js&#34;&gt;main&lt;/a&gt; line 46&lt;/li&gt;
-&lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt;  contains the application&amp;rsquo;s entry point and all needed dependencies from the library as well as custom components.&lt;/li&gt;
-&lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt; is the single import required for the html&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;previously to assemble the dependencies you would use the python script &lt;code&gt;depswriter.py&lt;/code&gt; but this is no longer required something not hilighted in the documentation&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;To clarify the relationships in the above code.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The python scripts are no longer required&lt;/li&gt;
-&lt;li&gt;The compiler can perform aggressive optimisations with externs and annotations for preserving type names when required&lt;/li&gt;
-&lt;li&gt;the compiler assembles a bundle with all included dependencies&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;Demo app for closure&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents Closure Compiler
+google-closure-library
+closurecheatsheet
+Summary The Closure Compiler transpiler takes ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it is used to build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on Rhino from Mozilla with an associated set of python tools sometimes refered to as closure build tools.</description>
     </item>
     
     <item>
@@ -363,101 +109,16 @@ Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-1/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Java Developers new to modern javascript frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;
-&lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt;
-&lt;a href=&#34;//github.com/cincheo/jsweet&#34;&gt;jsweet transpiler&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.typescriptlang.org/&#34;&gt;TypeScript language&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/Microsoft/TypeScript-Handbook/blob/master/pages/declaration%20files/Introduction.md&#34;&gt;TypeScript Declaration File&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.typescriptlang.org/docs/handbook/basic-types.html&#34;&gt;TypeScript type &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.typescriptlang.org/docs/handbook/namespaces.html&#34;&gt;TypeScript namespace&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;.
-This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;br /&gt;
-The demo code has a number of configuration options. See see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
-The &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
-
-&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;1 build the java source `./gradlew :jsweet:build`
-2 transpile  `./gradlew :jsweet:jsweet`  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;1 assemble the artifacts  &lt;code&gt;./gradlew :jsweet:deployStatic&lt;/code&gt;&lt;br /&gt;
-   2 open  Test.html  in the jsweet module &lt;code&gt;staging&lt;/code&gt; directory&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;deployStatic&lt;/code&gt; task creates a staging directory with all the artifacts assembled.&lt;br /&gt;
-Loading Test.html results with the correct relative paths for the bundled Javascript transpiled from Java.&lt;/p&gt;
-
-&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
-
-&lt;p&gt;Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline&lt;/p&gt;
-
-&lt;h4 id=&#34;java-package-and-class-declarations&#34;&gt;Java Package and class declarations&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package app.dev.transpile
-import ....
-  class ConcurrentSpinner { ....
-    public static void main(String[] args) { ....
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;typescript-internal-namespace-and-class-declarations&#34;&gt;Typescript internal namespace and class  declarations&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-typescript&#34;&gt;namespace app.dev.transpile { ...  
-  export class ConcurrentSpinner { ...
-    public static main(args : string[]) { ...    
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;javascript-function-declarations&#34;&gt;javascript function declarations&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;(function (app) { ...
-    var dev;
-    (function (dev) { ...
-        var transpile;
-        (function (transpile) {
-            var ConcurrentSpinner = (function () { ...
-                function ConcurrentSpinner(spinner) { ...
-    
-                ConcurrentSpinner.main = function (args) { ....
-                    window.onload = function (e) {
-                        return new ConcurrentSpinner(document.getElementById(&amp;quot;spinner&amp;quot;));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;we can see a clean 1 to 1 mapping from the Java to the Typescript, things become slightly less clean from Typescript to Javascript with the javascript constructor function and the main method as a prototype extension. However this is just verbosity and the one to one map is maintained from Java to Javascript.&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was designed to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h4&gt;
-
-&lt;p&gt;Using software engineering tools we need to harmonise the relationships between the javascript dialects. For large scale Javascript applications Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; for rapid development using a large set of the more prominent elements found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft&amp;rsquo;s Typescript is a bridge between &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;, Java and  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Java Developers new to modern javascript frameworks and tooling
+Source Documents gradle wrapper gradle-node-plugin jsweet transpiler
+TypeScript language
+TypeScript Declaration File
+TypeScript type 
+TypeScript namespace
+ECMA-262 6th Edition
+ECMAScript 5
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and npm is Massive.</description>
     </item>
     
     <item>
@@ -466,87 +127,17 @@ import ....
       <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/11/issues-generating-installer-with--bitrock-installbuilder/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple code to create a linux installer with BitRocks InstallBuilder&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to BitRocks InstallBuilder and Cross-platform installation Tools&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrock Installbuilder&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Bitrock Installbuilder Documentation&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtimes&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Resolve  path issues for the bundled java runtime(jre) for a native installer created by using &lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrocks Installbuilder&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder&#34;&gt;Demo app&lt;/a&gt;&lt;br /&gt;
-Using the gradle wrapper build with  &lt;code&gt;./gradlew bootRepackage&lt;/code&gt;  then create the arifacts for Installbuilder with &lt;code&gt;./gradlew deployStaging&lt;/code&gt;&lt;br /&gt;
-This creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment. See Fig 1.&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;When developing standalone applications many clients sadly will use windows and not really understand how their box is configured. You can not just give them an uber jar and say &amp;lsquo;run the jar&amp;rsquo; at least not if they are providing the cash incentives. They will reasonably  expect an installer that produces a desktop shortcut that  they can click to run the application.&lt;br /&gt;
-&lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrocks Installbuilder&lt;/a&gt;  is a cross-platform installation tool. Its a step up from the other available options (&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;, &lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and it is generally trivial to set it up.&lt;/p&gt;
-
-&lt;p&gt;I ran into an issue with the &lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Documentation&lt;/a&gt; for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation.&lt;br /&gt;
-I think the section on creating a bundled java runtime(jre) is not as clear as could be for many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;download the &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;change the java.xml file so the path correctly  resolves to the Installbuilder Java Runtime&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;include the java.xml file in the Installbuilder components tag and use it to create a java launcher&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;generate a staging directory (with all the needed artifacts)  with gradle, see the custom task&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;./gradlew deployStaging&lt;/code&gt; and see  Fig1 for the assembled artifacts output from this task&lt;/p&gt;
-
-&lt;p&gt;Fig1
-&lt;img src=&#34;/2016/11/staging_directory.png&#34; alt=&#34;Fig1&#34; title=&#34;Fig1&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;Fig2
-&lt;img src=&#34;/2016/11/fig2.png&#34; alt=&#34;Fig2&#34; title=&#34;Fig2&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory.  The &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt; file is the jre bundle you need to &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;download&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In the staging directory shown in Fig 1 you can see  two copies of &lt;code&gt;java.xml&lt;/code&gt;. One in the jre bundle and one that is modified and copied to the staging directory by gradle.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.xml&lt;/code&gt; in the top level directory contains a diferent path the to decompressed jre than the path found in the original &lt;code&gt;java.xml&lt;/code&gt; that is found packaged in the Bitrock jre bundle &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The file &lt;code&gt;demo_linux_install.xml&lt;/code&gt; is the bitrock installation file that configures Installbuilder. You load  &lt;code&gt;demo_linux_install.xml&lt;/code&gt; from the staging directory into Installbuilder and it should resolve the paths and deploy the jre in the distribution.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml&#34;&gt;line 51&lt;/a&gt; for how the modified &lt;code&gt;java.xml&lt;/code&gt; file is included as a Installbuilder component. See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml&#34;&gt;line 48&lt;/a&gt; for how this &lt;code&gt;java.xml&lt;/code&gt; was updated so that the paths resolve when the downloded &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt; is unzipped by gradle and copied to the staging directory with all the other artifacts.&lt;/p&gt;
-
-&lt;p&gt;The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.&lt;/p&gt;
-
-&lt;p&gt;To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit. The following worked to configure my 64 bit Ubuntu to work with the 32 bit Bitrock Installbuilder tool.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&#39;sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1&#39;  
-&#39;sudo apt-get  install libgtk2.0-0:i386&#39;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Installbuilder is closed source with a commercial license. However if you are working with a range of platforms, programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/purchase.html#standard&#34;&gt;Installbuilder License&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple code to create a linux installer with BitRocks InstallBuilder
+Target Audience Developers new to BitRocks InstallBuilder and Cross-platform installation Tools
+Source Documents Bitrock Installbuilder
+Bitrock Installbuilder Documentation
+Bitrock Installbuilder Java Runtimes
+NetBeans Native packaging
+JavaFX Packager 
+gradle wrapper
+Summary Resolve path issues for the bundled java runtime(jre) for a native installer created by using Bitrocks Installbuilder.
+Result See the Demo app
+Using the gradle wrapper build with .</description>
     </item>
     
     <item>
@@ -555,71 +146,18 @@ I think the section on creating a bundled java runtime(jre) is not as clear as c
       <pubDate>Wed, 23 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/11/issues-re-reporting-tools-and-frameworks/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple code to generate the Jasper Reports Charting Samples&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to Jasper Reports&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//community.jaspersoft.com/&#34;&gt;jasper reports&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-samples&#34;&gt;jasper reports server samples&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.packtpub.com/mapt/book/big-data-and-business-intelligence/9781847198082/1/ch01lvl1sec11/typical-workflow&#34;&gt;jasper reports workflow &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.informit.com/articles/article.aspx?p=2471547&#34;&gt;ant ivy intergration&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;A refactor of the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt; samples from the &lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-samples&#34;&gt;jasper reports server samples&lt;/a&gt; to run with the gradle wrapper.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;A &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt; run with the gradle wrapper using&lt;br /&gt;
-&lt;code&gt;./gradlew bootRepackage&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;./gradlew bootRun&lt;/code&gt;&lt;br /&gt;
-The compiled reports can be found in the auto generated &amp;lsquo;chartspdf&amp;rsquo; folder&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;JasperReports is an open source reporting library. It turns up in many Java applications particularly legacy (cms, crm) applications or (cms, crm)  applications that have been developed over a long period of time. Recently I decided to go a bit deeper in my understanding of the &lt;a href=&#34;//jasperreports.sourceforge.net/JasperReports-Ultimate-Guide-3.pdf&#34;&gt;jasper reports syntax&lt;/a&gt; and  &lt;a href=&#34;//www.packtpub.com/mapt/book/big-data-and-business-intelligence/9781847198082/1/ch01lvl1sec11/typical-workflow&#34;&gt;workflow&lt;/a&gt;. Rather than wade thru pages of documentation and xsd schemas I prefer just to run examples and look at the source code to quickly discern the patterns. Particularly I was interested in the &lt;a href=&#34;//jasperreports.sourceforge.net/sample.reference/charts/&#34;&gt;jasper reports charts&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I ran into and issue with the &lt;a href=&#34;//sourceforge.net/projects/jasperreports/?source=directory&#34;&gt;jasper reports library&lt;/a&gt;. The code uses ant and ivy out of the box. I spent approx 10 minutes trying to get it to build but kept getting obscure errors complaining about missing ivy dependencies. To speed up the learning experience I quickly refactored the chart examples to run with the gradle wrapper. If you are new to Jasper reports and you want a simple bootstrap into the Jasper charting plugin you can&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;clone the &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Use the gradle wrapper to build and run the code&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;./gradlew bootRepackage&lt;/code&gt;  &lt;code&gt;./gradlew bootRun&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;view the reports in the auto generated &amp;lsquo;chartspdf&amp;rsquo; folder&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;The code sets up and embedded &amp;lsquo;hsqldb&amp;rsquo; database. There is a database init script &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/schema.sql&#34;&gt;schema&lt;/a&gt;. I had to refactor this from the original &lt;a href=&#34;//github.com/Jaspersoft/jasperreports/blob/master/jasperreports/demo/hsqldb/test.script&#34;&gt;test.script&lt;/a&gt; to get it to work with the hsql in the demo app source. I needed to set the following in the &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/resources/application.properties&#34;&gt;jdbc connection url&lt;/a&gt; &lt;code&gt;sql.enforce_size=false&lt;/code&gt; .&lt;/p&gt;
-
-&lt;p&gt;The Jasper xml can call the database directly and run queries, process the ouput and set up the results see &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/JasperController.java&#34;&gt;JasperController&lt;/a&gt; where you pass the jdbc connection through to the xml.&lt;/p&gt;
-
-&lt;p&gt;The Jasper xml can call java methods see &lt;a href=&#34;//github.com/nsavageJVM/jasper_dev/blob/master/src/main/java/jasper/dev/BarChartCustomizer.java&#34;&gt;BarChartCustomizer&lt;/a&gt;, there is the abstraction they call a &lt;code&gt;Customizer&lt;/code&gt; see &lt;a href=&#34;//jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRChartCustomizer.html&#34;&gt;JRChartCustomizer&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;There is a distinction between Business Intelligence (BI) and reporting. Jasper is for reporting. By focusing on reporting and not being a hybrid BI and reporting tool is a good thing. Things quickly get out of hand in terms of complexity and I have seen some horrendously overcoupled BI and reporting code bases. Jasper is released under a user and buisness licensce.&lt;/p&gt;
-
-&lt;p&gt;Going forward to learn about or implement open source BI tools &lt;a href=&#34;//www.pentaho.com/&#34;&gt;pentaho&lt;/a&gt; is a good choice that integrates with Jasper.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//community.jaspersoft.com/wiki/jasperreports-server-and-jaspersoft-olap-license&#34;&gt;Jasper License&lt;/a&gt;.&lt;br /&gt;
-&lt;a href=&#34;//www.pentaho.com/license&#34;&gt;pentaho license&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/jasper_dev&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple code to generate the Jasper Reports Charting Samples
+Target Audience Developers new to Jasper Reports
+Source Documents jasper reports
+jasper reports server samples
+jasper reports workflow 
+jasper reports syntax
+jasper reports library
+jasper reports charts
+ant ivy intergration
+gradle wrapper
+Summary A refactor of the jasper reports charts samples from the jasper reports server samples to run with the gradle wrapper.
+Result A Demo app run with the gradle wrapper using</description>
     </item>
     
     <item>
@@ -628,52 +166,19 @@ The compiled reports can be found in the auto generated &amp;lsquo;chartspdf&amp
       <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/11/issues-re--spring-cloud-netflix-span-stylefont-size18px-enablecircuitbreaker-enablehystrix-/span/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Clarify use of  Spring Cloud Netflix  @EnableCircuitBreaker, @EnableHystrix&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to Spring Cloud Platform&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//www.martinfowler.com/articles/microservices.html&#34;&gt;Microservice Architecture&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//projects.spring.io/spring-cloud/&#34;&gt;Spring Cloud&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//cloud.spring.io/spring-cloud-netflix/&#34;&gt;Spring Cloud Netflix &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/Netflix/Hystrix&#34;&gt;Hystrix &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//twitter.github.io/finagle/&#34;&gt;finagle&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/javaslang/javaslang-circuitbreaker&#34;&gt;javaslang-circuitbreaker&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/Netflix/Hystrix/tree/master/hystrix-contrib/hystrix-javanica&#34;&gt;hystrix-javanica&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Two existing Spring Cloud Netflix annotations to enable the circuit breaker pattern exist. At this time the documentation is not clear as to the distinction in behaviour.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;Use @EnableHystrix to implement the circuit breaker pattern specifically with Hystrix on the classpath.&lt;/p&gt;
-
-&lt;p&gt;Use @EnableCircuitBreaker to implement the circuit breaker pattern with Hystrix or an alternative circuit breaker implementation.&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;It can be confusing to encounter two annotations which at first seem to provide the same behaviour. However with a bit of digging and further analysis we may be able to uncover the rationale(see javadoc for why &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/hystrix/EnableHystrix.java&#34;&gt;@EnableHystrix&lt;/a&gt; and
-&lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/circuitbreaker/EnableCircuitBreaker.java&#34;&gt;@EnableCircuitBreaker&lt;/a&gt; ) exist.&lt;/p&gt;
-
-&lt;p&gt;Hystrix is an implementation of the Circuit Breaker pattern by Netflix. The @EnableHystrix annotation require a specific implementation, if Hystrix is not on the classpath it will fail.&lt;br /&gt;
-@EnableCircuitBreaker is more general and it seems from &lt;a href=&#34;//github.com/spring-cloud/spring-cloud-commons/issues/21&#34;&gt;here&lt;/a&gt; there is an impetus to abstract away the implementation of the CircuitBreaker pattern so that alternative implementations could be used such as &lt;code&gt;finagle&lt;/code&gt; or &lt;code&gt;javaslang-circuitbreaker&lt;/code&gt; (see source docs). The motivation being the dependencies pulled in by Hystrix.&lt;/p&gt;
-
-&lt;p&gt;It seems at this time there is a state of flux and I am unable to find  the documentation for how you would use  @EnableCircuitBreaker to wire in an alternative Circuit Breaker to Hystrix but it seems  architecturally the existence of the @EnableCircuitBreaker allows for the evolution of the Spring Cloud.&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;Spring Cloud Netflix uses a Hyristrix dialect &lt;code&gt;hystrix-javanica&lt;/code&gt;, this allows for the @HystrixCommand annotation to simplify the command pattern code as it applies to Hystrix.&lt;/p&gt;
-</description>
+      <description>Objective Clarify use of Spring Cloud Netflix @EnableCircuitBreaker, @EnableHystrix
+Target Audience Developers new to Spring Cloud Platform
+Source Documents Microservice Architecture
+Spring Cloud
+Spring Cloud Netflix 
+Hystrix 
+finagle
+javaslang-circuitbreaker
+@EnableHystrix
+@EnableCircuitBreaker
+hystrix-javanica
+Summary Two existing Spring Cloud Netflix annotations to enable the circuit breaker pattern exist. At this time the documentation is not clear as to the distinction in behaviour.
+Result Use @EnableHystrix to implement the circuit breaker pattern specifically with Hystrix on the classpath.</description>
     </item>
     
     <item>
@@ -682,118 +187,14 @@ The compiled reports can be found in the auto generated &amp;lsquo;chartspdf&amp
       <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/11/issues-re-react-with-zero-configuration/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Describe the use of react-with-zero-configuration to deploy to heroku&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to react&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;react-with-zero-configuration&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//blog.heroku.com/deploying-react-with-zero-configuration&#34;&gt;heroku react-with-zero-configuration &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/mars/create-react-app-buildpack&#34;&gt;heroku react buildpack&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Facebook release a build environment for react that abstracts away the lower level configuration and  dependency management.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;This is a good thing until you run  &lt;code&gt;npm run eject&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;I ran into this when attempting to deploy a react app to Heroku. I was able to get &lt;code&gt;react&lt;/code&gt; to deploy and build on Heroku with the following&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Remove the dev dependencies section  from &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this below failed&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;npm run build:client &amp;amp;&amp;amp; npm run build:server&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Adding the build pack like&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;`heroku create -a &amp;lt;appname&amp;gt; -b https://github.com/mars/create-react-app-buildpack.git`
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To be clear this approach is not zero configuration, I am specifically declaring the dependencies in the &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;, however it did get the dependencies for heroku in production which previously I was unable to do.&lt;/p&gt;
-
-&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  w.r.t &lt;code&gt;npm run eject&lt;/code&gt;&lt;br /&gt;
-this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
-
-&lt;p&gt;However it&amp;rsquo;s worth it to  &lt;code&gt;npm run eject&lt;/code&gt;  and have a look at how they set up everything to realise just how far you can go with javascript tooling.&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/eddy-heroku-react&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Issues re react-with-zero-configuration</title>
-      <link>/2016/11/issues-re-react-with-zero-configuration/</link>
-      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/2016/11/issues-re-react-with-zero-configuration/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Describe the use of react-with-zero-configuration to deploy to heroku&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to react&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;react-with-zero-configuration&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//blog.heroku.com/deploying-react-with-zero-configuration&#34;&gt;heroku react-with-zero-configuration &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/mars/create-react-app-buildpack&#34;&gt;heroku react buildpack&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Facebook release a build environment for react that abstracts away the lower level configuration and  dependency management.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;This is a good thing until you run  &lt;code&gt;npm run eject&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;I ran into this when attempting to deploy a react app to Heroku. I was able to get &lt;code&gt;react&lt;/code&gt; to deploy and build on Heroku with the following&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Remove the dev dependencies section  from &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Use simple &lt;code&gt;build&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt;  scripts,  combining like this below failed&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;npm run build:client &amp;amp;&amp;amp; npm run build:server&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Adding the build pack like&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;`heroku create -a &amp;lt;appname&amp;gt; -b https://github.com/mars/create-react-app-buildpack.git`
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To be clear this approach is not zero configuration, I am specifically declaring the dependencies in the &lt;a href=&#34;///github.com/nsavageJVM/eddy-heroku-react/blob/master/package.json&#34;&gt;package.json&lt;/a&gt;, however it did get the dependencies for heroku in production which previously I was unable to do.&lt;/p&gt;
-
-&lt;p&gt;From the &lt;a href=&#34;//facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html&#34;&gt;repo&lt;/a&gt;  w.r.t &lt;code&gt;npm run eject&lt;/code&gt;&lt;br /&gt;
-this is a one-way operation. Once you eject, you can’t go back!’&lt;/p&gt;
-
-&lt;p&gt;However it&amp;rsquo;s worth it to  &lt;code&gt;npm run eject&lt;/code&gt;  and have a look at how they set up everything to realise just how far you can go with javascript tooling.&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/eddy-heroku-react&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Describe the use of react-with-zero-configuration to deploy to heroku
+Target Audience Developers new to react
+Source Documents react-with-zero-configuration
+heroku react-with-zero-configuration 
+heroku react buildpack
+Summary Facebook release a build environment for react that abstracts away the lower level configuration and dependency management.
+Result This is a good thing until you run npm run eject
+Discussion I ran into this when attempting to deploy a react app to Heroku. I was able to get react to deploy and build on Heroku with the following</description>
     </item>
     
   </channel>

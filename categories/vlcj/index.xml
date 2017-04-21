@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vlcj on Software Engineering</title>
-    <link>/categories/vlcj/index.xml</link>
+    <link>/categories/vlcj/</link>
     <description>Recent content in Vlcj on Software Engineering</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <atom:link href="/categories/vlcj/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/vlcj/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Java video streaming part 1</title>
@@ -15,77 +18,17 @@
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/01/java-video-streaming-part-1/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Java Developers new to modern video streaming frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.videolan.org/vlc/index.html&#34;&gt;vlc&lt;/a&gt;
-&lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj javafx&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javafx/2/architecture/jfxpub-architecture.htm#BABDFFDG&#34;&gt;JavaFX Graphics System&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javase/8/docs/technotes/guides/jni/&#34;&gt;Java Native Interface&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/java-native-access/jna&#34;&gt;Java Native Access (JNA)&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//developers.google.com/youtube/v3/getting-started&#34;&gt;YouTube Data API&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1&#34;&gt;JavaFX Demo app for vlcj&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks.&lt;br /&gt;
-This is first part of a series that provides an outine for the above.&lt;br /&gt;
-The main result for this first part is a simple demo application that renders video streams.&lt;br /&gt;
-The demo application is based on the  &lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj javafx&lt;/a&gt; code using  &lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1&#34;&gt;JavaFX Demo app for vlcj&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;set-up&#34;&gt;Set Up&lt;/h3&gt;
-
-&lt;p&gt;The &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/readme.md&#34;&gt;read me&lt;/a&gt; steps through the attributes that need to be configured
-to play the test video or youtube serach result.
-The set up steps in order of prededence are&lt;br /&gt;
-1. Use &lt;a href=&#34;//developers.google.com/youtube/v3/getting-started&#34;&gt;YouTube Data API&lt;/a&gt; documentation to obtain an api key&lt;br /&gt;
-2. in src/main/resources/application.properties replace &amp;lsquo;your api key&amp;rsquo;  with api key from you tube&lt;br /&gt;
-3. On your system download and install the vlc player &lt;a href=&#34;//www.videolan.org/vlc/index.html&#34;&gt;vlc&lt;/a&gt;&lt;br /&gt;
-4 Set the path to the native libaries in runtime.properties&lt;br /&gt;
-5 Set the path to the test video in runtime.properties&lt;/p&gt;
-
-&lt;h4 id=&#34;build-and-run-video-streaming-javafx-demo-app&#34;&gt;Build and Run  Video Streaming  JavaFX Demo app&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;1 build the java source `./gradlew clean build -x test`
-2 run  `java -jar -Dvs.properties=/home/HOME/aJavaFXSpectrum/v-stream/runtime.properties build/libs/v-stream-0.0.1-SNAPSHOT.jar`  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
-
-&lt;p&gt;From &lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt; we discover a libary that allows java bindings for the native vlc runtime. If we go to
-the source code for the  &lt;a href=&#34;//github.com/caprica/vlcj/blob/master/src/main/java/uk/co/caprica/vlcj/player/DefaultMediaPlayer.java&#34;&gt;DefaultMediaPlayer&lt;/a&gt; we can see how these bindings are used via
-the JNA interface to the native code. JNA is one way to map Java methods to native methods.&lt;br /&gt;
-We need to apply the bindings before we can stream video with &lt;a href=&#34;//github.com/caprica/vlcj&#34;&gt;vlcj&lt;/a&gt; the class &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/util/JNASetUp.java&#34;&gt;JNASetUp&lt;/a&gt;
-from the demo code is one way to do this.
-Once we have applied the JNA bindings we then need two high level components&lt;br /&gt;
-1. A rendering engine  &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/DefaultRenderCallback.java&#34;&gt;DefaultRenderCallback&lt;/a&gt;&lt;br /&gt;
-2. A Buffer &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/VlcjMediaPlayerFactory.java&#34;&gt;VLCJBufferFormatCallback&lt;/a&gt;  line 51&lt;/p&gt;
-
-&lt;p&gt;Wth the above attributes we can proceed to build a Factory to produce instances of the vlcj &lt;a href=&#34;//github.com/caprica/vlcj/blob/master/src/main/java/uk/co/caprica/vlcj/player/direct/DefaultDirectMediaPlayer.java&#34;&gt;DirectMediaPlayer&lt;/a&gt; type. &lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1/blob/master/src/main/java/fish/beans/video/VlcjMediaPlayerFactory.java&#34;&gt;VlcjMediaPlayerFactory&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;The above code is based on &lt;a href=&#34;//github.com/caprica/vlcj-javafx&#34;&gt;vlcj javafx&lt;/a&gt; examples. Currently vlcj javafx support is experimental. The stable library supports java Swing AWT rendering toolkit.
-The &lt;a href=&#34;//docs.oracle.com/javafx/2/architecture/jfxpub-architecture.htm#BABDFFDG&#34;&gt;JavaFX Graphics System&lt;/a&gt; with the Glass Windowing Tool Kit and the Prisim rendering engine is superior to Swings AWT.&lt;br /&gt;
-In the following parts to come for this series we will look at other options for video streaming in Java and JavaFX.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/v-stream-part-1&#34;&gt;JavaFX Demo app for vlcj&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for Java video streaming. Review the setup and configuration for different video streaming engines.
+Target Audience Java Developers new to modern video streaming frameworks and tooling
+Source Documents gradle wrapper
+vlc vlcj
+vlcj javafx
+JavaFX Graphics System
+Java Native Interface
+Java Native Access (JNA)
+YouTube Data API
+JavaFX Demo app for vlcj
+Summary To write video streaming applications in Java you need to understand an underlying architecture, processes, tools and frameworks.</description>
     </item>
     
   </channel>

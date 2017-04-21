@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dialect on Software Engineering</title>
-    <link>/categories/dialect/index.xml</link>
+    <link>/categories/dialect/</link>
     <description>Recent content in Dialect on Software Engineering</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <atom:link href="/categories/dialect/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/dialect/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>The javascript transpile dialectic part 3</title>
@@ -15,88 +18,15 @@
       <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-3/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//facebook.github.io/react/tutorial/tutorial.html&#34;&gt;react&lt;/a&gt;
-&lt;a href=&#34;//babeljs.io&#34;&gt;babel&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//webpack.github.io&#34;&gt;webpack&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/jugend/webpack-react-hmr-examples&#34;&gt;React Hot Module Replacement&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/yahoo/pure&#34;&gt;purecss&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;react&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The demo code has a number of setup options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.&lt;br /&gt;
-The transpile operation is driven via webpack and the dev server. The express dev &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;server&lt;/a&gt; uses the hot reload middleware for react. The code is
-as simple as possible to highlight the relationships in the code. These are the interaction between  the webpack configuration syntax, the plugin setup and the dev server.
-The webpack stylus css translation on &lt;a href=&#34;//github.com/yahoo/pure&#34;&gt;purecss&lt;/a&gt; is included to show the parralel css translation alongside the JSX transpilation.&lt;/p&gt;
-
-&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;npm run start&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;localhost:3000&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Transpile with the dev server in development&lt;/li&gt;
-&lt;li&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;development webpack config&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/.babelrc&#34;&gt;babel plugin config&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;Webpack uses Babel to transpile ECMAScript2015 to  ES5.&lt;br /&gt;
-Some features of ECMAScript2015 do not directly map to ES5. {Iterators, Proxies, generator functions } this set is not &lt;a href=&#34;babeljs.io/docs/learn-es2015/&#34;&gt;inclusive&lt;/a&gt; see &lt;a href=&#34;//babeljs.io/docs/usage/polyfill/&#34;&gt;polyfill&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Webpack uses middleware&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;//github.com/webpack/webpack-dev-middleware&#34;&gt;webpack-dev-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;//github.com/glenjamin/webpack-hot-middleware&#34;&gt;webpack-hot-middleware&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;//github.com/webpack/docs/wiki/hot-module-replacement-with-webpack&#34;&gt;hot module replacement&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/server.js&#34;&gt;dev server &lt;/a&gt;  lines 9 to 15&lt;br /&gt;
-see &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/react/webpack.dev.config.js&#34;&gt;dev server hot reload config&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;line 1 and 23 HotModuleReplacementPlugin&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;line 19 &lt;code&gt;publicPath&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;The react setup is a lot of work even with this simple set up. Complex relationships in the code and the configuration files take a while to get used too.
-However transpiling with the dev server is a significant accomplishment.&lt;br /&gt;
-I recall in the early days of the google closure library trying to set up a similar workflow.&lt;br /&gt;
-Specifically to get the closure compiler transpiling off a url endpoint, so that the code would transpile like this in real time. I was never able to get it to work.&lt;/p&gt;
-
-&lt;p&gt;For the three(3) transpiler engines looked at in this series the jsweet transpiler was the least painful experience. React has tremendous potential but once you start configuring the &lt;code&gt;redux store&lt;/code&gt; with &lt;code&gt;actions&lt;/code&gt; dispatching via &lt;code&gt;reducers&lt;/code&gt; the code and setup configurations can be heavy going.&lt;br /&gt;
-However the development server transpiling in real tile is a significant reward for the work.&lt;/p&gt;
-
-&lt;p&gt;If you are a software engineer and you are programming in a range of languages and frameworks on a daily basis then encapsulating the details away with a framework like &lt;code&gt;jsweet&lt;/code&gt; is a good option.&lt;/p&gt;
-
-&lt;p&gt;Google closure still has the best &lt;a href=&#34;//google.github.io/closure-library/source/closure/goog/demos/&#34;&gt;rich text editor&lt;/a&gt; and the closure compiler leads the benchnark &lt;a href=&#34;//nolanlawson.com/2016/08/15/the-cost-of-small-modules/&#34;&gt;metrics&lt;/a&gt; and does even better for &lt;code&gt;advanced&lt;/code&gt; optimisations.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/react&#34;&gt;Demo app for react&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents react babel
+webpack
+React Hot Module Replacement
+purecss
+Result See the Demo app for react
+The demo code has a number of setup options see see top level readme for general instructions.
+The transpile operation is driven via webpack and the dev server.</description>
     </item>
     
     <item>
@@ -105,88 +35,12 @@ However the development server transpiling in real tile is a significant reward 
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-2/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to modern javascript frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//developers.google.com/closure/compiler/&#34;&gt;Closure Compiler&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/google/closure-library&#34;&gt;google-closure-library&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.closurecheatsheet.com/skeleton&#34;&gt;closurecheatsheet&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;The Closure Compiler transpiler takes ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it is used to
-build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on &lt;a href=&#34;//developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino&#34;&gt;Rhino&lt;/a&gt;
-from Mozilla with an associated set of python tools sometimes refered to as closure build tools. The closure compiler was one of the first transpilers for
-ECMAScript  and is constantly evolving, for exampe. the  use of the python tools is now depreciated and the documentation appears to lag the actual state/capabilities
-of the latest version. To complicate the terminology there is now a pure javascript closure compiler with interfaces for webpack and gulp. However I encountered
-difficulties with the javascript compiler and the closure widgets.
-The compiler allows for compression, mangling and optimisation( dead code removal, function flattening and inlining).There is an Advanced mode which is
-aggressive (dead code removal allows for removing unused code across modules) and will often will break your application unles you implement the following,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;By configuring &lt;a href=&#34;//github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries&#34;&gt;externs&lt;/a&gt; you can use the compiler with other frameworks like
-JQuery. Anything declared as an Extern is excluded from the optimisation.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;There is an annotation system to exclude properties from optimisation.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the Demo app for &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;closure&lt;/a&gt;&lt;br /&gt;
-The demo code has a number of configuration options see see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
-In particular installing a local jre on windows to run the compiler if no jre is installed in the system.&lt;/p&gt;
-
-&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
-
-&lt;p&gt;Use the following one line  command to run the compiler&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;java -jar compiler.jar --compilation_level=ADVANCED --closure_entry_point=dev.app  --only_closure_dependencies  --js=./node_modules/google-closure-library --js src/main.js --js src/component.js --js_output_file  dist/app.min.js&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;open Test.html&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;The Closure compiler knows about the semantics of JS and generates low-level wrappers and checks for the transpiled code. It implements the javascript semantics to achieve type safety.
-Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/component.js&#34;&gt;component&lt;/a&gt;, and its constructor at line 15 and type inheritance at line 26.&lt;/p&gt;
-
-&lt;p&gt;The compiler also acts as a build tool assembling the application&amp;rsquo;s dependencies into a bundle. Consider the fragment from the compiler flag values&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;--js=./node_modules/google-closure-library --js src/main.js --js src/component.js&lt;/code&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;--js=./node_modules/google-closure-library&lt;/code&gt;  imports the dependencies for &lt;code&gt;main.js&lt;/code&gt; and &lt;code&gt;component.js&lt;/code&gt;   from the closure library&lt;/li&gt;
-&lt;li&gt;here &lt;code&gt;component.js&lt;/code&gt; is a dependency of &lt;code&gt;main.js&lt;/code&gt;  see &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev/blob/master/closure/src/main.js&#34;&gt;main&lt;/a&gt; line 46&lt;/li&gt;
-&lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt;  contains the application&amp;rsquo;s entry point and all needed dependencies from the library as well as custom components.&lt;/li&gt;
-&lt;li&gt;the output file &lt;code&gt;app.min.js&lt;/code&gt; is the single import required for the html&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;previously to assemble the dependencies you would use the python script &lt;code&gt;depswriter.py&lt;/code&gt; but this is no longer required something not hilighted in the documentation&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;To clarify the relationships in the above code.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The python scripts are no longer required&lt;/li&gt;
-&lt;li&gt;The compiler can perform aggressive optimisations with externs and annotations for preserving type names when required&lt;/li&gt;
-&lt;li&gt;the compiler assembles a bundle with all included dependencies&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/closure&#34;&gt;Demo app for closure&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Developers new to modern javascript frameworks and tooling
+Source Documents Closure Compiler
+google-closure-library
+closurecheatsheet
+Summary The Closure Compiler transpiler takes ECMAScript 2015 to optimized, minified ES3. The google-closure-library is notable because it is used to build Gmail and other top level google applications like Google Docs. The compiler is a Java application based on Rhino from Mozilla with an associated set of python tools sometimes refered to as closure build tools.</description>
     </item>
     
     <item>
@@ -195,101 +49,16 @@ Consider the class &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/blob/
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/12/the-javascript-transpile-dialectic-part-1/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Java Developers new to modern javascript frameworks and tooling&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;
-&lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt;
-&lt;a href=&#34;//github.com/cincheo/jsweet&#34;&gt;jsweet transpiler&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.typescriptlang.org/&#34;&gt;TypeScript language&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//github.com/Microsoft/TypeScript-Handbook/blob/master/pages/declaration%20files/Introduction.md&#34;&gt;TypeScript Declaration File&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.typescriptlang.org/docs/handbook/basic-types.html&#34;&gt;TypeScript type &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.typescriptlang.org/docs/handbook/namespaces.html&#34;&gt;TypeScript namespace&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;.
-This is part 1 of a series where a simple code for three(3) different transpiler engines is laid out.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;br /&gt;
-The demo code has a number of configuration options. See see top level &lt;a href=&#34;https://github.com/nsavageJVM/transpilers-dev&#34;&gt;readme&lt;/a&gt; for general instructions.
-The &lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt; needs node on the path. If you use the &lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt; then you will need to run the wrapper from the top level directory.&lt;/p&gt;
-
-&lt;h4 id=&#34;transpile&#34;&gt;Transpile&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;1 build the java source `./gradlew :jsweet:build`
-2 transpile  `./gradlew :jsweet:jsweet`  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;test&#34;&gt;Test&lt;/h4&gt;
-
-&lt;p&gt;1 assemble the artifacts  &lt;code&gt;./gradlew :jsweet:deployStatic&lt;/code&gt;&lt;br /&gt;
-   2 open  Test.html  in the jsweet module &lt;code&gt;staging&lt;/code&gt; directory&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;deployStatic&lt;/code&gt; task creates a staging directory with all the artifacts assembled.&lt;br /&gt;
-Loading Test.html results with the correct relative paths for the bundled Javascript transpiled from Java.&lt;/p&gt;
-
-&lt;h4 id=&#34;discussion&#34;&gt;Discussion&lt;/h4&gt;
-
-&lt;p&gt;Typescript is a strongly-typed modular language.  JSweet works by leveraging Typescripts type and module system. We can see this if we examine the output for each stage of the transpile pipeline&lt;/p&gt;
-
-&lt;h4 id=&#34;java-package-and-class-declarations&#34;&gt;Java Package and class declarations&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package app.dev.transpile
-import ....
-  class ConcurrentSpinner { ....
-    public static void main(String[] args) { ....
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;typescript-internal-namespace-and-class-declarations&#34;&gt;Typescript internal namespace and class  declarations&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-typescript&#34;&gt;namespace app.dev.transpile { ...  
-  export class ConcurrentSpinner { ...
-    public static main(args : string[]) { ...    
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;javascript-function-declarations&#34;&gt;javascript function declarations&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;(function (app) { ...
-    var dev;
-    (function (dev) { ...
-        var transpile;
-        (function (transpile) {
-            var ConcurrentSpinner = (function () { ...
-                function ConcurrentSpinner(spinner) { ...
-    
-                ConcurrentSpinner.main = function (args) { ....
-                    window.onload = function (e) {
-                        return new ConcurrentSpinner(document.getElementById(&amp;quot;spinner&amp;quot;));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;we can see a clean 1 to 1 mapping from the Java to the Typescript, things become slightly less clean from Typescript to Javascript with the javascript constructor function and the main method as a prototype extension. However this is just verbosity and the one to one map is maintained from Java to Javascript.&lt;/p&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;To clarify the relationships in the above code. Java&amp;rsquo;s strong types and packages map to Typescript cleanly. Typescript is a superset of ECMAScript 2015 &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;. ECMAScript 2015 defines &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;modules&lt;/a&gt; and &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/#sec-class-definitions&#34;&gt;class&lt;/a&gt;. Typescript was designed to transpile to what we today describe as Javascript but in this context we are refering to &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&#34;javascript-fatigue&#34;&gt;Javascript Fatigue&lt;/h4&gt;
-
-&lt;p&gt;Using software engineering tools we need to harmonise the relationships between the javascript dialects. For large scale Javascript applications Java shops can use frameworks like jsweet and tools such as the &lt;a href=&#34;//github.com/srs/gradle-node-plugin&#34;&gt;gradle-node-plugin&lt;/a&gt; for rapid development using a large set of the more prominent elements found in &lt;a href=&#34;//nodesource.com/blog/npm-is-massive/&#34;&gt;npm is Massive&lt;/a&gt;. Microsoft&amp;rsquo;s Typescript is a bridge between &lt;a href=&#34;//www.ecma-international.org/ecma-262/6.0/&#34;&gt;ECMA-262 6th Edition&lt;/a&gt;, Java and  &lt;a href=&#34;//kangax.github.io/compat-table/es5/&#34;&gt;ECMAScript 5&lt;/a&gt;. In the next part we will clarify the issues around transpiling of Google closure.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/transpilers-dev/tree/master/jsweet&#34;&gt;Demo app for jsweet&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;////github.com/nsavageJVM/transpilers-dev&#34;&gt;Demo app for all series parts&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple demo code for transpiling to Javascript. Review the setup and configuration for different transpiler engines.
+Target Audience Java Developers new to modern javascript frameworks and tooling
+Source Documents gradle wrapper gradle-node-plugin jsweet transpiler
+TypeScript language
+TypeScript Declaration File
+TypeScript type 
+TypeScript namespace
+ECMA-262 6th Edition
+ECMAScript 5
+Summary Writing high-performance JavaScript is a challenge, many tools and Javascript dialets exist, for new developers the nomenculture can be confusing and npm is Massive.</description>
     </item>
     
   </channel>

@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bitrock on Software Engineering</title>
-    <link>/categories/bitrock/index.xml</link>
+    <link>/categories/bitrock/</link>
     <description>Recent content in Bitrock on Software Engineering</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
-    <atom:link href="/categories/bitrock/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/bitrock/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Issues generating installer with  BitRock InstallBuilder</title>
@@ -15,87 +18,17 @@
       <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/2016/11/issues-generating-installer-with--bitrock-installbuilder/</guid>
-      <description>
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Simple code to create a linux installer with BitRocks InstallBuilder&lt;/p&gt;
-
-&lt;h3 id=&#34;target-audience&#34;&gt;Target Audience&lt;/h3&gt;
-
-&lt;p&gt;Developers new to BitRocks InstallBuilder and Cross-platform installation Tools&lt;/p&gt;
-
-&lt;h3 id=&#34;source-documents&#34;&gt;Source Documents&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrock Installbuilder&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Bitrock Installbuilder Documentation&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtimes&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;//docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;gradle wrapper&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
-
-&lt;p&gt;Resolve  path issues for the bundled java runtime(jre) for a native installer created by using &lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrocks Installbuilder&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder&#34;&gt;Demo app&lt;/a&gt;&lt;br /&gt;
-Using the gradle wrapper build with  &lt;code&gt;./gradlew bootRepackage&lt;/code&gt;  then create the arifacts for Installbuilder with &lt;code&gt;./gradlew deployStaging&lt;/code&gt;&lt;br /&gt;
-This creates a staging directory with all the artifacts assembled for Bitrock with the correct relative paths for the bundled java runtime environment. See Fig 1.&lt;/p&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;When developing standalone applications many clients sadly will use windows and not really understand how their box is configured. You can not just give them an uber jar and say &amp;lsquo;run the jar&amp;rsquo; at least not if they are providing the cash incentives. They will reasonably  expect an installer that produces a desktop shortcut that  they can click to run the application.&lt;br /&gt;
-&lt;a href=&#34;//installbuilder.bitrock.com/&#34;&gt;Bitrocks Installbuilder&lt;/a&gt;  is a cross-platform installation tool. Its a step up from the other available options (&lt;a href=&#34;//netbeans.org/kb/docs/java/native_pkg.html&#34;&gt;NetBeans Native packaging&lt;/a&gt;, &lt;a href=&#34;//docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm&#34;&gt;JavaFX Packager &lt;/a&gt;) as it has a wide range of target programming languages (not just java) and platforms. InstallBuilder creates native applications with a bundled runtime(Java or other) and it is generally trivial to set it up.&lt;/p&gt;
-
-&lt;p&gt;I ran into an issue with the &lt;a href=&#34;//installbuilder.bitrock.com/docs/installbuilder-userguide.html&#34;&gt;Documentation&lt;/a&gt; for delivering a java application with  no external dependencies(bundled jre). Installbuilder is highly configurable and works in many different contexts (Server, RPM Integration, Auto-Update). The extent to which you can customise the install process requires extensive documentation.&lt;br /&gt;
-I think the section on creating a bundled java runtime(jre) is not as clear as could be for many new to installers and Bitrock. I was able to configure a successful installer with a bundled jre by following the steps below&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;download the &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;change the java.xml file so the path correctly  resolves to the Installbuilder Java Runtime&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;include the java.xml file in the Installbuilder components tag and use it to create a java launcher&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;generate a staging directory (with all the needed artifacts)  with gradle, see the custom task&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;./gradlew deployStaging&lt;/code&gt; and see  Fig1 for the assembled artifacts output from this task&lt;/p&gt;
-
-&lt;p&gt;Fig1
-&lt;img src=&#34;/2016/11/staging_directory.png&#34; alt=&#34;Fig1&#34; title=&#34;Fig1&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;more-details&#34;&gt;More Details&lt;/h3&gt;
-
-&lt;p&gt;Fig2
-&lt;img src=&#34;/2016/11/fig2.png&#34; alt=&#34;Fig2&#34; title=&#34;Fig2&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;From Fig 2 you can see the top level artifacts that need to be resolved to the staging directory.  The &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt; file is the jre bundle you need to &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;download&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In the staging directory shown in Fig 1 you can see  two copies of &lt;code&gt;java.xml&lt;/code&gt;. One in the jre bundle and one that is modified and copied to the staging directory by gradle.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.xml&lt;/code&gt; in the top level directory contains a diferent path the to decompressed jre than the path found in the original &lt;code&gt;java.xml&lt;/code&gt; that is found packaged in the Bitrock jre bundle &lt;code&gt;jre1.8.0_111-linux-x64.zip&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The file &lt;code&gt;demo_linux_install.xml&lt;/code&gt; is the bitrock installation file that configures Installbuilder. You load  &lt;code&gt;demo_linux_install.xml&lt;/code&gt; from the staging directory into Installbuilder and it should resolve the paths and deploy the jre in the distribution.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/demo_linux_install.xml&#34;&gt;line 51&lt;/a&gt; for how the modified &lt;code&gt;java.xml&lt;/code&gt; file is included as a Installbuilder component. See &lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder/blob/master/java.xml&#34;&gt;line 48&lt;/a&gt; for how this &lt;code&gt;java.xml&lt;/code&gt; was updated so that the paths resolve when the downloded &lt;a href=&#34;//installbuilder.bitrock.com/java/&#34;&gt;Bitrock Installbuilder Java Runtime&lt;/a&gt; is unzipped by gradle and copied to the staging directory with all the other artifacts.&lt;/p&gt;
-
-&lt;p&gt;The rest of the configuration details are self explanatory. Note the code creates a 64 bit linux installer. However the changes required for this to work on Windows or Mac are small. The issue is to get the paths to resolve correctly.&lt;/p&gt;
-
-&lt;p&gt;To install Installbuilder on 64 bit Debian was a challenge as the Installbuilder object files are 32 bit. The following worked to configure my 64 bit Ubuntu to work with the 32 bit Bitrock Installbuilder tool.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&#39;sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1&#39;  
-&#39;sudo apt-get  install libgtk2.0-0:i386&#39;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Installbuilder is closed source with a commercial license. However if you are working with a range of platforms, programming language environments and runtimes it can significantly boost productivity.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//installbuilder.bitrock.com/purchase.html#standard&#34;&gt;Installbuilder License&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;//github.com/nsavageJVM/demo-installbuilder&#34;&gt;Demo app&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Objective Simple code to create a linux installer with BitRocks InstallBuilder
+Target Audience Developers new to BitRocks InstallBuilder and Cross-platform installation Tools
+Source Documents Bitrock Installbuilder
+Bitrock Installbuilder Documentation
+Bitrock Installbuilder Java Runtimes
+NetBeans Native packaging
+JavaFX Packager 
+gradle wrapper
+Summary Resolve path issues for the bundled java runtime(jre) for a native installer created by using Bitrocks Installbuilder.
+Result See the Demo app
+Using the gradle wrapper build with .</description>
     </item>
     
   </channel>
