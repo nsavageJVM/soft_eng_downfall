@@ -26,7 +26,8 @@ First-Derivative Based QRS Detection Algorithm
 Shannon energy
 Shannon energy non linear Algorithm
 Convolution
-Convolution Filters Scala Breeze
+Convolution Filters
+Scala Breeze
 Java Colt Project
 Scala Demo app
 Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala Breeze for detecting R-R interval of a ECG signal</description>
