@@ -228,7 +228,7 @@ Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala 
 <h4 id="discussion">Discussion</h4>
 
 <p>JVM developers have many options for implementing signal processing algorithms with functional language constructs. <a href="//github.com/scalanlp/breeze">Scala Breeze</a> is a functional interface for the <a href="//en.wikipedia.org/wiki/Colt_(libraries)/">Java Colt Project</a>. In the <a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a> there is an implementation of a <a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a> for ECG signals.
-This is a simple but effective filter of the base ECG signal that can be applied for calculating the R-R interval or peak detection. First a approximation to the derivative is found with a simple forward difference, then the convolution of the shannon energy of the powersignal for the derivative is filtered by convolving with a delta step function.</p>
+This is a simple but effective filter of the base ECG signal that can be applied for calculating the R-R interval or peak detection. First an approximation to the derivative is found with a simple forward difference, then the convolution of the shannon energy of the power signal for the derivative is filtered by convolving with a delta step function.</p>
 
 <h4 id="source-code-highlights">Source code highlights</h4>
 
@@ -241,10 +241,12 @@ This is a simple but effective filter of the base ECG signal that can be applied
 <code>def powerSignalFilter(sig: DenseVector[Double], cuttOff: Double, maxPower: Double, rate: Double): DenseVector[Double]</code></li>
 </ol>
 
-<p>### Conclusion
-Scala and Scala Breeze greatly reduce the amount of code we would need to write if we implemented this simple filter with Java.</p>
+<h3 id="conclusion">Conclusion</h3>
 
-<p><a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a>
+<p>Scala and Scala Breeze greatly reduce the amount of code we would need to write if we implemented this simple filter with Java.</p>
+
+<p><a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a><br />
+<img src="https://github.com/nsavageJVM/JVM_signal_processing/blob/master/signals.png" alt="Screenshot demo" />
 
         
         
