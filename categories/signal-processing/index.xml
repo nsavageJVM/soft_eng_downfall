@@ -23,7 +23,6 @@ Target Audience JVM Developers new to modern signal processing frameworks and to
 Source Documents Physionet
 QRS complex
 First-Derivative Based QRS Detection Algorithm
-Shannon energy
 Shannon energy non linear Algorithm
 Convolution
 Convolution Filters
