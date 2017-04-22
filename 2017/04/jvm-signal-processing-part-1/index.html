@@ -236,7 +236,7 @@ Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala 
 <code>def finiteDifferences[R: Ring](sample: DenseVector[R])(implicit ct: ClassTag[R]): DenseVector[R]</code><br /></li>
 <li>an <a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/sig-proc/src/main/scala/func/EcgAnalyzer.scala">implementation</a> of the &lsquo;Shannon energy&rsquo; algorithm from the power distribution of the differentiated input signal<br />
 <code>def shannonEnergy(sig: DenseVector[Double], thr: Double, maxPower: Double)</code></li>
-<li><a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/sig-proc/src/main/scala/func/Module.scala">Filtering</a> the Shannon energy signal with convolution<br />
+<li><a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/sig-proc/src/main/scala/func/EcgAnalyzer.scala">Filtering</a> the Shannon energy signal with convolution<br />
 <code>def convolve(a: DenseVector[Double], v: DenseVector[Double]): DenseVector[Double]'</code></li>
 </ol>
 
