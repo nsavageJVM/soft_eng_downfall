@@ -57,7 +57,7 @@ Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala 
 
 
 <meta itemprop="dateModified" content="2017-04-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="196">
+<meta itemprop="wordCount" content="285">
 
 
 
@@ -227,18 +227,22 @@ Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala 
 
 <h4 id="discussion">Discussion</h4>
 
-<p>JVM developers have many options for implementing signal processing algorithms with functional language constructs. <a href="//github.com/scalanlp/breeze">Scala Breeze</a> is a functional interface for the <a href="//en.wikipedia.org/wiki/Colt_(libraries)/">Java Colt Project</a>. In the <a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a> there is an implementation of a <a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a> for ECG signals.</p>
+<p>JVM developers have many options for implementing signal processing algorithms with functional language constructs. <a href="//github.com/scalanlp/breeze">Scala Breeze</a> is a functional interface for the <a href="//en.wikipedia.org/wiki/Colt_(libraries)/">Java Colt Project</a>. In the <a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a> there is an implementation of a <a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a> for ECG signals.
+This is a simple but effective filter of the base ECG signal that can be applied for calculating the R-R interval or peak detection. First a approximation to the derivative is found with a simple forward difference, then the convolution of the shannon energy of the powersignal for the derivative is filtered by convolving with a delta step function.</p>
 
 <h4 id="source-code-highlights">Source code highlights</h4>
 
 <ol>
 <li>an <a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/sig-proc/src/main/scala/func/Module.scala">implementation</a> of the finite difference algorithm to compute an approximation of the first derivative<br />
-<code>def finiteDifferences[R: Ring](sample: DenseVector[R])(implicit ct: ClassTag[R]): DenseVector[R]</code><br /></li>
+<code>def forwardDifference[R: Ring](domian: DenseVector[R])(implicit ct: ClassTag[R]): DenseVector[R]</code><br /></li>
 <li>an <a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/sig-proc/src/main/scala/func/EcgAnalyzer.scala">implementation</a> of the &lsquo;Shannon energy&rsquo; algorithm from the power distribution of the differentiated input signal<br />
-<code>def shannonEnergy(sig: DenseVector[Double], thr: Double, maxPower: Double)</code></li>
+<code>def normalisedShannonEnergy(sample: DenseVector[Double], cuttOff: Double, max: Double): DenseVector[Double]</code></li>
 <li><a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/sig-proc/src/main/scala/func/EcgAnalyzer.scala">Filtering</a> the Shannon energy signal with convolution<br />
-<code>def convolve(a: DenseVector[Double], v: DenseVector[Double]): DenseVector[Double]'</code></li>
+<code>def powerSignalFilter(sig: DenseVector[Double], cuttOff: Double, maxPower: Double, rate: Double): DenseVector[Double]</code></li>
 </ol>
+
+<p>### Conclusion
+Scala and Scala Breeze greatly reduce the amount of code we would need to write if we implemented this simple filter with Java.</p>
 
 <p><a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a>
 
