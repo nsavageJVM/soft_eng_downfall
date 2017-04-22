@@ -55,7 +55,7 @@ Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala 
 
 
 <meta itemprop="dateModified" content="2017-04-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="373">
+<meta itemprop="wordCount" content="372">
 
 
 
@@ -225,7 +225,7 @@ Summary Use First-Derivative Based QRS Detection Algorithm implemented in Scala 
 
 <p>JVM developers have many options for implementing signal processing algorithms with functional language constructs. <a href="//github.com/scalanlp/breeze">Scala Breeze</a> is a functional interface for the <a href="//dst.lbl.gov/ACSSoftware/colt/">Java Colt Project</a>. In the <a href="//github.com/nsavageJVM/JVM_signal_processing/tree/master/sig-proc">Scala Demo app</a> there is an implementation of a <a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a> for ECG signals.
 This is a simple but effective filter of the base ECG signal that can be applied for calculating the R-R interval or peak detection. First an approximation to the derivative is found with a simple forward difference, then the shannon energy of the power signal for the derivative is filtered by convolving with a delta step function. <a href="//github.com/nsavageJVM/JVM_signal_processing/blob/master/signals.png">Screenshot result</a>.<br />
-The simple filter here that simple reso;lves the peaks from the background &lsquo;noise&rsquo;. At the first differentiation we introduce a phase change, creating zero-crossings in the location of the R-peaks see &lsquo;Method I: Hilbert transform with automatic threshold&rsquo;<a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a>.<br />
+The simple filter shown here resolves the peaks from the background &lsquo;noise&rsquo;. At the first differentiation we introduce a phase change, creating zero-crossings in the location of the R-peaks see &lsquo;Method I: Hilbert transform with automatic threshold&rsquo;<a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a>.<br />
 To account for this the filter can be extended  with a second derivative of the correlation of the convolved shannon energy signal with a guassian filter,  then resolve the peaks as the zero crossings see &lsquo;Method III: Second derivative of the ECG with automatic threshold&rsquo;<a href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC2532677/">First-Derivative Based QRS Detection Algorithm</a>.</p>
 
 <h4 id="source-code-highlights">Source code highlights</h4>
